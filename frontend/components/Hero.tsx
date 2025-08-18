@@ -2,7 +2,7 @@ import Dashboard from "./dashboard";
 import { Button } from "./ui/button";
 
 export default function Hero() {
-  const titleContent = "Your Models Verified Aplha".split(" ");
+  const titleContent = "Your Models Verified Alpha".split(" ");
   return (
     <div className="flex flex-col items-center min-h-screen  max-w-[1100px]">
       <div className="mt-40">
@@ -32,6 +32,9 @@ export default function Hero() {
         </div>
       </div>
       <Dashboard />
+      <div>
+        
+      </div>
     </div>
   );
 }
