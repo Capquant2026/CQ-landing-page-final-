@@ -126,3 +126,7 @@
     rotate(324deg);
   transform-origin: top left;
 }
+
+* {
+  font-family: var(--font-inter);
+}
