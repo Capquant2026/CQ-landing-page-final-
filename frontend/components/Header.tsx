@@ -9,7 +9,7 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   return (
     <div className="text-white flex   items-center md:justify-center justify-between z-50 w-full sticky left-0 top-0 lg:gap-40 p-4 border-b border-[#1c1d1d]">
-      <h1 className="text-[#e6e6e6]  text-xl md:text-2xl">CapQuand</h1>
+      <h1 className="text-[#e6e6e6]  text-xl md:text-2xl font-bold">CapQuand</h1>
       <nav className="md:flex items-center hidden">
         <Link href={"href"}>
           <Button className="bg-transparent cursor-pointer text-[#8a8f98] hover:text-white">
