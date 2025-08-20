@@ -98,9 +98,9 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="relative  mt-20  ">
+    <div className="relative ">
       <div className="absolute  w-[200%] h-[50%] left-0 bottom-0  bg-gradient-to-t pointer-events-none from-[#08090A] to-transparent   z-50"></div>
-      <motion.div className="w-[1600px] mt-20 containerdiv relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
+      <motion.div className="w-[1600px] scale-110  mt-20 containerdiv relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
         <div className="absolute h-full  right-0 w-[40%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
         <div className="absolute  w-[80%]  left-0 top-0 bg-gradient-to-t from-[#08090A] to-transparent  z-20" />
         <div className="w-64 bg-[#08090A] border-r border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white">
@@ -392,7 +392,7 @@ export default function Dashboard() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-4xl">2</span>
-                  <span className="text-[#50E2C2]">+16.03%</span>
+                  <span className="text-[#50E2C2]">+16.03</span>
                 </div>
               </div>
               <div className="bg-[#1A1B1C] flex flex-col gap-10 w-1/5 p-4 rounded-xl border border-[#22262A]">

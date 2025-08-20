@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
-const PostCode = () => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+type Line = {
+  id: number;
+  content: string;
+};
+const PostCode = ({ isFinished }) => {
+  const [visibleLines, setVisibleLines] = useState<Line[]>([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [currentTypingLine, setCurrentTypingLine] = useState("");
   const [isComplete, setIsComplete] = useState(false);
+  const terminalRef = useRef<HTMLDivElement | null>(null);
 
   const codeData = `{
   "headers": {
@@ -161,131 +167,201 @@ const PostCode = () => {
   ]
 }`;
 
-  // Typewriter effect
-  useEffect(() => {
-    if (currentIndex < codeData.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev + codeData[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, Math.random() * 20 + 10); // Random speed between 10-30ms for more realistic typing
+  const codeLines = codeData.split("\n");
 
-      return () => clearTimeout(timeout);
+  // Type each line character by character, then add to visible lines
+  useEffect(() => {
+    if (currentLineIndex < codeLines.length) {
+      const currentLine = codeLines[currentLineIndex];
+
+      if (currentCharIndex < currentLine.length) {
+        // Type next character
+        const timeout = setTimeout(() => {
+          setCurrentTypingLine((prev) => prev + currentLine[currentCharIndex]);
+          setCurrentCharIndex((prev) => prev + 1);
+        }, 0); // Random typing speed
+
+        return () => clearTimeout(timeout);
+      } else {
+        // Line complete, add to visible lines and move to next
+        const timeout = setTimeout(() => {
+          const newLine = {
+            id: currentLineIndex,
+            content: currentLine,
+          };
+
+          setVisibleLines((prev) => [...prev, newLine]);
+          setCurrentLineIndex((prev) => prev + 1);
+          setCurrentCharIndex(0);
+          setCurrentTypingLine("");
+        }, 0); // Brief pause before adding line
+
+        return () => clearTimeout(timeout);
+      }
     } else {
       setIsComplete(true);
     }
-  }, [currentIndex, codeData]);
+  }, [currentLineIndex, currentCharIndex, codeLines]);
 
-  const formatJSON = (str: any) => {
-    const lines = str.split("\n");
-    return lines.map((line: any, index: number) => {
-      const trimmed = line.trim();
+  // Auto-scroll to bottom to show new lines
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [visibleLines, currentTypingLine]);
 
-      if (trimmed.includes('"') && trimmed.includes(":")) {
-        const parts = line.split(":");
-        const keyPart = parts[0];
-        const valuePart = parts.slice(1).join(":");
+  const formatLine = (line: any) => {
+    const trimmed = line.trim();
 
-        return (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.02 }}
-            key={index}
-            className="group hover:bg-gray-800/30 transition-colors duration-200 rounded px-2 -mx-2"
-          >
-            <span className="text-gray-500">
-              {line.substring(0, line.indexOf(trimmed))}
-            </span>
-            <span className="text-[#d15c78] font-medium">{keyPart}</span>
-            <span className="text-gray-300">:</span>
-            <span
-              className={
-                valuePart.includes('"')
-                  ? "text-white"
-                  : /\d/.test(valuePart)
-                  ? "text-orange-400"
-                  : valuePart.includes("true") || valuePart.includes("false")
-                  ? "text-purple-400"
-                  : "text-gray-300"
-              }
-            >
-              {valuePart}
-            </span>
-          </motion.div>
-        );
-      }
+    if (trimmed.includes('"') && trimmed.includes(":")) {
+      const parts = line.split(":");
+      const keyPart = parts[0];
+      const valuePart = parts.slice(1).join(":");
 
       return (
-        <div
-          key={index}
-          className="group hover:bg-gray-800/30 transition-colors duration-200 rounded px-2 -mx-2"
-        >
+        <>
+          <span className="text-gray-500">
+            {line.substring(0, line.indexOf(trimmed))}
+          </span>
+          <span className="text-white opacity-75 font-medium">{keyPart}</span>
+          <span className="text-white">:</span>
           <span
             className={
-              trimmed === "{" ||
-              trimmed === "}" ||
-              trimmed === "[" ||
-              trimmed === "]" ||
-              trimmed.includes("{") ||
-              trimmed.includes("}")
-                ? "text-yellow-400 font-bold"
-                : trimmed.includes(",")
+              valuePart.includes('"')
                 ? "text-gray-400"
+                : /\d/.test(valuePart)
+                ? "text-green-400"
+                : valuePart.includes("true") || valuePart.includes("false")
+                ? "text-purple-400"
                 : "text-gray-300"
             }
           >
-            {line}
+            {valuePart}
           </span>
-        </div>
+        </>
       );
-    });
+    }
+
+    return (
+      <span
+        className={
+          trimmed === "{" ||
+          trimmed === "}" ||
+          trimmed === "[" ||
+          trimmed === "]" ||
+          trimmed.includes("{") ||
+          trimmed.includes("}")
+            ? "text-white opacity-50 font-bold"
+            : trimmed.includes(",")
+            ? "text-gray-400"
+            : "text-gray-300"
+        }
+      >
+        {line}
+      </span>
+    );
+  };
+
+  const getCurrentTypingLine = () => {
+    return null; // No typing line needed
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6">
-      <div className="relative">
-        <div className="relative overflow-hidden rounded-xl">
-          <div className="p-6 overflow-auto max-h-96 custom-scrollbar">
-            <pre className="font-mono text-sm leading-relaxed">
-              <code className="block whitespace-pre relative">
-                {formatJSON(displayedText)}
-                {!isComplete && (
-                  <motion.span
-                    className="inline-block w-2 h-5 bg-blue-400 ml-1"
-                    animate={{ opacity: [1, 0] }}
+    <div className="w-full max-w-6xl mx-auto p-6  ">
+      <div className="rounded-lg shadow-2xl relative bg-gradient-to-b from-[#141516]  to-[#08090A] overflow-hidden border border-zinc-800/80">
+        <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
+        {/* Windows Terminal Header */}
+        <div className="bg-[#0d0e0f] px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
+          <div className="flex items-center space-x-4">
+            <div className="flex space-x-2 py-3">
+              <div className="flex items-center space-x-3">
+                <motion.div
+                  className="w-3 h-3 rounded-full bg-green-500 relative"
+                  animate={{
+                    boxShadow: [
+                      "0 0 0 0 rgba(34, 197, 94, 0.7)",
+                      "0 0 0 8px rgba(34, 197, 94, 0)",
+                    ],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeOut",
+                  }}
+                >
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-green-400"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{
-                      duration: 0.8,
+                      duration: 1.5,
                       repeat: Infinity,
-                      repeatType: "reverse",
+                      ease: "easeInOut",
                     }}
                   />
-                )}
-              </code>
-            </pre>
+                </motion.div>
+                <span className="text-gray-400  font-semibold uppercase tracking-wider">
+                  POST
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Terminal Content */}
+        <div
+          ref={terminalRef}
+          className="h-96 overflow-y-auto p-4 font-mono text-sm leading-relaxed"
+          style={{
+            scrollbarWidth: "thin",
+            scrollbarColor: "#4B5563 #1F2937",
+          }}
+        >
+          {/* Display completed lines sliding from bottom to top */}
+          <div>
+            {visibleLines.map((line, index) => (
+              <motion.div key={line.id} className="whitespace-pre">
+                {formatLine(line.content)}
+              </motion.div>
+            ))}
+
+            {/* Current typing line with cursor */}
+            {!isComplete && (
+              <div className="whitespace-pre flex">
+                <span>{formatLine(currentTypingLine)}</span>
+                <motion.div
+                  className="inline-block w-2 h-4 bg-green-500 ml-1"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              </div>
+            )}
+
+            {/* Fixed cursor when complete */}
+            {isComplete && (
+              <motion.div
+                className="text-cyan-400 mt-2 flex items-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <motion.div
+                  className="inline-block w-2 h-4 bg-green-500 opacity-50 ml-1"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(55, 65, 81, 0.3);
-          border-radius: 4px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-          border-radius: 4px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(135deg, #2563eb, #7c3aed);
-        }
-      `}</style>
     </div>
   );
 };

@@ -59,11 +59,11 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className=" w-full max-w-[1400px]   mt-16 sm:mt-20 md:mt-24 lg:mt-32">
+      <div className=" w-full max-w-[1600px]  mt-16 sm:mt-20 md:mt-24 lg:mt-32">
         <Dashboard />
       </div>
 
-      <div className="w-full  flex items-center justify-center max-w-[1100px] mt-16 sm:mt-20 md:mt-24">
+      <div className="w-full  flex items-center   justify-center max-w-[1100px] mt-16 sm:mt-20 md:mt-52">
         <div className="w-full flex flex-col items-center justify-center p-8 sm:p-16 md:p-24 lg:p-32 xl:p-52 bg-gradient-to-b from-[#141516] to-[#08090A] rounded-2xl shadow-2xl min-h-[300px] sm:min-h-[400px]">
           <button
             className="group relative cursor-pointer w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center bg-[#f7f8f8] hover:bg-[#5E6AD2] text-black hover:text-white rounded-full overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#5E6AD2]/50"
