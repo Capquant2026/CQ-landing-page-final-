@@ -6,7 +6,7 @@ type Line = {
   id: number;
   content: string;
 };
-const PostCode = ({ isFinished }) => {
+const PostCode = () => {
   const [visibleLines, setVisibleLines] = useState<Line[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
@@ -230,7 +230,7 @@ const PostCode = ({ isFinished }) => {
               valuePart.includes('"')
                 ? "text-gray-400"
                 : /\d/.test(valuePart)
-                ? "text-green-400"
+                ? "text-gray-400"
                 : valuePart.includes("true") || valuePart.includes("false")
                 ? "text-purple-400"
                 : "text-gray-300"
@@ -267,7 +267,25 @@ const PostCode = ({ isFinished }) => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6  ">
+    <motion.div
+    initial={{
+      y: 30,
+      opacity: 0,
+    }}
+    whileInView={{
+      y: 0,
+      opacity: 1,
+    }}
+    viewport={{
+      once: true,
+    }}
+    transition={{
+      delay : 0.3,
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+      staggerChildren: 0.1, // If animating multiple items
+    }}
+    className="w-full max-w-6xl mx-auto p-6  ">
       <div className="rounded-lg shadow-2xl relative bg-gradient-to-b from-[#141516]  to-[#08090A] overflow-hidden border border-zinc-800/80">
         <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
         {/* Windows Terminal Header */}
@@ -362,7 +380,7 @@ const PostCode = ({ isFinished }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
