@@ -14,157 +14,71 @@ const PostCode = () => {
   const [isComplete, setIsComplete] = useState(false);
   const terminalRef = useRef<HTMLDivElement | null>(null);
 
-  const codeData = `{
-  "headers": {
-    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "Content-Type": "application/json",
-    "X-CapQuant-Round": "14",
-    "X-Model-Version": "4.7.2",
-    "X-Participant-Tier": "institutional"
-  },
-  "research_pipeline": {
-    "round_id": 14,
-    "submission_timestamp": "2025-08-18T09:47:23.847Z",
-    "model_metadata": {
-      "name": "multi_factor_regime_v4.7.2",
-      "ensemble_type": "stacked_meta_learner",
-      "feature_count": 2847,
-      "lookback_periods": [1, 5, 21, 63, 252],
-      "regime_detection": "hmm_gaussian_mixture"
-    },
-    "data_sources": {
-      "price_data": ["refinitiv_tick", "iex_cloud", "alpha_architect"],
-      "alternative": ["satellite_oil_storage", "credit_spreads", "options_flow"],
-      "macro": ["fred_econ", "central_bank_minutes", "yield_curves"],
-      "sentiment": ["news_nlp", "earnings_transcripts", "sec_filings"]
-    },
-    "feature_engineering": {
-      "technical_indicators": {
-        "momentum": ["rsi_regime", "macd_divergence", "price_velocity"],
-        "mean_reversion": ["bollinger_zscore", "kalman_residuals"],
-        "volatility": ["garch_forecast", "realized_vol_term_structure"]
-      },
-      "fundamental_factors": {
-        "value": ["ev_ebitda_sector_adj", "fcf_yield_normalized"],
-        "quality": ["roe_stability", "accruals_ratio", "piotroski_f9"],
-        "growth": ["revenue_surprise", "earnings_revision_momentum"]
-      },
-      "cross_asset_signals": {
-        "oil_equity_regime": "wti_sp500_cointegration",
-        "curve_positioning": "term_structure_pca_loadings",
-        "vol_surface": "options_skew_indicators"
-      }
-    },
-    "model_architecture": {
-      "ensemble_components": [
-        {
-          "type": "xgboost_regressor",
-          "hyperparams": {
-            "n_estimators": 500,
-            "max_depth": 8,
-            "learning_rate": 0.01,
-            "subsample": 0.8,
-            "colsample_bytree": 0.6
-          }
-        },
-        {
-          "type": "lstm_attention",
-          "sequence_length": 60,
-          "hidden_units": [256, 128, 64],
-          "dropout": 0.3,
-          "attention_heads": 8
-        },
-        {
-          "type": "transformer_encoder",
-          "d_model": 512,
-          "nhead": 16,
-          "num_layers": 6,
-          "dim_feedforward": 2048
-        }
-      ],
-      "meta_learner": "ridge_regression",
-      "walk_forward_windows": 252
-    },
-    "target_construction": {
-      "universe": ["SPY", "SPX_futures", "CL", "USO", "XLE", "BZ", "UCO"],
-      "prediction_horizon": "4h",
-      "return_transformation": "rank_gaussian_normalize",
-      "regime_conditional": true
-    },
-    "risk_model": {
-      "factor_exposures": {
-        "market_beta": 0.97,
-        "momentum": 0.23,
-        "value": -0.15,
-        "quality": 0.41,
-        "low_vol": -0.32,
-        "oil_beta": 0.89
-      },
-      "specific_risk": 0.0847,
-      "correlation_decay": 0.94,
-      "regime_adjusted_vol": true
-    }
-  },
-  "execution_specification": {
-    "order_routing": {
-      "primary_venues": ["BATS", "IEX", "NYSE_ARCA"],
-      "dark_pools": ["MS_CROSSFINDER", "GS_SIGMA_X", "BARX"],
-      "participation_limits": {
-        "max_adv_percent": 8.5,
-        "time_horizon_minutes": 240,
-        "urgency_coefficient": 0.7
-      }
-    },
-    "implementation_algo": {
-      "type": "adaptive_shortfall",
-      "risk_aversion": 1e-4,
-      "temporary_impact_model": "almgren_chriss_nonlinear",
-      "permanent_impact_half_life": 1800,
-      "market_impact_budget": 15
-    },
-    "position_sizing": {
-      "kelly_fraction": 0.15,
-      "risk_budget_bps": 25,
-      "correlation_clustering": "hierarchical_risk_parity",
-      "regime_scaling": true
-    }
-  },
-  "positions": [
-    {
-      "symbol": "SPY",
-      "target_weight": 0.0534,
-      "direction": "long",
-      "conviction": 0.847,
-      "regime_exposure": "low_vol"
-    },
-    {
-      "symbol": "SPX",
-      "target_weight": 0.0289,
-      "direction": "long",
-      "conviction": 0.723,
-      "instrument_type": "future"
-    },
-    {
-      "symbol": "CL",
-      "target_weight": 0.0156,
-      "direction": "long",
-      "conviction": 0.691,
-      "instrument_type": "future"
-    },
-    {
-      "symbol": "USO",
-      "target_weight": -0.0098,
-      "direction": "short",
-      "conviction": 0.612,
-      "hedge_ratio": 0.75
-    },
-    {
-      "symbol": "XLE",
-      "target_weight": 0.0067,
-      "direction": "long",
-      "conviction": 0.589
-    }
-  ]
+  const codeData = `Authorization: Bearer <xxxxx>
+Content-Type: application/json
+X-Participant-Tier: Pro
+X-Model-Version: 4.7.2
+{
+ "user_id": "5845BUS21",
+ "timestamp": "2025-11-20T13:45:22Z",
+ "asset": "WTI_CRUDE_OIL",
+ "symbol": "CL",
+ "model_name": "IntraDay_Breakout_V3",
+ "parameters": {
+ "feature_set": [
+ "order_flow_imbalance",
+ "realized_volatility_5m",
+ "vwap_deviation",
+ "inventory_report_drift",
+ "term_structure_slope"
+ ],
+ "lookback_bars": 120,
+ "signal_horizon": "15m",
+ "target": "directional_return",
+ "model_architecture": {
+ "components": [
+ {
+ "type": "xgboost_regressor",
+ "hyperparams": {
+ "n_estimators": 600,
+ "max_depth": 7,
+ "learning_rate": 0.012,
+ "subsample": 0.8,
+ "colsample_bytree": 0.6
+ }
+ },
+ {
+ "type": "lstm_attention",
+ "sequence_length": 60,
+ "hidden_units": [256, 128, 64],
+ "dropout": 0.3,
+ "attention_heads": 8
+ }
+ ],
+ "meta_learner": "ridge_regression",
+ "walk_forward_windows": 252
+ },
+ "risk_controls": {
+ "max_drawdown": 0.025,
+ "var_95": 0.018,
+ "exposure_limit": 0.10,
+ "stop_loss": "adaptive_atr",
+ "position_limit_contracts": 25
+ },
+ "execution_spec": {
+ "slippage_model": "adaptive_spread",
+ "order_type": "TWAP",
+ "latency_budget_ms": 50
+ "broker_emulation": "FX_Bridge",
+ "max_adv_percent": 0.08
+ }
+ },
+ "expected_metrics": {
+ "annualized_sharpe": 2.20,
+ "hit_ratio": 0.60,
+ "turnover_daily": 4.1,
+ "expected_volatility": 0.012
+ }
 }`;
 
   const codeLines = codeData.split("\n");
@@ -268,24 +182,26 @@ const PostCode = () => {
 
   return (
     <motion.div
-    initial={{
-      y: 30,
-      opacity: 0,
-    }}
-    whileInView={{
-      y: 0,
-      opacity: 1,
-    }}
-    viewport={{
-      once: true,
-    }}
-    transition={{
-      delay : 0.3,
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-      staggerChildren: 0.1, // If animating multiple items
-    }}
-    className="w-full max-w-6xl mx-auto p-6  ">
+      initial={{
+        y: 30,
+        opacity: 0,
+      }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        delay: 0.3,
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+        staggerChildren: 0.1, // If animating multiple items
+      }}
+      key={"tested"}
+      className="w-full max-w-6xl mx-auto p-6  "
+    >
       <div className="rounded-lg shadow-2xl relative bg-gradient-to-b from-[#141516]  to-[#08090A] overflow-hidden border border-zinc-800/80">
         <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
         {/* Windows Terminal Header */}

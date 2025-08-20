@@ -4,6 +4,8 @@ import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insight from "@/components/insight-section";
+import LowCode from "@/components/Low-code";
+import NoCode from "@/components/No-code";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
       <Hero />
       <AnalyticsSection />
       <Insight />
+      <LowCode/>
+      <NoCode/>
       <ApiSection />
       <Contact />
     </div>
