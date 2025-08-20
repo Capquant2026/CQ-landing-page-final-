@@ -1,17 +1,69 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import GetCode from "./ui/get-code";
 import PostCode from "./ui/post-code";
-import { motion } from "motion/react";
+import { AnimatePresence, m, motion } from "motion/react";
 
 export default function ApiSection() {
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [randomNumber, setRandomNumber] = useState<number>(341);
+  const [latencyNumber, setLatencyNumber] = useState<number>(3.5);
+  const [increasing, setIncreasing] = useState<boolean>(false);
+  const [contributors, setContributors] = useState<number>(2756);
+  const [sla, setSla] = useState<number>(200);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRandomNumber((prev) => {
+        if (prev > 400) {
+          return 341;
+        }
+        return prev + 1;
+      });
+      setLatencyNumber((prev) => {
+        if (increasing) {
+          if (prev >= 7.9) {
+            setIncreasing(false);
+            return prev - 0.1;
+          }
+          return prev + 0.1;
+        } else {
+          if (prev <= 3.5) {
+            setIncreasing(true);
+            return prev + 0.1;
+          }
+          return prev - 0.1;
+        }
+      });
+      setSla((prev) => prev + 23);
+      setContributors((prev) => prev + 33);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="text-[#f7f8f8] flex flex-col items-center justify-start p-40 gap-10 w-full mt-40 ">
-      <div className="flex items-center justify-evenly gap-40 w-full ">
+      <motion.div
+        initial={{
+          y: 30,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          delay: 0.1,
+          duration: 0.8,
+          ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+          staggerChildren: 0.1, // If animating multiple items
+        }}
+        className="flex items-center justify-evenly gap-40 w-full "
+      >
         <h2
           className="text-4xl  sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                            leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
@@ -27,7 +79,7 @@ export default function ApiSection() {
         >
           Join Waitlist
         </Button>
-      </div>
+      </motion.div>
       <div className="flex w-full gap-5 items-center justify-center">
         <PostCode />
         <GetCode />
@@ -37,12 +89,21 @@ export default function ApiSection() {
           <CardContent className="space-y-4 flex flex-col items-center justify-center">
             <motion.div
               className="space-y-2 text-center w-full"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                y: 30,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 delay: 0.2,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
               <div className="flex items-center gap-4">
@@ -56,7 +117,29 @@ export default function ApiSection() {
                     ease: [0.4, 0, 0.2, 1],
                   }}
                 >
-                  1,247
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={`livemodls`}
+                      initial={{
+                        y: 10,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      exit={{
+                        y: -10,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
+                      className="inline-block"
+                    >
+                      {randomNumber}
+                    </motion.span>
+                  </AnimatePresence>
                 </motion.div>
               </div>
               <motion.h2
@@ -65,7 +148,7 @@ export default function ApiSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.4 }}
               >
-                Live Strategies
+                Live Models
               </motion.h2>
             </motion.div>
           </CardContent>
@@ -74,26 +157,67 @@ export default function ApiSection() {
           <CardContent className="space-y-4 flex flex-col items-center justify-center">
             <motion.div
               className="space-y-2 text-center w-full"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                y: 30,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 delay: 0.2,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
               <div className="flex items-center gap-4">
                 <motion.div
                   className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{
+                    y: 30,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
                   transition={{
-                    delay: 1.2,
-                    duration: 0.4,
-                    ease: [0.4, 0, 0.2, 1],
+                    delay: 0.2,
+                    duration: 0.8,
+                    ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
-                  7.3ms
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      initial={{
+                        y: 10,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      exit={{
+                        y: -10,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
+                      key={randomNumber}
+                      className="inline-block"
+                    >
+                      {latencyNumber}
+                    </motion.span>
+                  </AnimatePresence>
+                  ms
                 </motion.div>
               </div>
               <motion.h2
@@ -111,12 +235,21 @@ export default function ApiSection() {
           <CardContent className="space-y-4 flex flex-col items-center justify-center">
             <motion.div
               className="space-y-2 text-center w-full"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                y: 30,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 delay: 0.2,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
               <div className="flex items-center gap-4">
@@ -130,7 +263,29 @@ export default function ApiSection() {
                     ease: [0.4, 0, 0.2, 1],
                   }}
                 >
-                  2,756
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      initial={{
+                        y: 10,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      exit={{
+                        y: -10,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
+                      key={randomNumber}
+                      className="inline-block"
+                    >
+                      {contributors}
+                    </motion.span>
+                  </AnimatePresence>
                 </motion.div>
               </div>
               <motion.h2
@@ -139,7 +294,7 @@ export default function ApiSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.4 }}
               >
-                Active Quants
+                Active Contributors
               </motion.h2>
             </motion.div>
           </CardContent>
@@ -148,12 +303,21 @@ export default function ApiSection() {
           <CardContent className="space-y-4 flex flex-col items-center justify-center">
             <motion.div
               className="space-y-2 text-center w-full"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{
+                y: 30,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 delay: 0.2,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1],
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
               <div className="flex items-center gap-4">
@@ -167,7 +331,31 @@ export default function ApiSection() {
                     ease: [0.4, 0, 0.2, 1],
                   }}
                 >
-                  460.00
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      initial={{
+                        y: 10,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                      }}
+                      exit={{
+                        y: -10,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
+                      key={sla}
+                      className="inline-block"
+                    >
+                      99.
+                      {sla}
+                    </motion.span>
+                  </AnimatePresence>
+                  %
                 </motion.div>
               </div>
               <motion.h2
