@@ -1,10 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 import GetCode from "./ui/get-code";
 import PostCode from "./ui/post-code";
+import { motion } from "motion/react";
 
 export default function ApiSection() {
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
   return (
-    <div className="h-screen   text-[#f7f8f8] flex flex-col items-center justify-start p-40 gap-10 w-full mt-40 ">
+    <div className="text-[#f7f8f8] flex flex-col items-center justify-start p-40 gap-10 w-full mt-40 ">
       <div className="flex items-center justify-evenly gap-40 w-full ">
         <h2
           className="text-4xl  sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
@@ -23,36 +29,158 @@ export default function ApiSection() {
         </Button>
       </div>
       <div className="flex w-full gap-5 items-center justify-center">
-        <div className="border w-1/2 p-4 border-[#1d1d1d] rounded-xl">
-          <div className="flex items-center justify-between font-semibold">
-            <div className="flex items-center justify-start gap-4">
-              <Button className="text-[#2dd4bf] font-semibold bg-[#032827] hover:bg-[#032827] hover:text-[#2dd4bf]">
-                POST
-              </Button>
-              <h3>Alpha Submission Pipeline</h3>
-            </div>
-            <Button>Round 14/24</Button>
-          </div>
-          <div className="bg-[#171717] py-2 px-5 rounded-md my-5">
-            https://api.capquant.com/v3/research/rounds/14/submit
-          </div>
-          <PostCode />
-        </div>
-        <div className="border mt-52 w-1/2 p-4 border-[#1d1d1d] rounded-xl">
-          <div className="flex items-center justify-between font-semibold">
-            <div className="flex items-center justify-start gap-4">
-              <Button className="text-[#2dd4bf] font-semibold bg-[#032827] hover:bg-[#032827] hover:text-[#2dd4bf]">
-                Get
-              </Button>
-              <h3>Validation & Deployment</h3>
-            </div>
-            <Button>Round 14 Response</Button>
-          </div>
-          <div className="bg-green-500 font-semibold inline-block py-1 px-5 rounded-md my-5">
-            202 ACCEPTED
-          </div>
-          <GetCode />
-        </div>
+        <PostCode />
+        <GetCode />
+      </div>
+      <div className="flex  gap-3 mt-10 items-center">
+        <Card className="max-w-sm mx-auto   p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+          <CardContent className="space-y-4 flex flex-col items-center justify-center">
+            <motion.div
+              className="space-y-2 text-center w-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 0.4,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                >
+                  1,247
+                </motion.div>
+              </div>
+              <motion.h2
+                className="text-lg text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.4 }}
+              >
+                Live Strategies
+              </motion.h2>
+            </motion.div>
+          </CardContent>
+        </Card>
+        <Card className="max-w-sm mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+          <CardContent className="space-y-4 flex flex-col items-center justify-center">
+            <motion.div
+              className="space-y-2 text-center w-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 0.4,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                >
+                  7.3ms
+                </motion.div>
+              </div>
+              <motion.h2
+                className="text-lg text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.4 }}
+              >
+                P99 Latency
+              </motion.h2>
+            </motion.div>
+          </CardContent>
+        </Card>
+        <Card className="max-w-sm mx-auto p-6   flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+          <CardContent className="space-y-4 flex flex-col items-center justify-center">
+            <motion.div
+              className="space-y-2 text-center w-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 0.4,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                >
+                  2,756
+                </motion.div>
+              </div>
+              <motion.h2
+                className="text-lg text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.4 }}
+              >
+                Active Quants
+              </motion.h2>
+            </motion.div>
+          </CardContent>
+        </Card>
+        <Card className="max-w-sm mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+          <CardContent className="space-y-4 flex flex-col items-center justify-center">
+            <motion.div
+              className="space-y-2 text-center w-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 1.2,
+                    duration: 0.4,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                >
+                  460.00
+                </motion.div>
+              </div>
+              <motion.h2
+                className="text-lg text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.4 }}
+              >
+                SLA Uptime
+              </motion.h2>
+            </motion.div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
