@@ -2,10 +2,9 @@
 
 import Dashboard from "./dashboard";
 import { IoMdPlay } from "react-icons/io";
-import { Button } from "./ui/button";
 import { motion } from "motion/react";
 export default function Hero() {
-  const titleContent = "Your Models Verified Alpha".split(" ");
+  const titleContent = "Idea to Live Trading in 60 Minutes".split(" ");
 
   return (
     <div className="flex text-[#f7f8f8] flex-col items-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
@@ -29,7 +28,7 @@ export default function Hero() {
             }}
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                         font-semibold tracking-tight text-balance 
+                         font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
           >
             <span className="flex flex-wrap items-start  justify-start gap-1  sm:gap-3 ">
@@ -39,13 +38,13 @@ export default function Hero() {
                 </span>
               ))}
             </span>
-            <span className="flex flex-wrap items-start justify-start gap-1 sm:gap-3">
+            {/* <span className="flex flex-wrap items-start justify-start gap-1 sm:gap-3">
               {"60 min Execution Loop".split(" ").map((item, index) => (
                 <span key={index} className="whitespace-nowrap">
                   {item}
                 </span>
               ))}
-            </span>
+            </span> */}
           </motion.h1>
 
           <motion.p
@@ -65,48 +64,16 @@ export default function Hero() {
               ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
               staggerChildren: 0.1, // If animating multiple items
             }}
-            className="opacity-70 text-sm sm:text-base md:text-lg 
+            className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed 
                         tracking-tight  md:text-left w-full md:w-1/2 
                         max-w-1/2  
                         px-2 sm:px-4 md:px-0"
           >
-            CapQuant is where data-driven expertise generates market-beating
-            performance. Submit your predictive models, score the real time
-            effectiveness, and earn for even validated outperformance.
+            The world’s first institutional alpha marketplace. No-code,
+            low-code, or pro-code—your strategies compete for real capital every
+            <strong> 60 minutes</strong>
           </motion.p>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{
-              y: 10,
-              opacity: 0,
-              filter: "blur(10px)",
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              delay: 0.2,
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-              staggerChildren: 0.1, // If animating multiple items
-            }}
-            className="mt-4 sm:mt-6 md:mt-8"
-          >
-            <Button
-              variant="outline"
-              className="text-black bg-white hover:bg-gray-100 cursor-pointer 
-                         px-6 sm:px-8 py-2 sm:py-3 
-                         text-sm sm:text-base font-medium
-                         transition-all duration-200 
-                         hover:scale-105 active:scale-95"
-            >
-              Join Waitlist
-            </Button>
-          </motion.div>
         </div>
       </div>
 

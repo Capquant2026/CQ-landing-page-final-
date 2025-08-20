@@ -40,24 +40,24 @@ export default function Contact() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: {
       y: 60,
-      opacity: 0
+      opacity: 0,
     },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.215, 0.61, 0.355, 1]
-      }
-    }
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
   };
 
   const formVariants = {
@@ -68,9 +68,9 @@ export default function Contact() {
       transition: {
         duration: 0.6,
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const inputVariants = {
@@ -81,9 +81,9 @@ export default function Contact() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const benefitVariants = {
@@ -93,9 +93,9 @@ export default function Contact() {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const socialVariants = {
@@ -106,14 +106,14 @@ export default function Contact() {
       transition: {
         type: "spring",
         stiffness: 200,
-        damping: 15
-      }
-    }
+        damping: 15,
+      },
+    },
   };
 
   return (
     <div className="text-[#f7f8f8] flex flex-col items-center justify-start pt-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A]">
-      <motion.div 
+      <motion.div
         className="flex items-center flex-col w-full"
         variants={containerVariants}
         initial="hidden"
@@ -122,37 +122,37 @@ export default function Contact() {
       >
         {/* Header Section */}
         <motion.div variants={itemVariants}>
-          <motion.span 
+          <motion.span
             className="leading-7 [&:not(:first-child)]:mt-6 text-sm opacity-50 border p-1 border-[#68cc58] rounded-full px-2"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               borderColor: "#68cc58",
               opacity: 1,
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2 },
             }}
           >
             Limited Spots.Register Now
           </motion.span>
-          
+
           <motion.h2
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                         font-semibold tracking-tight text-balance 
+                         font-[538] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ 
-              duration: 0.8, 
+            transition={{
+              duration: 0.8,
               delay: 0.3,
-              ease: [0.215, 0.61, 0.355, 1]
+              ease: [0.215, 0.61, 0.355, 1],
             }}
           >
             Ready to Predict The market ?
           </motion.h2>
-          
-          <motion.p 
-            className="opacity-75"
+
+          <motion.p
+            className="font-[510] tracking-[-0.011em] text-[#8a8f98]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 0.75, y: 0 }}
             viewport={{ once: true }}
@@ -163,18 +163,18 @@ export default function Contact() {
         </motion.div>
 
         {/* Form Section */}
-        <motion.form 
+        <motion.form
           className="w-1/2 my-30"
           variants={formVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.div 
+          <motion.div
             className="flex justify-center items-center gap-10"
             variants={inputVariants}
           >
-            <motion.div 
+            <motion.div
               className="w-1/2"
               whileHover={{ scale: 1.02 }}
               whileFocus={{ scale: 1.02 }}
@@ -183,55 +183,46 @@ export default function Contact() {
                 type="text"
                 placeholder="First name"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:border-[#68cc58] focus:shadow-lg focus:shadow-[#68cc58]/10"
-                whileFocus={{ 
+                whileFocus={{
                   borderColor: "#68cc58",
-                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)"
+                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
                 }}
               />
             </motion.div>
-            <motion.div 
-              className="w-1/2"
-              whileHover={{ scale: 1.02 }}
-            >
+            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.input
                 type="text"
                 placeholder="Last name"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:border-[#68cc58] focus:shadow-lg focus:shadow-[#68cc58]/10"
-                whileFocus={{ 
+                whileFocus={{
                   borderColor: "#68cc58",
-                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)"
+                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
                 }}
               />
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="flex mt-3 justify-center items-center gap-10"
             variants={inputVariants}
           >
-            <motion.div 
-              className="w-1/2"
-              whileHover={{ scale: 1.02 }}
-            >
+            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.input
                 type="text"
                 placeholder="Email"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:border-[#68cc58] focus:shadow-lg focus:shadow-[#68cc58]/10"
-                whileFocus={{ 
+                whileFocus={{
                   borderColor: "#68cc58",
-                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)"
+                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
                 }}
               />
             </motion.div>
-            <motion.div 
-              className="w-1/2"
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.select 
+            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
+              <motion.select
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:border-[#68cc58] focus:shadow-lg focus:shadow-[#68cc58]/10"
-                whileFocus={{ 
+                whileFocus={{
                   borderColor: "#68cc58",
-                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)"
+                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
                 }}
               >
                 {countries.map((item) => {
@@ -245,14 +236,8 @@ export default function Contact() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            className="w-full mt-5"
-            variants={inputVariants}
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+          <motion.div className="w-full mt-5" variants={inputVariants}>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 className="bg-white hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
                 size={"lg"}
@@ -263,9 +248,8 @@ export default function Contact() {
           </motion.div>
         </motion.form>
 
-        {/* Benefits Section */}
-        <motion.div 
-          className="scroll-m-20 text-center tracking-tight"
+        <motion.div
+          className="scroll-m-20 font-[510] tracking-[-0.011em]  text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -273,9 +257,9 @@ export default function Contact() {
             visible: {
               transition: {
                 staggerChildren: 0.2,
-                delayChildren: 0.1
-              }
-            }
+                delayChildren: 0.1,
+              },
+            },
           }}
         >
           <motion.div variants={benefitVariants}>
@@ -297,7 +281,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Social Media Section */}
-        <motion.div 
+        <motion.div
           className="flex mt-10 text-2xl gap-5"
           initial="hidden"
           whileInView="visible"
@@ -306,24 +290,24 @@ export default function Contact() {
             visible: {
               transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.2
-              }
-            }
+                delayChildren: 0.2,
+              },
+            },
           }}
         >
           {[
             { icon: FaDiscord, label: "Discord" },
             { icon: FaLinkedin, label: "Linkedin" },
             { icon: FaInstagram, label: "Instagram" },
-            { icon: FaTiktok, label: "Tik Tok" }
+            { icon: FaTiktok, label: "Tik Tok" },
           ].map(({ icon: Icon, label }, index) => (
             <motion.div
               key={label}
               variants={socialVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.2,
                 rotate: 10,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
               whileTap={{ scale: 0.9 }}
             >
@@ -343,14 +327,14 @@ export default function Contact() {
       </motion.div>
 
       {/* Footer */}
-      <motion.div 
+      <motion.div
         className="w-full border-t border-t-zinc-800/80 p-4 text-center mt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <p className="opacity-50 font-medium">Powered by Lotus Capital</p>
+        <p className="font-[510] tracking-[-0.011em] text-[#8a8f98]">Powered by Lotus Capital</p>
       </motion.div>
     </div>
   );

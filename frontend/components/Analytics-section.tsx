@@ -27,7 +27,7 @@ export default function AnalyticsSection() {
           }}
           className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                         font-semibold tracking-tight text-balance 
+                         font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
         >
           Predict. Score. Deploy. Get Compensated
@@ -48,19 +48,36 @@ export default function AnalyticsSection() {
             delay: 0.3,
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
           }}
-          className="text-[#8a8f98] w-1/2 mt-5"
+          className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 mt-5"
         >
           Turn your edge into real rewards with a platform that’s transparent,
           data-driven, and flexible across any timeframe.
         </motion.p>
-        <p className="text-[#8a8f98] mb-4">
+        <motion.p
+          initial={{
+            y: 30,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            delay: 0.4,
+            duration: 0.8,
+            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+          }}
+          className="text-[#8a8f98] mb-4"
+        >
           Build the way you want{"                     "}
-          <strong className="text-[#68cc58] ">
-            NoCode, LowCode, or ProCode
+          <strong className="text-[#5e6ad2] ">
+            No-Code , Low-Code , Pro-Code
           </strong>
-        </p>
+        </motion.p>
 
         <motion.span
           initial={{

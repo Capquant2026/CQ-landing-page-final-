@@ -15,100 +15,75 @@ const GetCode = () => {
   const [isComplete, setIsComplete] = useState(false);
   const terminalRef = useRef<HTMLDivElement | null>(null);
 
-  const codeData = `{
-    "submission_id": "sub_14_9c8f7a6d2e1b",
-    "round_id": 14,
-    "timestamp": "2025-08-18T09:47:24.123Z",
-    "status": "validated_accepted",
-    "validation_results": {
-      "model_integrity": {
-        "feature_stability_score": 0.947,
-        "overfitting_risk": 0.034,
-        "look_ahead_bias": false,
-        "data_leakage_detected": false
-      },
-      "performance_attribution": {
-        "expected_sharpe_ratio": 2.34,
-        "information_ratio": 1.89,
-        "maximum_drawdown": 0.067,
-        "tail_risk_var99": 0.0234,
-        "regime_consistency": 0.892
-      },
-      "uniqueness_metrics": {
-        "orthogonality_score": 0.847,
-        "correlation_existing_models": 0.23,
-        "novel_alpha_contribution": 0.156,
-        "diversification_ratio": 2.67
-      },
-      "execution_feasibility": {
-        "liquidity_adequacy": 0.94,
-        "market_impact_estimate": 0.0019,
-        "fill_probability": 0.987,
-        "slippage_forecast": 0.0013
-      }
-    },
-    "backtesting_validation": {
-      "out_of_sample_periods": [
-        {
-          "start": "2023-01-01",
-          "end": "2023-12-31",
-          "sharpe": 2.18,
-          "max_dd": 0.052,
-          "calmar": 4.19
-        },
-        {
-          "start": "2024-01-01", 
-          "end": "2024-12-31",
-          "sharpe": 2.41,
-          "max_dd": 0.073,
-          "calmar": 3.87
-        }
-      ],
-      "regime_performance": {
-        "low_volatility": {"sharpe": 1.89, "hit_rate": 0.67},
-        "high_volatility": {"sharpe": 2.78, "hit_rate": 0.71},
-        "trending_markets": {"sharpe": 3.12, "hit_rate": 0.74},
-        "mean_reverting": {"sharpe": 1.67, "hit_rate": 0.63}
-      }
-    },
-    "risk_assessment": {
-      "factor_exposures": {
-        "systematic_risk": 0.67,
-        "idiosyncratic_risk": 0.33,
-        "tail_hedge_effectiveness": 0.84,
-        "regime_transition_robustness": 0.91
-      },
-      "stress_testing": {
-        "covid_march_2020": -0.089,
-        "energy_crisis_2022": 0.134,
-        "banking_stress_2023": -0.023,
-        "monte_carlo_var95": -0.0187
-      }
-    },
-    "deployment_pipeline": {
-      "allocation_approved": 12500000,
-      "live_trading_start": "2025-08-18T10:00:00Z",
-      "monitoring_endpoints": {
-        "real_time_pnl": "/v3/strategies/sub_14_9c8f7a6d2e1b/pnl",
-        "risk_metrics": "/v3/strategies/sub_14_9c8f7a6d2e1b/risk",
-        "execution_quality": "/v3/strategies/sub_14_9c8f7a6d2e1b/execution"
-      },
-      "auto_scaling": {
-        "performance_threshold": 1.5,
-        "max_allocation": 50000000,
-        "scale_factor": 1.2,
-        "cooldown_period": 86400
-      }
-    },
-    "round_statistics": {
-      "total_submissions": 1247,
-      "acceptance_rate": 0.067,
-      "avg_uniqueness_score": 0.634,
-      "median_sharpe": 1.23,
-      "top_decile_threshold": 2.15,
-      "round_closes": "2025-08-18T10:00:00Z"
-    }
-  }`;
+  const codeData = `"submission_id": "sub_14_9c8f7a6d2e1b",
+ "round_id": 14,
+ "user_id": "5845BUS21",
+ "model_name": "IntraDay_Breakout_V3",
+ "asset": "WTI_CRUDE_OIL",
+ "symbol": "CL",
+"submission_timestamp":"2025-11-20T13:45:22Z",
+ "status": "ACCEPTED",
+ "validation": {
+ "integrity_checks": {
+ "feature_stability_score": 0.948,
+ "overfitting_risk": 0.035,
+ "look_ahead_bias": false,
+ "data_leakage_detected": false
+ },
+ "performance_summary": {
+ "expected_sharpe_ratio": 2.31,
+ "information_ratio": 1.86,
+ "max_drawdown": 0.066,
+ "tail_risk_var99": 0.0231
+ },
+ "uniqueness_metrics": {
+ "orthogonality_score": 0.85,
+ "correlation_existing_models": 0.22,
+ "novel_alpha_contribution": 0.158,
+ "diversification_ratio": 2.61
+ },
+ "backtest_oos": [
+ { "start": "2023-01-01", "end": "2023-12-31", "sharpe": 2.17, "max_dd": 0.053, "calmar": 4.12 },
+ { "start": "2024-01-01", "end": "2024-12-31", "sharpe": 2.40, "max_dd": 0.072, "calmar": 3.82 }
+ ],
+ "regime_performance": {
+ "low_volatility": { "sharpe": 1.88, "hit_rate": 0.66 },
+ "high_volatility": { "sharpe": 2.77, "hit_rate": 0.71 },
+ "trending": { "sharpe": 3.10, "hit_rate": 0.73 },
+ "mean_reverting": { "sharpe": 1.66, "hit_rate": 0.62 }
+ },
+ "stress_tests": {
+ "covid_march_2020": -0.088,
+ "energy_crisis_2022": 0.131,
+ "banking_stress_2023": -0.024,
+ "monte_carlo_var95": -0.0185
+ }
+ },
+ "deployment": {
+ "execution_start": "2025-11-20T14:00:00Z",
+ "allocation_weight": 0.10,
+ "ensemble_model": "CapQuant_Ensemble_v1.9",
+ "risk_state": "within_limits",
+ "live_metrics": {
+ "pnl_intraday": 0.0043,
+ "realized_volatility": 0.0121,
+ "exposure": 0.097,
+ "live_sharpe_estimate": 2.04,
+ "slippage_realized": 0.0009
+ },
+ "monitoring": {
+ "realtime_pnl": "/v3/strategies/sub_14_9c8f7a6d2e1b/pnl",
+ "risk_metrics": "/v3/strategies/sub_14_9c8f7a6d2e1b/risk",
+ "execution_quality": "/v3/strategies/sub_14_9c8f7a6d2e1b/execution"
+ }
+ },
+ "round_statistics": {
+ "total_submissions": 1247,
+ "acceptance_rate": 0.067,
+ "top_decile_sharpe_threshold": 2.15,
+ "round_closes": "2025-11-20T15:00:00Z"
+ }
+}`;
   const codeLines = codeData.split("\n");
 
   // Type each line character by character, then add to visible lines
@@ -218,7 +193,7 @@ const GetCode = () => {
         once: true,
       }}
       transition={{
-        delay: 0.4,
+        delay: 0.6,
         duration: 0.8,
         ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
         staggerChildren: 0.1, // If animating multiple items
@@ -234,12 +209,29 @@ const GetCode = () => {
               <div className="flex items-center space-x-3">
                 <motion.div
                   className="w-3 h-3 rounded-full bg-yellow-500 relative"
+                  animate={{
+                    boxShadow: [
+                      "0 0 0 0 rgba(250, 204, 21, 0.7)", // yellow glow
+                      "0 0 0 8px rgba(250, 204, 21, 0)", // fade out
+                    ],
+                  }}
                   transition={{
                     duration: 2,
                     repeat: Infinity,
                     ease: "easeOut",
                   }}
-                ></motion.div>
+                >
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-yellow-400"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </motion.div>
+
                 <span className="text-gray-400  font-semibold uppercase tracking-wider">
                   GET
                 </span>
