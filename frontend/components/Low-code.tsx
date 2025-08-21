@@ -48,7 +48,7 @@ export default function LowCode() {
                          font-[538]  tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
         >
-          Low-Code:Import your own Strategies
+          Low-Code Import your own Strategies
         </motion.h2>
         <motion.p
           initial={{

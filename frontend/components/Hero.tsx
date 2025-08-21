@@ -7,7 +7,7 @@ export default function Hero() {
   const titleContent = "Idea to Live Trading in 60 Minutes".split(" ");
 
   return (
-    <div className="flex text-[#f7f8f8] flex-col items-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
+    <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-[1100px] mt-20 sm:mt-32 md:mt-40">
         <div className="text-[#f7f8f8] flex mx-auto flex-col gap-1 sm:gap-6 md:gap-1 items-center text-center md:items-start md:text-start">
           <motion.h1

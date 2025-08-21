@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Prompt from "./prompt";
 
 export default function NoCode() {
   return (
@@ -74,6 +75,7 @@ export default function NoCode() {
           conditions, test, and deploy in minutes.
         </motion.p>
       </motion.div>
+      <Prompt />
     </div>
   );
 }

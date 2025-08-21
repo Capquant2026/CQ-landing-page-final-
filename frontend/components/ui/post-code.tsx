@@ -93,7 +93,7 @@ X-Model-Version: 4.7.2
         const timeout = setTimeout(() => {
           setCurrentTypingLine((prev) => prev + currentLine[currentCharIndex]);
           setCurrentCharIndex((prev) => prev + 1);
-        }, 0); // Random typing speed
+        }, 50); // Random typing speed
 
         return () => clearTimeout(timeout);
       } else {
@@ -108,7 +108,7 @@ X-Model-Version: 4.7.2
           setCurrentLineIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
           setCurrentTypingLine("");
-        }, 0); // Brief pause before adding line
+        }, 500); // Brief pause before adding line
 
         return () => clearTimeout(timeout);
       }
