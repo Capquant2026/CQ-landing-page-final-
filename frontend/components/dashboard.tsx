@@ -19,23 +19,10 @@ import { MdOutlineTimer } from "react-icons/md";
 import { motion } from "motion/react";
 import { PeakUsageAnalysis } from "./PeakUsageAnalysis";
 import { CiImport } from "react-icons/ci";
-import { useEffect, useState } from "react";
 import { MdPayment } from "react-icons/md";
+import { Timer } from "./timer";
 
 export default function Dashboard() {
-  const [second, setSecond] = useState<number>(59);
-  const [min, setMin] = useState<number>(59);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (second == 0) {
-        setMin((prev) => prev - 1);
-      }
-      setSecond((prev) => (prev === 0 ? 59 : prev - 1));
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
   const allLinks = [
     {
       label: "Dashboard",
@@ -99,7 +86,7 @@ export default function Dashboard() {
 
   return (
     <div className="relative ">
-      <div className="absolute  w-[200%] h-[50%] left-0 bottom-0  bg-gradient-to-t pointer-events-none from-[#08090A] to-transparent   z-50"></div>
+      <div className="absolute  w-[200%] h-full left-0 -bottom-[14%]  bg-gradient-to-t pointer-events-none from-[#08090A] to-transparent   z-50"></div>
       <motion.div className="w-[1600px] scale-110  mt-20 containerdiv relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
         <div className="absolute h-full  right-0 w-[40%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
         <div className="absolute  w-[80%]  left-0 top-0 bg-gradient-to-t from-[#08090A] to-transparent  z-20" />
@@ -108,7 +95,7 @@ export default function Dashboard() {
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
                 <Image src={logo} width={40} alt="" />
-                <h2 className="text-xl">CapQuand</h2>
+                <h2 className="text-xl">CapQuant</h2>
               </div>
               <button
                 className="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
@@ -117,7 +104,7 @@ export default function Dashboard() {
                 <span
                   className={`block w-1 h-0.5 bg-white transition-all duration-300 `}
                 ></span>
-                <span
+                <span 
                   className={`block w-1 h-0.5 bg-white transition-all duration-300 `}
                 ></span>
                 <span
@@ -426,42 +413,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className=" flex items-center scale-120 mt-5 justify-center mx-auto w-1/2">
-              <p className="opacity-50 mr-2">Next Round</p>
-
-              <motion.div
-                className="w-1/5 rounded-lg  from-[#141516] border border-[#1A1C1F]  hover:bg-[#151515]"
-                whileHover={{
-                  z: 40, // Strong detachment in 3D space
-                  y: -12, // Clean upward lift
-                  scale: 1.02, // Minimal scale for subtle emphasis
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  damping: 25,
-                }}
-                style={{
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                <motion.div
-                  whileHover={{
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
-                  }}
-                  className="p-1 rounded-lg"
-                >
-                  <Button
-                    variant="ghost"
-                    className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
-                  >
-                    <MdOutlineTimer className="ml-2 text-[#5E6AD2]" />
-                    {`00:${min}:${second}`}
-                  </Button>
-                </motion.div>
-              </motion.div>
-            </div>
+            <Timer />
             <PeakUsageAnalysis />
           </div>
         </div>
