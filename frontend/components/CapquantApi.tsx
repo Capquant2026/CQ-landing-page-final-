@@ -176,7 +176,7 @@ export default function ApiSection() {
                       transition={{
                         ease: [0.25, 0.46, 0.45, 0.94],
                       }}
-                      className="inline-block"
+                      className="text-gray-400 inline-block"
                     >
                       {randomNumber}
                     </motion.span>
@@ -217,7 +217,7 @@ export default function ApiSection() {
             >
               <div className="flex items-center gap-4">
                 <motion.div
-                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  className=" flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400 "
                   initial={{
                     y: 30,
                     opacity: 0,
@@ -235,6 +235,7 @@ export default function ApiSection() {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                   key={"letncy"}
+                  
                 >
                   {latencyNumber}
                   ms
@@ -274,7 +275,7 @@ export default function ApiSection() {
             >
               <div className="flex items-center gap-4">
                 <motion.div
-                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400 "
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
@@ -342,7 +343,7 @@ export default function ApiSection() {
             >
               <div className="flex items-center gap-4">
                 <motion.div
-                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-white "
+                  className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400 "
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{

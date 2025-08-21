@@ -56,28 +56,7 @@ export default function Insight() {
           preferred platform, or direct API access—deploy institutional-grade
           strategies your way.
         </motion.p>
-        <motion.strong
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
-          }}
-          className="text-[#5e6ad2] font-[510] tracking-[-0.011em]  block mb-5"
-        >
-          NoCode, LowCode, or ProCode
-        </motion.strong>
+      
 
         <motion.div
           initial={{

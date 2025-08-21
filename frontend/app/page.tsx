@@ -10,13 +10,13 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="bg-[#09090a] overflow-hidden font-sans flex flex-col items-center  min-h-screen ">
+    <div className="bg-[#09090a]  font-sans flex flex-col items-center  min-h-screen ">
       <Header />
       <Hero />
       <AnalyticsSection />
       <Insight />
-      <LowCode/>
-      <NoCode/>
+      <NoCode />
+      <LowCode />
       <ApiSection />
       <Contact />
     </div>
