@@ -28,7 +28,7 @@ export default function Insight() {
           className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                            leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                            font-[538] tracking-[-.0325em] text-balance 
-                           max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
+                           max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5 "
         >
           Multi-Deployment Methods
         </motion.h2>
@@ -56,7 +56,6 @@ export default function Insight() {
           preferred platform, or direct API access—deploy institutional-grade
           strategies your way.
         </motion.p>
-      
 
         <motion.div
           initial={{

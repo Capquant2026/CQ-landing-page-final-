@@ -1,6 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
+import MovingSymbolCode from "./MovingSymbolCode";
+import arrowImg from "../public/Connector line.svg";
+import code from "../public/browsercode.svg";
+import Image from "next/image";
 
 export default function LowCode() {
   return (
@@ -46,7 +50,7 @@ export default function LowCode() {
           className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[538]  tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5 "
         >
           Low-Code Import your own Strategies
         </motion.h2>
@@ -74,6 +78,23 @@ export default function LowCode() {
           without starting from scratch.
         </motion.p>
       </motion.div>
+      {/* <div className=" w-full mt-5">
+        <div className="w-4/6 bg-[#202122] mx-auto  h-72 rounded-lg p-10">
+          <h2 className="text-2xl font-[538]  tracking-[-.0325em] text-balance ">
+            Import strategies from your platform
+          </h2>
+          <div>
+            <p>= (◊ - ◘) × ■ ÷ ▲$ @ ◎◄/► ≥ 1:2 ∴ ▲ ≥ 2 × ▼ & φ&λ ≠ $0θ% ≤ 2% ∩ μ ≠ ∅ || ●@{}</p>
+            <p>= (◊ - ◘) × ■ ÷ ▲$ @ ◎◄/► ≥ 1:2 ∴ ▲ ≥ 2 × ▼ & φ&λ ≠ $0θ% ≤ 2% ∩ μ ≠ ∅ || ●@{}</p>
+            <p>= (◊ - ◘) × ■ ÷ ▲$ @ ◎◄/► ≥ 1:2 ∴ ▲ ≥ 2 × ▼ & φ&λ ≠ $0θ% ≤ 2% ∩ μ ≠ ∅ || ●@{}</p>
+          </div>
+        </div>
+      </div> */}
+      <div className="w-full flex items-center justify-center">
+        <MovingSymbolCode />
+        <Image src={arrowImg} alt="arrowimg" />
+        <Image src={code} alt="code" width={400} />
+      </div>
     </div>
   );
 }

@@ -158,7 +158,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Get early access to CapQuant's Institute grade platform
+            Get early access to CapQuant's Intitutional grade platform
           </motion.p>
         </motion.div>
 
@@ -296,11 +296,27 @@ export default function Contact() {
           }}
         >
           {[
-            { icon: FaDiscord, label: "Discord" },
-            { icon: FaLinkedin, label: "Linkedin" },
-            { icon: FaInstagram, label: "Instagram" },
-            { icon: FaTiktok, label: "Tik Tok" },
-          ].map(({ icon: Icon, label }, index) => (
+            {
+              icon: FaDiscord,
+              label: "Discord",
+              url: "https://discord.com/invite/es37CSup",
+            },
+            {
+              icon: FaLinkedin,
+              label: "Linkedin",
+              url: "https://www.linkedin.com/company/lotus-capital-gestion/",
+            },
+            {
+              icon: FaInstagram,
+              label: "Instagram",
+              url: "https://www.instagram.com/lotuscapitalinvest",
+            },
+            {
+              icon: FaTiktok,
+              label: "Tik Tok",
+              url: "https://www.tiktok.com/@lotuscapitalinvest",
+            },
+          ].map(({ icon: Icon, label, url }, index) => (
             <motion.div
               key={label}
               variants={socialVariants}
@@ -313,7 +329,7 @@ export default function Contact() {
             >
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href={""}>
+                  <Link href={url}>
                     <Icon />
                   </Link>
                 </TooltipTrigger>
@@ -334,7 +350,9 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <p className="font-[510] tracking-[-0.011em] text-[#8a8f98]">Powered by Lotus Capital</p>
+        <p className="font-[510] tracking-[-0.011em] text-[#8a8f98]">
+          Powered by Lotus Capital
+        </p>
       </motion.div>
     </div>
   );
