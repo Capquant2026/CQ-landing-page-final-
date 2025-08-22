@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function AnalyticsSection() {
   const [isDropMenuHovered, setIsDropMenuHovered] = useState<boolean>(false);
+  const [showAsset, setShowAsset] = useState(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function AnalyticsSection() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
         >
-          Predict. Score. Deploy. Get Compensated
+          Multi-Asset.Deploy Alpha. Collect Rewards
         </motion.h2>
         <motion.p
           initial={{
@@ -106,7 +107,7 @@ export default function AnalyticsSection() {
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 mt-5"
         >
           Turn your edge into real rewards with a platform that’s transparent,
-          data-driven, and flexible across any timeframe.
+          data-driven, and flexible across multiple assets and any timeframe.
         </motion.p>
         <motion.p
           initial={{
@@ -154,7 +155,7 @@ export default function AnalyticsSection() {
           className="inline-block"
         >
           <Button
-            className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black "
+            className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black mt-5"
             size={"lg"}
           >
             Join Waitlist
@@ -163,7 +164,7 @@ export default function AnalyticsSection() {
         <div className="mt-10 flex h-72  items-center justify-center ">
           <div className="w-1/2 h-full  border-t border-b border-zinc-800/60  border-b-zinc-800/80 p-4">
             <div
-              className=" p-4 rounded-lg h-full  relative  border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] transition-all duration-150 ease-in-out"
+              className=" p-4 rounded-lg h-full  relative flex flex-col   border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] transition-all duration-150 ease-in-out"
               style={{
                 background:
                   "linear-gradient(to bottom right,hsla(0,0%,100%,.07),transparent)",
@@ -174,41 +175,118 @@ export default function AnalyticsSection() {
               <h2 className="font-[555] transition-all duration-150 ease-in-out tracking-[-.0325em] text-xl mt-4">
                 Deployment
               </h2>
-              <div className="my-3">
-                <Button
-                  onMouseEnter={() => setIsDropMenuHovered(true)}
-                  onMouseLeave={() => setIsDropMenuHovered(false)}
-                  className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer   flex items-center justify-between w-[70%]   border border-[#ffffff1a]   "
-                >
-                  Horizon{" "}
-                  <motion.span
-                    animate={{
-                      rotate: isDropMenuHovered ? -90 : 0,
-                    }}
+              <div>
+                <div className="my-3">
+                  <Button
+                    onMouseEnter={() => setIsDropMenuHovered(true)}
+                    onMouseLeave={() => setIsDropMenuHovered(false)}
+                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer   flex items-center justify-between w-[70%]   border border-[#ffffff1a]   "
                   >
-                    <FaCaretDown />
-                  </motion.span>
-                </Button>
+                    Horizon{" "}
+                    <motion.span
+                      animate={{
+                        rotate: isDropMenuHovered ? -90 : 0,
+                      }}
+                    >
+                      <FaCaretDown />
+                    </motion.span>
+                  </Button>
+                </div>
+                <div className="my-3">
+                  <Button
+                    onMouseEnter={() => setShowAsset(true)}
+                    onMouseLeave={() => setShowAsset(false)}
+                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer   flex items-center justify-between w-[70%]   border border-[#ffffff1a]   "
+                  >
+                    Select Asset Classes{" "}
+                    <motion.span
+                      animate={{
+                        rotate: showAsset ? -90 : 0,
+                      }}
+                    >
+                      <FaCaretDown />
+                    </motion.span>
+                  </Button>
+                </div>
               </div>
               <AnimatePresence>
-                <motion.div
-                  animate={{
-                    y: isDropMenuHovered ? 0 : -10,
-                    scale: isDropMenuHovered ? 1 : 0.8,
-                    opacity: isDropMenuHovered ? 1 : 0,
-                  }}
-                  transition={{
-                    ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-                  }}
-                  className="bg-[#3A3B3C] ml-20 w-[80%] flex flex-col  items-start justify-center py-2 r rounded-lg border border-[#ffffff1a]"
-                >
-                  <Button className="bg-transparent text-[#8a8f98] cursor-pointer hover:bg-transparent ">
-                    Intraday
-                  </Button>
-                  <Button className="bg-transparent cursor-pointer text-[#8a8f98] hover:bg-transparent ">
-                    Swing
-                  </Button>
-                </motion.div>
+                {showAsset && (
+                  <motion.div
+                    layout
+                    initial={{
+                      y: -10,
+                      scale: 0.8,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      y: 0,
+                      scale: 1,
+                      opacity: 1,
+                    }}
+                    exit={{
+                      y: -10,
+                      scale: 0.8,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+                    }}
+                    className="bg-[#3A3B3C] ml-20 w-[80%] flex flex-col relative z-50 items-start justify-center py-2 rounded-lg border border-[#ffffff1a]"
+                  >
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Indices
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Cryptocurrency
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Foreign Exchange
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Equities
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Commodities
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Fixed Income
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence>
+                {isDropMenuHovered && (
+                  <motion.div
+                    layout
+                    initial={{
+                      y: -10,
+                      scale: 0.8,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      y: 0,
+                      scale: 1,
+                      opacity: 1,
+                    }}
+                    exit={{
+                      y: -10,
+                      scale: 0.8,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+                    }}
+                    className="bg-[#3A3B3C] ml-20 w-[80%] flex flex-col relative z-50 items-start justify-center py-2 rounded-lg border border-[#ffffff1a]"
+                  >
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Intraday
+                    </Button>
+                    <Button className="bg-transparent text-[#8a8f98] hover:bg-transparent">
+                      Swing
+                    </Button>
+                  </motion.div>
+                )}
               </AnimatePresence>
             </div>
           </div>
