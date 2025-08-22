@@ -10,10 +10,8 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { motion, AnimatePresence } from "motion/react";
 
 const OPENAI_SVG = (
   <div>
@@ -49,7 +47,6 @@ const OPENAI_SVG = (
 
 export default function Prompt() {
   const [value, setValue] = useState("");
-  const [selectedModel, setSelectedModel] = useState("GPT-4-1 Mini");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -58,89 +55,15 @@ export default function Prompt() {
   const placeholders = [
     "Buy WTI when price closes above the 50-period SMA and RSI(14) is below 70",
     "Sell Nasdaq when price crosses back below SMA",
-    "Enter long position in Gold when MACD crosses above signal line",
-    "Short EUR/USD when price breaks below support with high volume",
-    "Buy Bitcoin when 20-day MA crosses above 50-day MA"
   ];
 
-  const AI_MODELS = [
-    "o3-mini",
-    "Gemini 2.5 Flash",
-    "Claude 3.5 Sonnet",
-    "GPT-4-1 Mini",
-    "GPT-4-1",
-  ];
-
-  const MODEL_ICONS = {
-    "o3-mini": OPENAI_SVG,
-    "Gemini 2.5 Flash": (
-      <svg
-        height="1em"
-        style={{ flex: "none", lineHeight: "1" }}
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Gemini</title>
-        <defs>
-          <linearGradient
-            id="lobe-icons-gemini-fill"
-            x1="0%"
-            x2="68.73%"
-            y1="100%"
-            y2="30.395%"
-          >
-            <stop offset="0%" stopColor="#1C7DFF" />
-            <stop offset="52.021%" stopColor="#1C69FF" />
-            <stop offset="100%" stopColor="#F0DCD6" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M12 24A14.304 14.304 0 000 12 14.304 14.304 0 0012 0a14.305 14.305 0 0012 12 14.305 14.305 0 00-12 12"
-          fill="url(#lobe-icons-gemini-fill)"
-          fillRule="nonzero"
-        />
-      </svg>
-    ),
-    "Claude 3.5 Sonnet": (
-      <div>
-        <svg
-          fill="#000"
-          fillRule="evenodd"
-          style={{ flex: "none", lineHeight: "1" }}
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          className="dark:hidden block"
-        >
-          <title>Anthropic Icon Light</title>
-          <path d="M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.767L16.906 20h-3.674l-1.343-3.461H5.017l-1.344 3.46H0L6.57 3.522zm4.132 9.959L8.453 7.687 6.205 13.48H10.7z" />
-        </svg>
-        <svg
-          fill="#ffff"
-          fillRule="evenodd"
-          style={{ flex: "none", lineHeight: "1" }}
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          className="hidden dark:block"
-        >
-          <title>Anthropic Icon Dark</title>
-          <path d="M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.767L16.906 20h-3.674l-1.343-3.461H5.017l-1.344 3.46H0L6.57 3.522zm4.132 9.959L8.453 7.687 6.205 13.48H10.7z" />
-        </svg>
-      </div>
-    ),
-    "GPT-4-1 Mini": OPENAI_SVG,
-    "GPT-4-1": OPENAI_SVG,
-  };
-
-  // Typewriter effect
   useEffect(() => {
     const currentText = placeholders[currentPlaceholderIndex];
-    
+
     if (isTyping) {
       let charIndex = 0;
       setDisplayedText("");
-      
+
       const typingInterval = setInterval(() => {
         if (charIndex < currentText.length) {
           setDisplayedText(currentText.slice(0, charIndex + 1));
@@ -148,7 +71,7 @@ export default function Prompt() {
         } else {
           clearInterval(typingInterval);
           setIsTyping(false);
-          
+
           // Wait 3 seconds before starting to clear
           setTimeout(() => {
             // Clear text with backspace effect
@@ -160,7 +83,9 @@ export default function Prompt() {
               } else {
                 clearInterval(clearingInterval);
                 // Move to next placeholder
-                setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
+                setCurrentPlaceholderIndex(
+                  (prev) => (prev + 1) % placeholders.length
+                );
                 setTimeout(() => setIsTyping(true), 500); // Wait before typing next
               }
             }, 30); // Faster clearing
@@ -177,15 +102,8 @@ export default function Prompt() {
     setIsTyping(true);
   }, []);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      setValue("");
-    }
-  };
-
   return (
-    <div className="w-4/6 h-52 py-4 mt-20">
+    <div className="w-[600px] py-4 ">
       <div className="bg-[#131415] rounded-2xl p-4">
         <div className="relative">
           <div className="relative flex flex-col">
@@ -198,7 +116,6 @@ export default function Prompt() {
                   "w-full rounded-xl text-5xl rounded-b-none px-4 py-3 bg-[#212222] border-none resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
                   "min-h-[72px]"
                 )}
-                onKeyDown={handleKeyDown}
                 onChange={(e) => {
                   setValue(e.target.value);
                 }}
@@ -208,37 +125,21 @@ export default function Prompt() {
             <div className="h-14 bg-[#212222] rounded-b-xl flex items-center">
               <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between w-[calc(100%-24px)]">
                 <div className="flex items-center gap-2">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md dark:text-white hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
-                      ></Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      className={cn(
-                        "min-w-[10rem]",
-                        "border-black/10 dark:border-white/10",
-                        "bg-gradient-to-b from-white via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
-                      )}
-                    ></DropdownMenuContent>
-                  </DropdownMenu>
                   <div className="h-4 w-px bg-black/10 dark:bg-white/10 mx-0.5" />
                   <label
                     className={cn(
-                      "rounded-full px-3 py-1 bg-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
+                      "rounded-full px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
                       "hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
                       " text-white text-sm"
                     )}
                     aria-label="Attach file"
                   >
                     Attach
-                    <input type="file" className="hidden" />
                     <Paperclip className="w-4 h-4 transition-colors" />
                   </label>
                   <label
                     className={cn(
-                      "rounded-full px-3 py-1 bg-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
+                      "rounded-full px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
                       "hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
                       " text-white text-sm"
                     )}
@@ -248,22 +149,9 @@ export default function Prompt() {
                     <Globe className="w-4 h-4 transition-colors" />
                   </label>
                 </div>
-                <button
-                  type="button"
-                  className={cn(
-                    "rounded-lg p-2 bg-black/5 dark:bg-white/5",
-                    "hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
-                  )}
-                  aria-label="Send message"
-                  disabled={!value.trim()}
-                >
-                  <ArrowRight
-                    className={cn(
-                      "w-4 h-4 text-white transition-opacity duration-200",
-                      value.trim() ? "opacity-100" : "opacity-30"
-                    )}
-                  />
-                </button>
+                <Button className="bg-white hover:bg-white text-black">
+                  Deploy
+                </Button>
               </div>
             </div>
           </div>
