@@ -158,7 +158,7 @@ export default function AnalyticsSection() {
             className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black mt-5"
             size={"lg"}
           >
-            Join Waitlist
+            Join the waitlist
           </Button>
         </motion.span>
         <div className="mt-10 flex h-72  items-center justify-center ">
