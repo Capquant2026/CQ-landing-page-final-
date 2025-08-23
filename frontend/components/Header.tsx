@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "./ui/button";
+import { motion } from "motion/react";
 import Image from "next/image";
 import logo from "../public/logo.svg";
 export default function Header() {
@@ -12,13 +13,20 @@ export default function Header() {
         CapQuant
       </h1>
       <div className="flex gap-5">
-        <Button
-          variant={"outline"}
-          size="sm"
-          className="text-black  cursor-pointer"
-        >
-          Join the Waitlist
-        </Button>
+      <motion.span
+                className="inline-block cursor-pointer"
+                whileHover={{
+                  scale : 1.01,
+                  y : -2
+                }}
+                whileTap={ {
+                  scale : 0.9
+                }}
+                >
+                  <Button className="bg-white hover:bg-white text-black cursor-pointer">
+                    Join The WaitList
+                  </Button>
+                </motion.span>
       </div>
     </div>
   );
