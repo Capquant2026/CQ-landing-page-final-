@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 const MovingSymbolCode = () => {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +16,7 @@ const MovingSymbolCode = () => {
   if (!mounted) return null;
 
   return (
-    <div className="w-1/3 mt-5 ">
+    <div className=" w-[43%] mt-5 ">
       <motion.div className="w-full bg-[#202122] mx-auto h-72 rounded-lg p-10 relative overflow-hidden">
         <motion.h2
           className="text-2xl font-[538] tracking-[-.0325em] text-balance text-white mb-6 relative z-10"
@@ -31,10 +32,9 @@ const MovingSymbolCode = () => {
           {/* First line */}
           <motion.div
             className="flex whitespace-nowrap text-sm font-mono"
-            F
             animate={{ x: ["-100%", "0%"] }}
             transition={{
-              duration: 60,
+              duration: 15,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -48,7 +48,7 @@ const MovingSymbolCode = () => {
             className="flex whitespace-nowrap text-sm font-mono"
             animate={{ x: ["-100%", "0%"] }}
             transition={{
-              duration: 80,
+              duration: 15,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -58,7 +58,23 @@ const MovingSymbolCode = () => {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#0b0c0d] to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#0b0c0d] z-20 to-transparent pointer-events-none" />
+        <div className="flex items-end justify-end">
+          <motion.span
+            className="inline-block cursor-pointer mt-5 "
+            whileHover={{
+              scale: 1.01,
+              y: -2,
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+          >
+            <Button className="bg-white hover:bg-white  text-black cursor-pointer">
+              Deploy
+            </Button>
+          </motion.span>
+        </div>
       </motion.div>
     </div>
   );

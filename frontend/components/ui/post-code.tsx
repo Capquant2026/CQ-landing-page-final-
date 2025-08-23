@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Button } from "./button";
 type Line = {
   id: number;
   content: string;
@@ -206,36 +207,52 @@ X-Model-Version: 4.7.2
         <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
         {/* Windows Terminal Header */}
         <div className="bg-[#0d0e0f] px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
-          <div className="flex items-center space-x-4">
-            <div className="flex space-x-2 py-3">
-              <div className="flex items-center space-x-3">
-                <motion.div
-                  className="w-3 h-3 rounded-full bg-green-500 relative"
-                  animate={{
-                    boxShadow: [
-                      "0 0 0 0 rgba(34, 197, 94, 0.7)",
-                      "0 0 0 8px rgba(34, 197, 94, 0)",
-                    ],
+          <div className="flex items-center space-x-4 w-full">
+            <div className="flex space-x-2 py-3 w-full">
+              <div className="flex items-center justify-between  w-full space-x-3">
+                <div className="flex items-center space-x-3">
+                  <motion.div
+                    className="w-3 h-3  rounded-full bg-green-500 relative"
+                    animate={{
+                      boxShadow: [
+                        "0 0 0 0 rgba(34, 197, 94, 0.7)",
+                        "0 0 0 8px rgba(34, 197, 94, 0)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-green-400"
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  </motion.div>
+                  <span className="text-gray-400  font-semibold uppercase tracking-wider">
+                    POST
+                  </span>
+                </div>
+                <motion.span
+                  className="inline-block cursor-pointer"
+                  whileHover={{
+                    scale: 1.01,
+                    y: -2,
                   }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeOut",
+                  whileTap={{
+                    scale: 0.9,
                   }}
                 >
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-green-400"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </motion.div>
-                <span className="text-gray-400  font-semibold uppercase tracking-wider">
-                  POST
-                </span>
+                  <Button className="bg-white hover:bg-white text-black cursor-pointer">
+                    Deploy
+                  </Button>
+                </motion.span>
               </div>
             </div>
           </div>

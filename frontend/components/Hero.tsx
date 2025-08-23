@@ -70,8 +70,9 @@ export default function Hero() {
                         max-w-1/2  
                         px-2 sm:px-4 md:px-0"
           >
-            The world’s first institutional alpha marketplace. No-code,
-            low-code, or pro-code—your strategies compete for real capital every
+            The world’s first institutional alpha marketplace.
+            <strong> No-code, low-code, or pro-code</strong>
+            —your strategies compete for real capital every
             <strong> Every hour</strong>
           </motion.p>
         </div>

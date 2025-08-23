@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function LowCode() {
   return (
-    <div className="h-screen    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A] ">
+    <div className="h-screen    text-[#f7f8f8] flex flex-col   p-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A] ">
       <motion.div
         initial={{
           y: 30,
@@ -27,7 +27,7 @@ export default function LowCode() {
           ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
           staggerChildren: 0.1, // If animating multiple items
         }}
-        className="flex items-start w-6xl flex-col    "
+        className="flex self-center items-start w-6xl flex-col    "
       >
         <motion.h2
           initial={{
@@ -90,10 +90,10 @@ export default function LowCode() {
           </div>
         </div>
       </div> */}
-      <div className="w-full flex items-center justify-center">
+      <div className="mr-20 flex mt-5  items-center justify-center">
         <MovingSymbolCode />
-        <Image src={arrowImg} alt="arrowimg" />
-        <Image src={code} alt="code" width={400} />
+        <Image src={arrowImg} alt="arrowimg" priority />
+        <Image src={code} alt="code" width={300} priority />
       </div>
     </div>
   );
