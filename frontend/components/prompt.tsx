@@ -2,17 +2,12 @@
 
 import type React from "react";
 
-import { ArrowRight, Globe, Paperclip } from "lucide-react";
+import { Globe, Paperclip } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
+import { motion } from "motion/react";
 const OPENAI_SVG = (
   <div>
     <svg
@@ -149,9 +144,20 @@ export default function Prompt() {
                     <Globe className="w-4 h-4 transition-colors" />
                   </label>
                 </div>
-                <Button className="bg-white hover:bg-white text-black">
-                  Deploy
-                </Button>
+                <motion.span
+                className="inline-block cursor-pointer"
+                whileHover={{
+                  scale : 1.01,
+                  y : -2
+                }}
+                whileTap={ {
+                  scale : 0.9
+                }}
+                >
+                  <Button className="bg-white hover:bg-white text-black cursor-pointer">
+                    Deploy
+                  </Button>
+                </motion.span>
               </div>
             </div>
           </div>

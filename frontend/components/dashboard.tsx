@@ -21,6 +21,8 @@ import { PeakUsageAnalysis } from "./PeakUsageAnalysis";
 import { CiImport } from "react-icons/ci";
 import { MdPayment } from "react-icons/md";
 import { Timer } from "./timer";
+import dashboardTop from "../public/Frame 31.svg";
+import square from "../public/Frame 1197142378.svg";
 
 export default function Dashboard() {
   const allLinks = [
@@ -87,7 +89,7 @@ export default function Dashboard() {
   return (
     <div className="relative ">
       <div className="absolute  w-[200%] h-full left-0 -bottom-[14%]  bg-gradient-to-t pointer-events-none from-[#08090A] to-transparent   z-50"></div>
-      <motion.div className="w-[1600px] scale-110  mt-20 containerdiv relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
+      <motion.div className="w-[1600px] scale-110  mt-20 containerdiv  relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
         <div className="absolute h-full  right-0 w-[40%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
         <div className="absolute  w-[80%]  left-0 top-0 bg-gradient-to-t from-[#08090A] to-transparent  z-20" />
         <div className="w-64 bg-[#08090A] border-r border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white">
@@ -104,7 +106,7 @@ export default function Dashboard() {
                 <span
                   className={`block w-1 h-0.5 bg-white transition-all duration-300 `}
                 ></span>
-                <span 
+                <span
                   className={`block w-1 h-0.5 bg-white transition-all duration-300 `}
                 ></span>
                 <span
@@ -320,16 +322,19 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="text-white flex-1 h-screen p-4 ">
-          <div className="text-white h-full bg-gradient-to-b px-10 py-4 rounded-xl from-[#141516] to-[#08090A]">
+          <div className="text-white h-full bg-[#131315] px-10 py-4 rounded-xl from-[#141516] to-[#08090A]" 
+       
+          >
             <div className="flex justify-between items-center">
-              <h2 className="font-semibold">USER ID : 5845BUS21</h2>
+              {/* <h2 className="font-semibold">USER ID : 5845BUS21</h2>
               <div className="flex items-center justify-center gap-2">
                 <FaCircleDot className="text-green-600" />
                 API Status
               </div>
-              <IoMdNotifications className="bg-[#1A1B1C] text-2xl" />
+              <IoMdNotifications className="bg-[#1A1B1C] text-2xl" /> */}
+              <Image src={dashboardTop} alt="" />
             </div>
-            <div className="flex   gap-5 mt-5 font-semibold">
+            {/* <div className="flex   gap-5 mt-5 font-semibold">
               <div className="bg-[#1A1B1C] flex flex-col gap-10 w-1/5 p-4 rounded-xl border border-[#22262A]">
                 <div>
                   <h2 className="text-2xl">Selected Models</h2>
@@ -412,7 +417,8 @@ export default function Dashboard() {
                   <span className="text-[#50E2C2]">+12.03%</span>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <Image src={square} alt="" className="w-[90%] mt-10"/>
             <Timer />
             <PeakUsageAnalysis />
           </div>
