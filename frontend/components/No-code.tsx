@@ -7,12 +7,16 @@ import automationIMG from "../public/automationIMG.svg";
 export default function NoCode() {
   return (
     <div
-      className="h-screen    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40  "
+      className="h-screen    text-[#f7f8f8] flex flex-col items-center justify-start px-40 w-full mt-40  "
       style={{
         background:
           "linear-gradient(to bottom, hsla(0,0%,100%,.05), transparent 20%), linear-gradient(180deg, rgba(97, 106, 115, 0) 0, rgba(97, 106, 115, .05) 40%, rgba(97, 106, 115, .05) 80%, rgba(97, 106, 115, 0) 100%)",
       }}
     >
+      <h1  className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 
+                         leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
+                         font-[538]  tracking-[-.0325em] text-balance 
+                         max-w-full my-20 sm:max-w-3xl md:max-w-4xl text-gray-300 lg:max-w-5xl mb-5">Multi-Deployment Methods</h1>
       <motion.div
         initial={{
           y: 30,
@@ -54,7 +58,7 @@ export default function NoCode() {
           className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[538]  tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5"
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5 mt-40"
         >
           No-Code: drag-and-drop logic and simple prompts
         </motion.h2>
@@ -89,7 +93,7 @@ export default function NoCode() {
           <div className="w-1/2 h-full bg-gradient-to-l from-[#0d0e0f] to-transparent pointer-events-none top-0 right-0 absolute z-10 opacity-75" />
         </div>
         <div className="w-1/2 h-full relative  p-10 border-t border-b  border-zinc-800/60  border-b-zinc-800/80 border-l   border-l-zinc-800/80">
-          <div className="w-full h-full bg-gradient-to-t from-[#0d0e0f] to-transparent pointer-events-none inset-0 absolute z-10 opacity-75" />
+          <div className="w-full h-full bg-gradient-to-t from-[#0d0e0f] to-transparent pointer-events-none inset-0 absolute z-10 opacity-20" />
           <Image src={automationIMG} alt="automationImage" className="p-1 " />
         </div>
       </div>

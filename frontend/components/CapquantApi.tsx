@@ -8,15 +8,17 @@ import PostCode from "./ui/post-code";
 import { AnimatePresence, m, motion } from "motion/react";
 
 export default function ApiSection() {
-  const [randomNumber, setRandomNumber] = useState<number>(247);
+  const [randomNumber, setRandomNumber] = useState<number>(110);
   const [latencyNumber, setLatencyNumber] = useState<number>(3.5);
-  const [contributors, setContributors] = useState<number>(1235);
+  const [contributors, setContributors] = useState<number>(945);
 
   const [sla, setSla] = useState<number>(200);
   const targetSequence: number[] = [
     15.2, 23.8, 18.6, 29.4, 34.7, 41.3, 38.9, 45.6, 52.1, 48.7, 55.3, 61.8, 
-    58.4, 64.9, 67.2, 63.8, 69.5, 72.1, 68.7, 74.3, 71.6, 73.9, 70.2, 74.8
+    58.4, 64.9, 67.2, 63.8, 69.5, 72.1, 68.7, 74.3, 71.6, 73.9, 70.2, 74.8,
+    76.5, 78.9, 81.2, 83.7, 85.4, 87.6, 89.1, 91.2, 93.0
   ];
+  
   const uptimeSequence: number[] = [
     99.88, 99.89, 99.9, 99.91, 99.92, 99.93, 99.94, 99.95, 99.94, 99.93, 99.92,
     99.91, 99.9, 99.89, 99.88, 99.87, 99.86, 99.85, 99.86, 99.87, 99.88, 99.89,
@@ -25,14 +27,19 @@ export default function ApiSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setRandomNumber((prev) => {
-        if (prev > 400) {
-          return 341;
+        if (prev > 135) {
+          return 110;
         }
         return prev + 1;
       });
 
-      setContributors((prev) => prev + 33);
-    }, 2000);
+      setContributors((prev) => {
+        if (randomNumber === 135) {
+          return 945
+        }
+        return prev + 33
+      });
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -43,7 +50,7 @@ export default function ApiSection() {
       const randomIndex = Math.floor(Math.random() * uptimeSequence.length);
       setLatencyNumber(targetSequence[randomSquIndex]);
       setSla(uptimeSequence[randomIndex]);
-    }, 800);
+    }, 400);
 
     return () => clearInterval(interval);
   }, []);
@@ -92,7 +99,7 @@ export default function ApiSection() {
                          font-[538]  tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
         >
-          Pro-Code: The CapQuant API
+          Pro-Code: the CapQuant API
         </motion.h2>
         <motion.p
           initial={{
