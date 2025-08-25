@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import Insight from "@/components/insight-section";
 import LowCode from "@/components/Low-code";
 import NoCode from "@/components/No-code";
-import Image from "next/image";
+import Security from "@/components/Security";
 
 export default function Home() {
   return (
@@ -14,7 +14,8 @@ export default function Home() {
       <Header />
       <Hero />
       <AnalyticsSection />
-      <Insight />
+      <Security />
+      {/* <Insight /> */}
       <NoCode />
       <LowCode />
       <ApiSection />

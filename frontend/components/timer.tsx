@@ -18,7 +18,7 @@ export function Timer() {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <div className=" flex items-center scale-120 mt-5 justify-center mx-auto w-1/2">
+    <div className=" flex items-center scale-120 mt-5 justify-center mx-auto w-1/2 ">
       <p className="opacity-50 mr-2">Next Round</p>
 
       <motion.div

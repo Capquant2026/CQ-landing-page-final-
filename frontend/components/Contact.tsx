@@ -14,6 +14,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Contact() {
+  const role : string[] = ["Student" , "Professional"]
   const countries = [
     "Select your Country",
     "Afghanistan",
@@ -287,7 +288,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="text-[#f7f8f8] flex flex-col items-center justify-start pt-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A]">
+    <div className="text-[#f7f8f8] flex flex-col items-center justify-start pt-40 w-full mt-40 "
+    style={{
+      background:
+        "linear-gradient(to bottom, hsla(0,0%,100%,.05), transparent 20%), linear-gradient(180deg, rgba(97, 106, 115, 0) 0, rgba(97, 106, 115, .05) 40%, rgba(97, 106, 115, .05) 80%, rgba(97, 106, 115, 0) 100%)",
+    }}
+    >
       <motion.div
         className="flex items-center flex-col w-full"
         variants={containerVariants}
@@ -333,7 +339,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Get early access to CapQuant's Intitutional grade platform
+            Get early access to CapQuant's Institutional grade platform
           </motion.p>
         </motion.div>
 
@@ -356,7 +362,7 @@ export default function Contact() {
             >
               <motion.input
                 type="text"
-                placeholder="First name"
+                placeholder="Full name"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
                 whileFocus={{
                   borderColor: "#68cc58",
@@ -366,8 +372,8 @@ export default function Contact() {
             </motion.div>
             <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.input
-                type="text"
-                placeholder="Last name"
+                type="email"
+                placeholder="email"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
                 whileFocus={{
                   borderColor: "#68cc58",
@@ -381,16 +387,17 @@ export default function Contact() {
             className="flex mt-3 justify-center items-center gap-10"
             variants={inputVariants}
           >
+            
             <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
-              <motion.input
-                type="text"
-                placeholder="Email"
-                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
-                whileFocus={{
-                  borderColor: "#68cc58",
-                  boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
-                }}
-              />
+              <motion.select className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">
+                {role.map((item) => {
+                  return (
+                    <option value={item} key={item}>
+                      {item}
+                    </option>
+                  );
+                })}
+              </motion.select>
             </motion.div>
             <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.select className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">

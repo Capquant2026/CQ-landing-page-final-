@@ -47,7 +47,7 @@ export default function AnalyticsSection() {
       time: "11:23",
     },
     {
-      title: "Live Execution",
+      title: "live Model",
       semiTitle:
         "Your weighted model triggers live trades with real-time risk controls",
       time: "11:30",
@@ -60,7 +60,12 @@ export default function AnalyticsSection() {
     },
   ];
   return (
-    <div className="    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A] ">
+    <div className="    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40  "
+    style={{
+      background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
+
+    }}
+    >
       <div className="w-6xl">
         <motion.h2
           initial={{
@@ -318,7 +323,7 @@ export default function AnalyticsSection() {
                     {titles[currentIndex].title}
                   </h2>
                   <hr className="border border-[#ffffff1a] my-2" />
-                  <p className="tracking-[-.0325em] opacity-80">
+                  <p className="tracking-[-.0325em] opacity-50">
                     {titles[currentIndex].semiTitle}
                   </p>
                 </motion.div>
