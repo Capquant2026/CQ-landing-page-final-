@@ -72,7 +72,7 @@ export default function Hero() {
           >
             The world’s first institutional alpha marketplace.
             <strong> No-code, low-code, or pro-code</strong>
-            —your strategies compete for real capital every
+            —your strategies compete for real capital 
             <strong> Every hour</strong>
           </motion.p>
         </div>
@@ -95,8 +95,10 @@ export default function Hero() {
           ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
           staggerChildren: 0.1, // If animating multiple items
         }}
-        className=" w-full max-w-[1600px]  mt-16 sm:mt-20 md:mt-24 lg:mt-32"
+        className=" w-full max-w-[1600px]  mt-16"
       >
+              <div className="absolute  w-[200%] h-full left-0 -bottom-[14%]  bg-gradient-to-t pointer-events-none from-[#09090a]  to-transparent   z-50"></div>
+
         <Dashboard />
       </motion.div>
     </div>
