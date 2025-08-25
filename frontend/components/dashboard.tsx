@@ -87,12 +87,21 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="relative ">
-      <div className="absolute  w-[200%] h-full left-0 -bottom-[14%]  bg-gradient-to-t pointer-events-none from-[#08090A] to-transparent   z-50"></div>
-      <motion.div className="w-[1600px] scale-110  mt-20 containerdiv  relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] ">
-        <div className="absolute h-full  right-0 w-[40%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
+    <div className="relative  " style={
+      {
+        perspective:" 4000px"   , perspectiveOrigin: "100% 0",
+    transformStyle: "preserve-3d",
+      }
+    }>
+  
+      <motion.div className="w-[1600px]     mt-20   relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] z-0" style={{
+        transform: "translateX(2%) scale(1.2) rotateX(47deg) rotateY(31deg) rotate(324deg)",
+        transformOrigin: "top left",
+        backfaceVisibility: "hidden",
+      }}>
+        <div className="absolute h-full  right-0 w-[50%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
         <div className="absolute  w-[80%]  left-0 top-0 bg-gradient-to-t from-[#08090A] to-transparent  z-20" />
-        <div className="w-64 bg-[#08090A] border-r border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white">
+        <div className="w-64 bg-[#08090A] border-r  border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white">
           <div className="w-full">
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
@@ -322,9 +331,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="text-white flex-1 h-screen p-4 ">
-          <div className="text-white h-full bg-[#131315] px-10 py-4 rounded-xl from-[#141516] to-[#08090A]" 
-       
-          >
+          <div className="text-white h-full bg-[#131315] px-10 py-4 rounded-xl from-[#141516] to-[#08090A]">
             <div className="flex justify-between items-center">
               {/* <h2 className="font-semibold">USER ID : 5845BUS21</h2>
               <div className="flex items-center justify-center gap-2">
@@ -332,7 +339,7 @@ export default function Dashboard() {
                 API Status
               </div>
               <IoMdNotifications className="bg-[#1A1B1C] text-2xl" /> */}
-              <Image src={dashboardTop} alt="" />
+              <Image src={dashboardTop} alt=""  />
             </div>
             {/* <div className="flex   gap-5 mt-5 font-semibold">
               <div className="bg-[#1A1B1C] flex flex-col gap-10 w-1/5 p-4 rounded-xl border border-[#22262A]">
@@ -418,7 +425,78 @@ export default function Dashboard() {
                 </div>
               </div>
             </div> */}
-            <Image src={square} alt="" className="w-[90%] mt-10"/>
+         <div className="relative  mt-8  ">
+  <div className="grid grid-cols-4 gap-6  ">
+    {[
+      { title: "Validated Models", value: "7", change: "+12.03%" },
+      { title: "Archived Models", value: "2", change: "+9.03%" },
+      { title: "Contribution Rewards", value: "$8340", change: "+22%" },
+      { title: "Uniqueness Score", value: "1.5", change: "+5.03%" },
+      { title: "Live Models", value: "2", change: "" },
+      {
+        title: "Model Avg Drawdown",
+        value: "1.3%",
+        change: "+3.03%",
+      },
+      { title: "Strategies Deployed", value: "9", change: "+50%" },
+      { title: "Accuracy", value: "55%", change: "+12.03%" },
+    ].map((card, i) => (
+      <div
+      style={{
+        marginTop  : i >= 4 ? "5px" : "0px"
+      }}
+        key={i}
+        className="bg-[#1A1B1C] border border-[#22262A] rounded-xl p-4 text-white shadow-xl h-36  hover:shadow-2xl transition-all duration-300 "
+      
+      >
+        <h2 className="text-lg font-semibold tracking-[1px]">
+        {card.title == "Live Models" ? (
+             <div className="flex items-center space-x-2">
+             <motion.div
+               className="w-3 h-3  rounded-full bg-green-500 relative"
+               animate={{
+                 boxShadow: [
+                   "0 0 0 0 rgba(34, 197, 94, 0.7)",
+                   "0 0 0 8px rgba(34, 197, 94, 0)",
+                 ],
+               }}
+               transition={{
+                 duration: 2,
+                 repeat: Infinity,
+                 ease: "easeOut",
+               }}
+             >
+               <motion.div
+                 className="absolute inset-0 rounded-full bg-green-400"
+                 animate={{ opacity: [0.5, 1, 0.5] }}
+                 transition={{
+                   duration: 1.5,
+                   repeat: Infinity,
+                   ease: "easeInOut",
+                 }}
+               />
+             </motion.div>
+
+             <span >
+               {card.title}
+             </span>
+           </div>
+          ) : card.title}
+        </h2>
+        <p className="text-xs text-gray-400 mb-6" style={{
+          opacity : card.title == "Live Models" ? 0 : 1
+        }}>
+        Jan 1 - July 16
+        </p>
+        <div className="flex justify-between items-center">
+          <span className={`${card.value == "$8340" ? "text-[29px]" : "text-3xl"} font-bold`}>{card.value}</span>
+          <span className="text-[#50E2C2]">{card.change}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
             <Timer />
             <PeakUsageAnalysis />
           </div>

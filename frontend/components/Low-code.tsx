@@ -8,7 +8,12 @@ import Image from "next/image";
 
 export default function LowCode() {
   return (
-    <div className="h-screen    text-[#f7f8f8] flex flex-col   p-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A] ">
+    <div className="    text-[#f7f8f8] flex flex-col   p-40 w-full mt-40 bg-gradient-to-b from-[#141516] to-[#08090A] " 
+    style={{
+      background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
+
+    }}
+    >
       <motion.div
         initial={{
           y: 30,
@@ -50,9 +55,9 @@ export default function LowCode() {
           className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[538]  tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-5 "
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mb-4 "
         >
-          Low-Code Import your own Strategies
+          Low-Code: import your own strategies
         </motion.h2>
         <motion.p
           initial={{
@@ -72,7 +77,7 @@ export default function LowCode() {
             ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
             staggerChildren: 0.1, // If animating multiple items
           }}
-          className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 my-4"
+          className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 "
         >
           Ideal for traders with basic coding knowledge who want flexibility
           without starting from scratch.
