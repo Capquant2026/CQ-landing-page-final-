@@ -43,7 +43,7 @@ export function PeakUsageAnalysis() {
     data.reduce((sum, current) => sum + current.percentage, 0) / data.length;
 
   return (
-    <Card className="bg-transparent mt-3 border-[#2A2A2A] text-[#EDEDED] rotate-[0.3deg]">
+    <Card className="bg-transparent mt-3 border-[#2A2A2A] text-[#EDEDED] ">
       <CardHeader>
         <div>
           <CardTitle className="flex items-center gap-2">

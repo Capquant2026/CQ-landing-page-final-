@@ -1,13 +1,17 @@
 "use client";
 import { motion } from "motion/react";
-import SecurityVisaul from '../public/security-IMG.svg'
+import leftLock from "../public/left-Lock.svg";
+import rightLock from "../public/right-Lock.svg";
+import middleShape from "../public/square-Shape.svg";
 import Image from "next/image";
 export default function Insight() {
   return (
-    <div className="h-screen    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40  "   style={{
-      background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
-
-    }}>
+    <div
+      className="h-screen    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40  "
+      style={{
+        background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)",
+      }}
+    >
       <div className=" w-6xl">
         <motion.h2
           initial={{
@@ -74,19 +78,151 @@ export default function Insight() {
             amount: 0.2,
           }}
           transition={{
-            duration: 1,
+            duration: 1.2,
             ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
           }}
-          className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 sm:mt-20 "
+          className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 sm:mt-20"
         >
-          {/* <motion.div
-            className="w-full flex flex-col items-center justify-center p-8 sm:p-16 md:p-24 lg:p-32 xl:p-52 bg-gradient-to-b from-[#141516] via-[#0f1011] to-[#08090A] rounded-2xl shadow-2xl border border-white/5 backdrop-blur-sm min-h-[300px] sm:min-h-[400px]"
-            initial={{ backdropFilter: "blur(0px)" }}
-            whileInView={{ backdropFilter: "blur(20px)" }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          ></motion.div> */}
-          <Image src={SecurityVisaul} alt="securty"/>
-          <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-[#0b0c0d] z-20 to-transparent pointer-events-none" />
+          <motion.div
+            className={`w-full before:content-[""] before:absolute before: before:w-full before:bg-gradient-to-t before:inset-0 before:from-[#09090a] before:to-transparent before:z-50 before:h-full flex items-center justify-center p-4 bg-gradient-to-b from-[#141516] via-[#0f1011] to-[#08090A] rounded-2xl shadow-2xl border border-white/5 backdrop-blur-sm min-h-[300px] sm:min-h-[400px] relative overflow-hidden`}
+           
+            transition={{
+              delay: 0.3,
+              duration: 1.2,
+              ease: [0.215, 0.61, 0.355, 1],
+            }}
+          >
+            <Image src={leftLock} alt="leftLock" className="z-10" />
+
+            {/* First Line */}
+            <div className="relative">
+              {/* Animated light trail for first line */}
+              <motion.div
+                className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
+                style={{
+                  transform: "translateY(-50%)",
+                  filter: "blur(0.5px)",
+                }}
+                animate={{
+                  width: ["0%", "100%", "0%", "0%", "0%"],
+                  x: ["0px", "0px", "228px", "228px", "228px"],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  times: [0, 0.125, 0.25, 0.75, 1],
+                }}
+              />
+
+              {/* Main traveling light for first line */}
+              <motion.div
+                className="w-2.5 h-2.5 bg-[#8B9BFF] absolute top-1/2 -translate-y-1/2 rounded-full z-20"
+                style={{
+                  filter: "blur(0.5px)",
+                  boxShadow:
+                    "0 0 15px #8B9BFF, 0 0 25px #5E6AD2, 0 0 35px rgba(94, 106, 210, 0.3)",
+                }}
+                animate={{
+                  x: ["0px", "228px", "228px", "228px", "0px"],
+                  opacity: [1, 1, 0, 0, 1],
+                  scale: [1, 1.2, 0.8, 0.8, 1],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  times: [0, 0.125, 0.25, 0.75, 1],
+                }}
+              />
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="228"
+                height="2"
+                viewBox="0 0 228 2"
+                fill="none"
+              >
+                <path d="M0 1H228" stroke="#5E6AD2" strokeWidth="2" />
+              </svg>
+            </div>
+
+            <Image src={middleShape} alt="middleshape" className="z-10" />
+
+            {/* Second Line */}
+            <div className="relative">
+              {/* Animated light trail for second line */}
+              <motion.div
+                className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
+                style={{
+                  transform: "translateY(-50%)",
+                  filter: "blur(0.5px)",
+                }}
+                animate={{
+                  width: ["0%", "0%", "100%", "100%", "0%"],
+                  x: ["0px", "0px", "0px", "0px", "0px"],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  times: [0, 0.25, 0.375, 0.625, 0.75],
+                }}
+              />
+
+              {/* Main traveling light for second line */}
+              <motion.div
+                className="w-2.5 h-2.5 bg-[#8B9BFF] absolute top-1/2 -translate-y-1/2 rounded-full z-20"
+                style={{
+                  filter: "blur(0.5px)",
+                  boxShadow:
+                    "0 0 15px #8B9BFF, 0 0 25px #5E6AD2, 0 0 35px rgba(94, 106, 210, 0.3)",
+                }}
+                animate={{
+                  x: ["0px", "0px", "228px", "0px", "0px"],
+                  opacity: [0, 1, 1, 1, 0],
+                  scale: [0.8, 1, 1.2, 1, 0.8],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  times: [0, 0.25, 0.375, 0.625, 0.75],
+                }}
+              />
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="228"
+                height="2"
+                viewBox="0 0 228 2"
+                fill="none"
+              >
+                <path d="M0 1H228" stroke="#5E6AD2" strokeWidth="2" />
+              </svg>
+            </div>
+
+            <Image src={rightLock} alt="rightShape" className="z-10" />
+
+            {/* Ambient glow effect */}
+            <motion.div
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              animate={{
+                background: [
+                  "radial-gradient(circle at 10% 50%, rgba(139, 155, 255, 0.03) 0%, transparent 50%)",
+                  "radial-gradient(circle at 30% 50%, rgba(139, 155, 255, 0.05) 0%, transparent 50%)",
+                  "radial-gradient(circle at 70% 50%, rgba(139, 155, 255, 0.05) 0%, transparent 50%)",
+                  "radial-gradient(circle at 90% 50%, rgba(139, 155, 255, 0.03) 0%, transparent 50%)",
+                  "radial-gradient(circle at 10% 50%, rgba(139, 155, 255, 0.03) 0%, transparent 50%)",
+                ],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </div>
