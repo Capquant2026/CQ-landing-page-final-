@@ -14,7 +14,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const role : string[] = ["Student" , "Professional"]
+  const role : string[] = ["Role","Student" , "Professional"]
   const countries = [
     "Select your Country",
     "Afghanistan",
@@ -373,7 +373,7 @@ export default function Contact() {
             <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.input
                 type="email"
-                placeholder="email"
+                placeholder="Email"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
                 whileFocus={{
                   borderColor: "#68cc58",
