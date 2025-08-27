@@ -3,12 +3,13 @@
 import Dashboard from "./dashboard";
 import { IoMdPlay } from "react-icons/io";
 import { motion } from "motion/react";
+
 export default function Hero() {
   const titleContent = "Idea to Live Trading in 60 Minutes".split(" ");
 
   return (
-    <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-[1100px] mt-20 sm:mt-32 md:mt-40">
+    <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
+      <div className="w-full max-w-[1100px] mt-20 sm:mt-32 md:mt-40 px-4 sm:px-6 lg:px-8">
         <div className="text-[#f7f8f8] flex mx-auto flex-col gap-1 sm:gap-6 md:gap-1 items-center text-center md:items-start md:text-start">
           <motion.h1
             initial={{
@@ -23,28 +24,21 @@ export default function Hero() {
             }}
             transition={{
               duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-              staggerChildren: 0.1, // If animating multiple items
+              ease: [0.25, 0.46, 0.45, 0.94],
+              staggerChildren: 0.1,
             }}
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
-            <span className="flex flex-wrap items-start  justify-start gap-1  sm:gap-3 ">
+            <span className="flex flex-wrap items-start justify-center md:justify-start gap-1 sm:gap-3">
               {titleContent.map((item: string, index: number) => (
                 <span key={index} className="whitespace-nowrap">
                   {item}
                 </span>
               ))}
             </span>
-            {/* <span className="flex flex-wrap items-start justify-start gap-1 sm:gap-3">
-              {"60 min Execution Loop".split(" ").map((item, index) => (
-                <span key={index} className="whitespace-nowrap">
-                  {item}
-                </span>
-              ))}
-            </span> */}
           </motion.h1>
 
           <motion.p
@@ -61,19 +55,18 @@ export default function Hero() {
             transition={{
               delay: 0.1,
               duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-              staggerChildren: 0.1, // If animating multiple items
+              ease: [0.25, 0.46, 0.45, 0.94],
+              staggerChildren: 0.1,
             }}
-            className="text-[#8A8F98]  text-sm sm:text-base md:text-md font-[555]
+            className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed 
-                        tracking-tight  md:text-left w-full md:w-1/2 
-                        max-w-1/2  
-                        px-2 sm:px-4 md:px-0"
+                        tracking-tight text-center md:text-left w-full md:w-1/2 
+                        max-w-1/2"
           >
-            The world’s first institutional alpha marketplace.
-            <strong className="text-nowrap"> No-code, low-code, or pro-code</strong>
-            —your strategies compete for real capital 
-            <strong> Every hour</strong>
+            <span>The world's first institutional alpha marketplace.</span>
+            <strong className="text-nowrap"> No-code, low-code, or Pro-code </strong>
+            <span>your strategies compete for real capital 
+            <strong> Every hour</strong></span>
           </motion.p>
         </div>
       </div>
@@ -92,13 +85,12 @@ export default function Hero() {
         transition={{
           delay: 0.3,
           duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-          staggerChildren: 0.1, // If animating multiple items
+          ease: [0.25, 0.46, 0.45, 0.94],
+          staggerChildren: 0.1,
         }}
-        className=" w-full max-w-[1600px]  mt-16"
+        className="w-full max-w-[1600px] mt-16 px-4 sm:px-6 lg:px-8"
       >
-              <div className="absolute  w-[200%] h-full left-0 -bottom-[14%]  bg-gradient-to-t pointer-events-none from-[#09090a]  to-transparent   z-50"></div>
-
+        <div className="absolute w-[200%] h-[80%] left-0 -bottom-[14%] bg-gradient-to-t pointer-events-none from-[#09090a] to-transparent z-50"></div>
         <Dashboard />
       </motion.div>
     </div>
