@@ -95,11 +95,30 @@ export default function LowCode() {
           </div>
         </div>
       </div> */}
-      <div className="mr-20 flex mt-5  items-center justify-center">
+      <motion.div
+        initial={{
+          y: 60,
+          opacity: 0,
+          scale: 0.95,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 1.2,
+          ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
+        }}
+      className="mr-20 flex mt-5  items-center justify-center">
         <MovingSymbolCode />
         <Image src={arrowImg} alt="arrowimg" priority />
         <Image src={code} alt="code" width={300} priority />
-      </div>
+      </motion.div>
     </div>
   );
 }

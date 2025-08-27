@@ -24,6 +24,7 @@ export default function AnalyticsSection() {
 
     return () => clearInterval(cardsInterval);
   }, []);
+
   const titles = [
     {
       title: "Round 14- Model Received",
@@ -59,124 +60,148 @@ export default function AnalyticsSection() {
       time: "Ongoing",
     },
   ];
-  return (
-    <div className="    text-[#f7f8f8] flex flex-col items-center justify-start p-40 w-full mt-40  "
-    style={{
-      background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
 
-    }}
+  return (
+    <div className="text-[#f7f8f8] flex flex-col items-center justify-start w-full mt-40"
+      style={{
+        background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
+      }}
     >
-      <div className="w-6xl">
-        <motion.h2
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
-          }}
-          className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+      <div className="w-full max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
+        <div className="flex flex-col items-center text-center md:items-start md:text-start">
+          <motion.h2
+            initial={{
+              y: 30,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              delay: 0.2,
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              staggerChildren: 0.1,
+            }}
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
-        >
-          Multi-Asset.Deploy Alpha. Collect Rewards
-        </motion.h2>
-        <motion.p
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-          }}
-          className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 mt-5"
-        >
-          Turn your edge into real rewards with a platform that’s transparent,
-          data-driven, and flexible across multiple assets and any timeframe.
-        </motion.p>
-        <motion.p
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-          }}
-          className="text-[#8a8f98] mb-4"
-        >
-          Build the way you want{"                     "}
-          <strong className="text-[#5e6ad2] ">
-            No-Code , Low-Code , Pro-Code
-          </strong>
-        </motion.p>
-
-        <motion.span
-          initial={{
-            y: 10,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 0.9,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
-          }}
-          className="inline-block"
-        >
-          <Button
-            className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black mt-5"
-            size={"lg"}
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
-            Join the waitlist
-          </Button>
-        </motion.span>
-        <div className="mt-10 flex h-72  items-center justify-center ">
-          <div className="w-1/2 h-full  border-t border-b border-zinc-800/60  border-b-zinc-800/80 p-4">
+            Multi-Asset.Deploy Alpha. Collect Rewards
+          </motion.h2>
+          
+          <motion.p
+            initial={{
+              y: 30,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-full md:w-1/2 mt-5"
+          >
+            Turn your edge into real rewards with a platform that's transparent,
+            data-driven, and flexible across multiple assets and any timeframe.
+          </motion.p>
+          
+          <motion.p
+            initial={{
+              y: 30,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              delay: 0.4,
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="text-[#8a8f98] mb-4"
+          >
+            Build the way you want{" "}
+            <strong className="text-[#5e6ad2]">
+              No-Code , Low-Code , Pro-Code
+            </strong>
+          </motion.p>
+
+          <motion.span
+            initial={{
+              y: 10,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              delay: 0.4,
+              duration: 0.9,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              staggerChildren: 0.1,
+            }}
+            className="inline-block"
+          >
+            <Button
+              className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black mt-5"
+              size={"lg"}
+            >
+              Join the waitlist
+            </Button>
+          </motion.span>
+        </div>
+
+        <motion.div
+          initial={{
+            y: 60,
+            opacity: 0,
+            scale: 0.95,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 1.2,
+            ease: [0.215, 0.61, 0.355, 1],
+          }}
+          className="lg:mt-10  flex flex-col md:flex-row h-72 items-center mt-40 justify-center "
+        >
+          <div className="md:w-1/2 w-full h-full border-t border-b border-zinc-800/60 border-b-zinc-800/80 p-4">
             <div
-              className=" p-4 rounded-lg h-full  relative flex flex-col   border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] transition-all duration-150 ease-in-out"
+              className="p-4 rounded-lg h-full relative flex flex-col border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] transition-all duration-150 ease-in-out"
               style={{
                 background:
                   "linear-gradient(to bottom right,hsla(0,0%,100%,.07),transparent)",
               }}
             >
-              <div className="w-full h-full bg-gradient-to-l from-[#0d0e0f] to-transparent pointer-events-none inset-0 absolute z-10" />
-              {/* <div className="w-full h-full bg-gradient-to-t from-[#0d0e0f] to-transparent pointer-events-none inset-0 absolute z-10" /> */}
+              <div className="w-full h-full bg-gradient-to-l from-[#0d0e0f] to-transparent pointer-events-none inset-0 absolute z-10 opacity-70" />
               <h2 className="font-[555] transition-all duration-150 ease-in-out tracking-[-.0325em] text-xl mt-4">
                 Deployment
               </h2>
@@ -185,7 +210,7 @@ export default function AnalyticsSection() {
                   <Button
                     onMouseEnter={() => setIsDropMenuHovered(true)}
                     onMouseLeave={() => setIsDropMenuHovered(false)}
-                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer   flex items-center justify-between w-[70%]   border border-[#ffffff1a]   "
+                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer flex items-center justify-between w-[70%] border border-[#ffffff1a]"
                   >
                     Horizon{" "}
                     <motion.span
@@ -201,7 +226,7 @@ export default function AnalyticsSection() {
                   <Button
                     onMouseEnter={() => setShowAsset(true)}
                     onMouseLeave={() => setShowAsset(false)}
-                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer   flex items-center justify-between w-[70%]   border border-[#ffffff1a]   "
+                    className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer flex items-center justify-between w-[70%] border border-[#ffffff1a]"
                   >
                     Select Asset Classes{" "}
                     <motion.span
@@ -234,7 +259,7 @@ export default function AnalyticsSection() {
                       opacity: 0,
                     }}
                     transition={{
-                      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+                      ease: [0.25, 0.46, 0.45, 0.94],
                     }}
                     className="bg-[#3A3B3C] ml-20 w-[80%] flex flex-col relative z-50 items-start justify-center py-2 rounded-lg border border-[#ffffff1a]"
                   >
@@ -280,7 +305,7 @@ export default function AnalyticsSection() {
                       opacity: 0,
                     }}
                     transition={{
-                      ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+                      ease: [0.25, 0.46, 0.45, 0.94],
                     }}
                     className="bg-[#3A3B3C] ml-20 w-[80%] flex flex-col relative z-50 items-start justify-center py-2 rounded-lg border border-[#ffffff1a]"
                   >
@@ -295,15 +320,15 @@ export default function AnalyticsSection() {
               </AnimatePresence>
             </div>
           </div>
-          <div className="w-1/2 h-full  p-4 border-t border-b  border-zinc-800/60  border-b-zinc-800/80 border-l   border-l-zinc-800/80">
+          <div className="md:w-1/2 w-full h-full p-4 border-t border-b border-zinc-800/60 border-b-zinc-800/80 border-l border-l-zinc-800/80">
             <div
-              className=" p-4 rounded-lg h-full  relative border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] flex items-center justify-center flex-col transition-all duration-150 ease-in-out"
+              className="p-4 rounded-lg h-full relative border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] flex items-center justify-center flex-col transition-all duration-150 ease-in-out"
               style={{
                 background:
                   "linear-gradient(to bottom right,hsla(0,0%,100%,.07),transparent)",
               }}
             >
-              <div className="w-full h-full bg-gradient-to-l from-[#0d0e0f] inset-0 absolute z-10" />
+              <div className="w-full h-full bg-gradient-to-l from-[#0d0e0f] inset-0 absolute z-10 opacity-70" />
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, y: 20 }}
@@ -315,7 +340,7 @@ export default function AnalyticsSection() {
                 }}
                 className="w-full"
               >
-                <div className=" text-gray-500 px-2 py-1 rounded text-sm font-bold">
+                <div className="text-gray-500 px-2 py-1 rounded text-sm font-bold">
                   {titles[currentIndex].time}
                 </div>
                 <motion.div className="bg-[#393939] w-full border relative text-center rounded-md p-5 border-[#ffffff1a]">
@@ -330,7 +355,7 @@ export default function AnalyticsSection() {
               </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
