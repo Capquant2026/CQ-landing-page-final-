@@ -109,7 +109,7 @@ X-Model-Version: 4.7.2
           setCurrentLineIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
           setCurrentTypingLine("");
-        }, 500); // Brief pause before adding line
+        }, 200); // Brief pause before adding line
 
         return () => clearTimeout(timeout);
       }
