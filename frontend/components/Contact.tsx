@@ -1,7 +1,7 @@
 "use client";
 
 import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa6";
+import { FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { Button } from "./ui/button";
@@ -288,14 +288,15 @@ export default function Contact() {
   };
 
   return (
-    <div className="text-[#f7f8f8] flex flex-col items-center justify-start pt-40 w-full mt-40 "
+    <div className="text-[#f7f8f8] flex flex-col items-center justify-start pt-20 sm:pt-40 w-full mt-20 sm:mt-40"
     style={{
       background:
         "linear-gradient(to bottom, hsla(0,0%,100%,.05), transparent 20%), linear-gradient(180deg, rgba(97, 106, 115, 0) 0, rgba(97, 106, 115, .05) 40%, rgba(97, 106, 115, .05) 80%, rgba(97, 106, 115, 0) 100%)",
     }}
+    id="contact"
     >
       <motion.div
-        className="flex items-center flex-col w-full"
+        className="flex items-center flex-col w-full px-4 sm:px-0"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -319,7 +320,7 @@ export default function Contact() {
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[538] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -333,7 +334,7 @@ export default function Contact() {
           </motion.h2>
 
           <motion.p
-            className="font-[510] tracking-[-0.011em] text-[#8a8f98]"
+            className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 0.75, y: 0 }}
             viewport={{ once: true }}
@@ -345,36 +346,36 @@ export default function Contact() {
 
         {/* Form Section */}
         <motion.form
-          className="w-1/2 my-30"
+          className="w-full md:w-1/2 my-10 md:my-30"
           variants={formVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.div
-            className="flex justify-center items-center gap-10"
+            className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10"
             variants={inputVariants}
           >
             <motion.div
-              className="w-1/2"
+              className="w-full md:w-1/2"
               whileHover={{ scale: 1.02 }}
               whileFocus={{ scale: 1.02 }}
             >
               <motion.input
                 type="text"
                 placeholder="Full name"
-                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
+                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg focus:shadow-[#68cc58]/10"
                 whileFocus={{
                   borderColor: "#68cc58",
                   boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
                 }}
               />
             </motion.div>
-            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
+            <motion.div className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
               <motion.input
                 type="email"
                 placeholder="Email"
-                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 ] focus:shadow-lg focus:shadow-[#68cc58]/10"
+                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg focus:shadow-[#68cc58]/10"
                 whileFocus={{
                   borderColor: "#68cc58",
                   boxShadow: "0 0 20px rgba(104, 204, 88, 0.1)",
@@ -384,23 +385,23 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            className="flex mt-3 justify-center items-center gap-10"
+            className="flex flex-col md:flex-row mt-3 justify-center items-center gap-5 md:gap-10"
             variants={inputVariants}
           >
             
-            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
-              <motion.select className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">
+            <motion.div className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
+              <motion.select  className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">
                 {role.map((item) => {
                   return (
-                    <option value={item} key={item}>
+                    <option value={item}  key={item} >
                       {item}
                     </option>
                   );
                 })}
               </motion.select>
             </motion.div>
-            <motion.div className="w-1/2" whileHover={{ scale: 1.02 }}>
-              <motion.select className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">
+            <motion.div className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
+              <motion.select className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10">
                 {countries.map((item) => {
                   return (
                     <option value={item} key={item}>
@@ -415,7 +416,7 @@ export default function Contact() {
           <motion.div className="w-full mt-5" variants={inputVariants}>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
-                className="bg-white hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
+                className="bg-white cursor-pointer hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
                 size={"lg"}
               >
                 Join The Waitlist
@@ -425,7 +426,7 @@ export default function Contact() {
         </motion.form>
 
         <motion.div
-          className="scroll-m-20 font-[510] tracking-[-0.011em]  text-center"
+          className="scroll-m-20 font-[510] tracking-[-0.011em]  text-center mt-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -480,17 +481,22 @@ export default function Contact() {
             {
               icon: FaLinkedin,
               label: "Linkedin",
-              url: "https://www.linkedin.com/company/lotus-capital-gestion/",
+              url: "https://www.linkedin.com/company/capquant-internatonal/",
             },
             {
               icon: FaInstagram,
               label: "Instagram",
-              url: "https://www.instagram.com/lotuscapitalinvest",
+              url: "https://www.instagram.com/capquant",
             },
             {
               icon: FaTiktok,
               label: "Tik Tok",
-              url: "https://www.tiktok.com/@lotuscapitalinvest",
+              url: "https://www.tiktok.com/@capquant",
+            },
+            {
+              icon: FaXTwitter ,
+              label: "X",
+              url: "https://x.com/capquant_",
             },
           ].map(({ icon: Icon, label, url }) => (
             <motion.div

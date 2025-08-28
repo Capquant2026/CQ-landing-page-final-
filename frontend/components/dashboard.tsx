@@ -18,11 +18,17 @@ import { PeakUsageAnalysis } from "./PeakUsageAnalysis";
 import { CiImport } from "react-icons/ci";
 import { MdPayment } from "react-icons/md";
 import { Timer } from "./timer";
+import { TbApi } from "react-icons/tb";
+import { TbPrompt } from "react-icons/tb";
+import { RiSlowDownFill } from "react-icons/ri";
+import { FiCloud, FiServer, FiDatabase, FiLock } from "react-icons/fi";
+import { AiOutlineCloudServer } from "react-icons/ai";
+
+import apiiicon from '../public/apiicon.svg'
 import dashboardTop from "../public/Frame 31.svg";
 import { useState } from "react";
 
 export default function Dashboard() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const allLinks = [
     {
       label: "Dashboard",
@@ -34,11 +40,7 @@ export default function Dashboard() {
     },
 
     {
-      label: "Backtesting Engine",
-      href: "/",
-    },
-    {
-      label: "Api Documentation",
+      label: "API",
       href: "/",
     },
     {
@@ -50,29 +52,33 @@ export default function Dashboard() {
       href: "/",
     },
     {
+      label: "Backtester ",
+      href: "/",
+    },
+    {
       label: "Reward Tracker",
       href: "/",
     },
     {
       label: "Reports",
-      href: "/",
+href: "/",
     },
     {
       label: "Leaderboard",
       href: "/",
-    },
+    }
   ];
   const icons = [
     GrHomeRounded,
     IoPersonSharp,
-
-    TfiStatsUp,
-    SlDocs,
+    AiOutlineCloudServer,
     CiImport,
     FaCode,
+    TfiStatsUp,
     MdPayment,
     IoFlag,
     PiRankingLight,
+
   ];
   const colors = [
     "5F6163",
@@ -81,9 +87,10 @@ export default function Dashboard() {
     "EB5757",
     "50E2C2",
     "5E6AD2",
+    "26B5CE",
     "4EA7FC",
     "68CC58",
-    "F2994A",
+
   ];
 
   return (
@@ -178,7 +185,7 @@ export default function Dashboard() {
                             className="  w-full py-3 relative hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700  transition-all duration-300"
                           >
                             <Icon
-                              className="mr-3"
+                              className="mr-2"
                               style={{ color: "#5E6AD2" }}
                               size={20}
                             />
@@ -188,6 +195,18 @@ export default function Dashboard() {
                       </motion.div>
                     );
                   }
+                  // if (item.label == "API") {
+                  //   return (
+                  //     <Button
+                  //       key={index}
+                  //       variant={"ghost"}
+                  //       className="w-full py-2   hover:bg-[#151515] hover:text-white cursor-pointer flex items-start justify-start "
+                  //     >
+                  //       <Image  src={Icon} alt="icons" className="mr-2" width={16} />
+                  //       {item.label}
+                  //     </Button>
+                  //   );
+                  // }
                   return (
                     <Button
                       key={index}
@@ -208,7 +227,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="w-full"></div>
           <div
             className="w-full"
             style={{

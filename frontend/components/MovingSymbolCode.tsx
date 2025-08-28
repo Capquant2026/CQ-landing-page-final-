@@ -16,7 +16,7 @@ const MovingSymbolCode = () => {
   if (!mounted) return null;
 
   return (
-    <div className=" w-[43%] mt-5 ">
+    <div className="w-full lg:w-[42%] mt-5 ">
       <motion.div className="w-full bg-[#202122] mx-auto h-72 rounded-lg p-10 relative overflow-hidden">
         <motion.h2
           className="text-2xl font-[538] tracking-[-.0325em] text-balance text-white mb-6 relative z-10"
