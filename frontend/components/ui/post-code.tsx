@@ -209,8 +209,8 @@ X-Model-Version: 4.7.2
         <div className="bg-[#0d0e0f] px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
           <div className="flex items-center space-x-4 w-full">
             <div className="flex space-x-2 py-3 w-full">
-              <div className="flex items-center justify-between  w-full space-x-3">
-                <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-between relative z-50 w-full space-x-3">
+                <div className="flex items-center space-x-3 ">
                   <motion.div
                     className="w-3 h-3  rounded-full bg-green-500 relative"
                     animate={{
@@ -249,7 +249,7 @@ X-Model-Version: 4.7.2
                     scale: 0.9,
                   }}
                 >
-                  <Button className="bg-white hover:bg-white text-black cursor-pointer">
+                  <Button className="bg-white  opacity-50 hover:bg-white text-black cursor-pointer">
                     Deploy
                   </Button>
                 </motion.span>

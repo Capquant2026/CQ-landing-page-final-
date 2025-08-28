@@ -14,10 +14,12 @@ export default function ApiSection() {
 
   const [sla, setSla] = useState<number>(200);
   const targetSequence: number[] = [
-    15.2, 23.8, 18.6, 29.4, 34.7, 41.3, 38.9, 45.6, 52.1, 48.7, 55.3, 61.8, 
-    58.4, 64.9, 67.2, 63.8, 69.5, 72.1, 68.7, 74.3, 71.6, 73.9, 70.2, 74.8,
-    76.5, 78.9, 81.2, 83.7, 85.4, 87.6, 89.1, 91.2, 93.0
+    42.8, 77.3, 59.6, 88.1, 94.5, 63.2, 71.9, 103.4, 52.7, 81.6, 
+    99.2, 65.4, 74.8, 91.3, 38.6, 85.7, 96.9, 40.2, 69.5, 104.1, 
+    55.8, 83.9, 100.7, 49.3, 76.4, 89.8, 60.1, 97.6, 41.7, 92.4, 
+    68.2, 101.5, 53.9
   ];
+  
   
   const uptimeSequence: number[] = [
     99.88, 99.89, 99.9, 99.91, 99.92, 99.93, 99.94, 99.95, 99.94, 99.93, 99.92,
@@ -55,8 +57,38 @@ export default function ApiSection() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="text-[#f7f8f8] flex flex-col items-center justify-start p-40 gap-10 w-full mt-40 ">
-      <motion.div
+    <div 
+    className="text-[#f7f8f8] flex flex-col 
+               px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 
+               py-8 sm:py-16 md:py-24 lg:py-32 xl:py-40
+               w-full 
+               mt-10 sm:mt-20 md:mt-32 lg:mt-40 
+               bg-gradient-to-b from-[#141516] to-[#08090A]" 
+    style={{
+      background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
+    }}
+  >
+    <motion.div
+      initial={{
+        y: 30,
+        opacity: 0,
+      }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        delay: 0.1,
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        staggerChildren: 0.1,
+      }}
+      className="flex self-center items-start w-full max-w-6xl flex-col"
+    >
+      <motion.h2
         initial={{
           y: 30,
           opacity: 0,
@@ -69,69 +101,54 @@ export default function ApiSection() {
           once: true,
         }}
         transition={{
-          delay: 0.1,
+          delay: 0.2,
           duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-          staggerChildren: 0.1, // If animating multiple items
+          ease: [0.25, 0.46, 0.45, 0.94],
+          staggerChildren: 0.1,
         }}
-        className="flex items-start w-6xl flex-col    "
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+                   leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
+                   font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
+                   max-w-full mb-4 px-4 sm:px-0"
       >
-        <motion.h2
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
-          }}
-          className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 
-                         leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                         font-[538]  tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl "
-        >
-          Pro-Code: the CapQuant API
-        </motion.h2>
-        <motion.p
-          initial={{
-            y: 30,
-            opacity: 0,
-          }}
-          whileInView={{
-            y: 0,
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-            staggerChildren: 0.1, // If animating multiple items
-          }}
-          className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-1/2 my-4"
-        >
-          Full access to our advanced coding environment with complete API
+        Pro-Code: the CapQuant API
+      </motion.h2>
+      
+      <motion.p
+        initial={{
+          y: 30,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: [0.25, 0.46, 0.45, 0.94],
+          staggerChildren: 0.1,
+        }}
+        className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
+                   w-full sm:w-3/4 md:w-2/3 lg:w-1/2 
+                   px-4 sm:px-0 text-center sm:text-left
+                   text-sm sm:text-base"
+      >
+        Full access to our advanced coding environment with complete API
           control. Designed for quant researchers and data scientists who use
           sophisticated techniques and want institutional-grade precision.
-        </motion.p>
-       
-      </motion.div>
-      <div className="flex w-full gap-5 items-center justify-center">
+      </motion.p>
+    </motion.div>
+
+ 
+      <div className="flex flex-col lg:flex-row w-full gap-5 items-center justify-center">
         <PostCode />
         <GetCode />
       </div>
-      <div className="flex  gap-3 mt-10 items-center">
+      <div className="flex  flex-wrap  lg:flex-row gap-3 mt-10 items-center">
         <Card className="w-64 h-40 mx-auto   p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
           <CardContent className="space-y-4 flex flex-col items-center justify-center">
             <motion.div
@@ -374,6 +391,6 @@ export default function ApiSection() {
           </CardContent>
         </Card>
       </div>
-    </div>
+  </div>
   );
 }
