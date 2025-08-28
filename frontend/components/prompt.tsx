@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
+
 const OPENAI_SVG = (
   <div>
     <svg
@@ -98,8 +99,8 @@ export default function Prompt() {
   }, []);
 
   return (
-    <div className="w-[600px] py-4 ">
-      <div className="bg-[#131415] rounded-2xl p-4">
+    <div className="w-full max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-[800px] py-2 sm:py-4">
+      <div className="bg-[#131415] rounded-2xl p-2 sm:p-4">
         <div className="relative">
           <div className="relative flex flex-col">
             <div className="overflow-y-auto" style={{ maxHeight: "400px" }}>
@@ -108,8 +109,9 @@ export default function Prompt() {
                 value={value}
                 placeholder={displayedText}
                 className={cn(
-                  "w-full rounded-xl text-5xl rounded-b-none px-4 py-3 bg-[#212222] border-none resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
-                  "min-h-[72px]"
+                  "w-full rounded-xl rounded-b-none px-2 sm:px-4 py-2 sm:py-3 bg-[#212222] border-none resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                  "min-h-[60px] sm:min-h-[72px]",
+                  "text-base  "
                 )}
                 onChange={(e) => {
                   setValue(e.target.value);
@@ -117,44 +119,48 @@ export default function Prompt() {
               />
             </div>
 
-            <div className="h-14 bg-[#212222] rounded-b-xl flex items-center">
-              <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between w-[calc(100%-24px)]">
-                <div className="flex items-center gap-2">
+            <div className="h-12 sm:h-14 bg-[#212222] rounded-b-xl flex items-center">
+              <div className="absolute left-2 right-2 sm:left-3 sm:right-3 bottom-2 sm:bottom-3 flex items-center justify-between w-[calc(100%-16px)] sm:w-[calc(100%-24px)]">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <div className="h-4 w-px bg-black/10 dark:bg-white/10 mx-0.5" />
+                  
+                  {/* Mobile: Show icons only, Desktop: Show text + icons */}
                   <label
                     className={cn(
-                      "rounded-full px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
+                      "rounded-full px-2 sm:px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-1 sm:gap-2 cursor-pointer",
                       "hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
-                      " text-white text-sm"
+                      "text-white text-xs sm:text-sm"
                     )}
                     aria-label="Attach file"
                   >
-                    Attach
-                    <Paperclip className="w-4 h-4 transition-colors" />
+                    <span className="hidden sm:inline">Attach</span>
+                    <Paperclip className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" />
                   </label>
+                  
                   <label
                     className={cn(
-                      "rounded-full px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-2 cursor-pointer",
+                      "rounded-full px-2 sm:px-3 py-1 border border-[#363636] flex flex-row-reverse items-center gap-1 sm:gap-2 cursor-pointer",
                       "hover:bg-black/10 dark:hover:bg-white/10 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
-                      " text-white text-sm"
+                      "text-white text-xs sm:text-sm"
                     )}
-                    aria-label="Attach file"
+                    aria-label="Search web"
                   >
-                    Search
-                    <Globe className="w-4 h-4 transition-colors" />
+                    <span className="hidden sm:inline">Search</span>
+                    <Globe className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" />
                   </label>
                 </div>
+                
                 <motion.span
-                className="inline-block cursor-pointer"
-                whileHover={{
-                  scale : 1.01,
-                  y : -2
-                }}
-                whileTap={ {
-                  scale : 0.9
-                }}
+                  className="inline-block cursor-pointer"
+                  whileHover={{
+                    scale: 1.01,
+                    y: -2
+                  }}
+                  whileTap={{
+                    scale: 0.9
+                  }}
                 >
-                  <Button className="bg-white hover:bg-white text-black cursor-pointer">
+                  <Button className="bg-white hover:bg-white text-black cursor-pointer text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 h-8 sm:h-auto">
                     Deploy
                   </Button>
                 </motion.span>
