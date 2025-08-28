@@ -11,7 +11,7 @@ export default function Insight() {
         background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
       }}
     >
-      <div className="w-full max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
+      <div className="w-full max-w-[1200px]  px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
         <div className="flex flex-col items-center text-center md:items-start md:text-start">
           <motion.h2
             initial={{
@@ -36,7 +36,7 @@ export default function Insight() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
-            Security & Reliability
+            Security & Encryption
           </motion.h2>
           
           <motion.p
@@ -61,31 +61,7 @@ export default function Insight() {
            Your models stay protected with full encryption on both ends, secure
            APIs, and complete IP safeguarding
           </motion.p>
-          
-          <motion.p
-            initial={{
-              y: 30,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.4,
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className="text-[#8a8f98] mb-4"
-          >
-            Build the way you want{" "}
-            <strong className="text-[#5e6ad2]">
-              No-Code , Low-Code , Pro-Code
-            </strong>
-          </motion.p>
+       
 
           
         </div>

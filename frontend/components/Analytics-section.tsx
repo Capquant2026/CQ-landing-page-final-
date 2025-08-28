@@ -67,7 +67,7 @@ export default function AnalyticsSection() {
         background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
       }}
     >
-      <div className="w-full max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
+      <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
         <div className="flex flex-col items-center text-center md:items-start md:text-start">
           <motion.h2
             initial={{
@@ -163,12 +163,7 @@ export default function AnalyticsSection() {
             }}
             className="inline-block"
           >
-            <Button
-              className="bg-[#f7f8f8] hover:bg-[#f7f8f8] text-black mt-5"
-              size={"lg"}
-            >
-              Join the waitlist
-            </Button>
+         
           </motion.span>
         </div>
 
@@ -228,7 +223,7 @@ export default function AnalyticsSection() {
                     onMouseLeave={() => setShowAsset(false)}
                     className="bg-[#393939] text-[#8a8f98] transition-all duration-150 ease-in-out mx-auto cursor-pointer flex items-center justify-between w-[70%] border border-[#ffffff1a]"
                   >
-                    Select Asset Classes{" "}
+                    Select Asset Class{" "}
                     <motion.span
                       animate={{
                         rotate: showAsset ? -90 : 0,

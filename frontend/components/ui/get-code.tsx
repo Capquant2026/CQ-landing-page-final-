@@ -202,6 +202,8 @@ const GetCode = () => {
     >
       <div className="rounded-lg shadow-2xl relative bg-gradient-to-b from-[#141516]  to-[#08090A] overflow-hidden border border-zinc-800/80">
         <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
+        <div className="w-full absolute h-full inset-0 z-30 bg-gradient-to-tl from-[#141516] to-[#08090a00]" />
+
         {/* Windows Terminal Header */}
         <div className=" px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
           <div className="flex items-center space-x-4">
