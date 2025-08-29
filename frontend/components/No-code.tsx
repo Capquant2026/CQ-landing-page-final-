@@ -89,9 +89,9 @@ export default function NoCode() {
             staggerChildren: 0.1,
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                     w-full sm:w-3/4 md:w-2/3 lg:w-1/2 
+                     w-full sm:w-3/4 lg:w-1/2 
                      mt-5 px-4 sm:px-0 text-center sm:text-left
-                     text-sm sm:text-base"
+                      md:w-4/6 text-xl"
         >
           Perfect for traders who have ideas but no coding background—stack
           conditions, test, and deploy in minutes.
@@ -137,7 +137,6 @@ export default function NoCode() {
                           top-0 right-0 absolute z-10 opacity-75" />
         </div>
         
-        {/* Right Panel - Image */}
         <div className="w-full lg:w-1/2 
                         h-64 sm:h-72 lg:h-full 
                         relative 
@@ -156,6 +155,7 @@ export default function NoCode() {
             src={automationIMG} 
             alt="automationImage" 
             className="p-1 w-full h-full object-contain" 
+            priority
           />
         </div>
       </motion.div>

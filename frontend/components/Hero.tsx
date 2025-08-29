@@ -1,11 +1,10 @@
 "use client";
 
 import Dashboard from "./dashboard";
-import { IoMdPlay } from "react-icons/io";
 import { motion } from "motion/react";
 
 export default function Hero() {
-  const titleContent = "Idea to Live Trading in 60 Minutes".split(" ");
+  const titleContent = "Idea to live trading in 60 minutes".split(" ");
 
   return (
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
@@ -56,17 +55,16 @@ export default function Hero() {
               delay: 0.1,
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
-            staggerChildren: 0.1,
+              staggerChildren: 0.1,
             }}
             className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-5 
                         tracking-tight text-center md:text-left w-full md:w-1/2 
                         max-w-1/2"
           >
-            <span>The world's first institutional alpha marketplace.</span>
-            <strong className="text-nowrap"> No-code, Low-code, or Pro-code </strong>
-            <span>your strategies compete for real capital 
-            <strong> Every hour</strong></span>
+            Compete for real capital{" "}
+            <strong>every hour — No-code, Low-code, or Pro-code </strong>
+            strategies go live <strong>intraday.</strong>
           </motion.p>
         </div>
       </div>

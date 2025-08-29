@@ -109,7 +109,7 @@ export default function ApiSection() {
         className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
                    leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                    font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
-                   max-w-full mb-4 px-4 sm:px-0"
+                   max-w-full  px-4 sm:px-0"
       >
         Pro-Code: the CapQuant API
       </motion.h2>
@@ -133,18 +133,17 @@ export default function ApiSection() {
           staggerChildren: 0.1,
         }}
         className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                   w-full sm:w-3/4 md:w-2/3 lg:w-1/2 
+                   w-full sm:w-3/4 lg:w-[80%]
                    px-4 sm:px-0 text-center sm:text-left
-                   text-sm sm:text-base"
+                  md:w-full mt-5 text-xl"
       >
-        Full access to our advanced coding environment with complete API
-          control. Designed for quant researchers and data scientists who use
-          sophisticated techniques and want institutional-grade precision.
+        <span className="">Full access to our <strong>SDK</strong> and advanced coding environment, with complete <strong>API</strong> control</span>
+        <span className="text-nowrap"> Built for quant researchers and data scientists who demand institutional-grade precision.</span>
       </motion.p>
     </motion.div>
 
  
-      <div className="flex flex-col lg:flex-row w-full gap-5 items-center justify-center">
+      <div className="flex flex-col lg:flex-row w-full gap-5 items-center justify-center lg:mt-10">
         <PostCode />
         <GetCode />
       </div>

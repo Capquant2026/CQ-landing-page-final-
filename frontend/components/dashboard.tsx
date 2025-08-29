@@ -9,7 +9,6 @@ import { IoFlag } from "react-icons/io5";
 import { TfiStatsUp } from "react-icons/tfi";
 import { FaCode } from "react-icons/fa6";
 import { PiRankingLight } from "react-icons/pi";
-import { SlDocs } from "react-icons/sl";
 import { FaCaretDown } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdContactSupport } from "react-icons/md";
@@ -18,15 +17,9 @@ import { PeakUsageAnalysis } from "./PeakUsageAnalysis";
 import { CiImport } from "react-icons/ci";
 import { MdPayment } from "react-icons/md";
 import { Timer } from "./timer";
-import { TbApi } from "react-icons/tb";
-import { TbPrompt } from "react-icons/tb";
-import { RiSlowDownFill } from "react-icons/ri";
-import { FiCloud, FiServer, FiDatabase, FiLock } from "react-icons/fi";
 import { AiOutlineCloudServer } from "react-icons/ai";
 
-import apiiicon from '../public/apiicon.svg'
 import dashboardTop from "../public/Frame 31.svg";
-import { useState } from "react";
 
 export default function Dashboard() {
   const allLinks = [
@@ -124,7 +117,7 @@ href: "/",
           <div className="w-full">
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
-                <Image src={logo} width={40} alt="" />
+                <Image src={logo} width={40} alt="" priority />
                 <h2 className="text-xl">CapQuant</h2>
               </div>
               <button
@@ -195,18 +188,7 @@ href: "/",
                       </motion.div>
                     );
                   }
-                  // if (item.label == "API") {
-                  //   return (
-                  //     <Button
-                  //       key={index}
-                  //       variant={"ghost"}
-                  //       className="w-full py-2   hover:bg-[#151515] hover:text-white cursor-pointer flex items-start justify-start "
-                  //     >
-                  //       <Image  src={Icon} alt="icons" className="mr-2" width={16} />
-                  //       {item.label}
-                  //     </Button>
-                  //   );
-                  // }
+               
                   return (
                     <Button
                       key={index}
@@ -381,7 +363,7 @@ href: "/",
         <div className="text-white flex-1 h-screen p-4 ">
           <div className="text-white h-full bg-[#131315] px-5 py-4 rounded-xl from-[#141516] to-[#08090A]">
             <div className="flex justify-between items-center">
-              <Image src={dashboardTop} alt="" />
+              <Image src={dashboardTop} alt="top" priority />
             </div>
 
             <div
