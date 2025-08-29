@@ -55,17 +55,16 @@ export default function Hero() {
               delay: 0.1,
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
-            staggerChildren: 0.1,
+              staggerChildren: 0.1,
             }}
             className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-5 
                         tracking-tight text-center md:text-left w-full md:w-1/2 
                         max-w-1/2"
           >
-            <span>The world's first institutional alpha marketplace.</span>
-            <strong className="text-nowrap"> No-code, Low-code, or Pro-code </strong>
-            <span>your strategies compete for real capital 
-            <strong> Every hour</strong></span>
+            Compete for real capital{" "}
+            <strong>every hour — No-code, Low-code, or Pro-code </strong>
+            strategies go live <strong>intraday.</strong>
           </motion.p>
         </div>
       </div>

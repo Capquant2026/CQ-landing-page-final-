@@ -50,7 +50,7 @@ export default function AnalyticsSection() {
     {
       title: "live Model",
       semiTitle:
-        "Your weighted model triggers live trades with real-time risk controls",
+        "Model weighted. Signal triggered",
       time: "11:30",
     },
     {
@@ -90,9 +90,9 @@ export default function AnalyticsSection() {
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
+                         max-w-full sm:max-w-3xl md:max-w-4xl  lg:max-w-5xl"
           >
-            Multi-asset.deploy alpha. collect rewards
+            Submit multi-asset models. Test live. Collect rewards
           </motion.h2>
           
           <motion.p
@@ -112,59 +112,15 @@ export default function AnalyticsSection() {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-full md:w-1/2 mt-5"
+            className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6 text-xl mt-5"
           >
-            Turn your edge into real rewards with a platform that's transparent,
-            data-driven, and flexible across multiple assets and any timeframe.
+            Deploy your models across any asset and timeframe. Our forward-testing engine runs live
+           
           </motion.p>
           
-          <motion.p
-            initial={{
-              y: 30,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.4,
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className="text-[#8a8f98] mb-4"
-          >
-            Build the way you want{" "}
-            <strong className="text-[#5e6ad2]">
-              No-Code , Low-Code , Pro-Code
-            </strong>
-          </motion.p>
-
-          <motion.span
-            initial={{
-              y: 10,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.4,
-              duration: 0.9,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              staggerChildren: 0.1,
-            }}
-            className="inline-block"
-          >
          
-          </motion.span>
+
+         
         </div>
 
         <motion.div
@@ -339,7 +295,7 @@ export default function AnalyticsSection() {
                   {titles[currentIndex].time}
                 </div>
                 <motion.div className="bg-[#393939] w-full border relative text-center rounded-md p-5 border-[#ffffff1a]">
-                  <h2 className="text-lg text-blue-500 font-[555] tracking-[-.0325em]">
+                  <h2 className="text-lg text-green-500 font-semibold tracking-[-.0325em]">
                     {titles[currentIndex].title}
                   </h2>
                   <hr className="border border-[#ffffff1a] my-2" />
