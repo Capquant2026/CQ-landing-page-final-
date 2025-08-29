@@ -4,7 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", 
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg",
   },
-  description: "CapQuant landing page",
+  description:
+    "From idea to live trading in 60 minutes. First institutional alpha marketplace where multi-asset, intraday model submissions compete for capital through real-time performance scoring—no-code, low-code, or pro-code supported​",
 };
 
 export default function RootLayout({

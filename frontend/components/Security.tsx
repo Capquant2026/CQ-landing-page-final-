@@ -56,7 +56,7 @@ export default function Insight() {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="font-[510] tracking-[-0.011em] text-[#8a8f98] w-full md:w-1/2 mt-5"
+            className="font-[510] tracking-[-0.011em] text-[#8a8f98] md:w-[55%] text-xl mt-5"
           >
            Your models stay protected with full encryption on both ends, secure
            APIs, and complete IP safeguarding
@@ -85,7 +85,7 @@ export default function Insight() {
             duration: 1.2,
             ease: [0.215, 0.61, 0.355, 1], 
           }}
-          className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 sm:mt-20"
+          className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 lg:mt-10"
         >
           <motion.div
             className={`w-full before:content-[""] before:absolute    before:w-full before:bg-gradient-to-t  md:flex-row before:inset-0 before:from-[#09090a] before:opacity-50 before:to-transparent before:z-50 before:h-full flex items-center justify-center p-4 bg-gradient-to-b from-[#141516] via-[#0f1011] to-[#08090A] rounded-2xl shadow-2xl border border-white/5 backdrop-blur-sm min-h-[300px] sm:min-h-[400px] relative overflow-hidden`}

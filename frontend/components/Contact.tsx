@@ -353,7 +353,7 @@ export default function Contact() {
             {
               icon: FaDiscord,
               label: "Discord",
-              url: "https://discord.com/invite/es37CSup",
+              url: "https://discord.gg/AW2H3ckuPw",
             },
             {
               icon: FaLinkedin,
