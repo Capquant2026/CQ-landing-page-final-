@@ -84,9 +84,9 @@ export default function LowCode() {
             staggerChildren: 0.1,
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                     w-full sm:w-3/4 md:w-2/3 lg:w-1/2 
+                     w-full sm:w-3/4  lg:w-1/2 
                      px-4 sm:px-0 text-center sm:text-left
-                     text-sm sm:text-base"
+md:w-4/6 text-xl"
         >
           Ideal for traders with basic coding knowledge who want flexibility
           without starting from scratch.
@@ -110,9 +110,9 @@ export default function LowCode() {
         }}
         transition={{
           duration: 1.2,
-          ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
+          ease: [0.215, 0.61, 0.355, 1], 
         }}
-      className="mr-20 flex mt-5 flex-col lg:flex-row items-center justify-between lg:justify-center gap-15 lg:gap-0">
+      className="mr-20 flex mt-10 flex-col lg:flex-row items-center justify-between lg:justify-center gap-15 lg:gap-0">
         <MovingSymbolCode />
         <Image src={arrowImg} alt="arrowimg" className="rotate-90 lg:rotate-0" priority />
         <Image src={code} alt="code" width={300} priority />
