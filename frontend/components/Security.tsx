@@ -83,7 +83,7 @@ export default function Insight() {
           }}
           transition={{
             duration: 1.2,
-            ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
+            ease: [0.215, 0.61, 0.355, 1], 
           }}
           className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 sm:mt-20"
         >
@@ -96,11 +96,9 @@ export default function Insight() {
               ease: [0.215, 0.61, 0.355, 1],
             }}
           >
-            <Image src={leftLock} alt="leftLock" className="z-10" />
+            <Image src={leftLock} alt="leftLock" className="z-10" priority />
 
-            {/* First Line */}
             <div className="relative">
-              {/* Animated light trail for first line */}
               <motion.div
                 className="absolute scale-50  top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
                 style={{
@@ -150,11 +148,9 @@ export default function Insight() {
               </svg>
             </div>
 
-            <Image src={middleShape} alt="middleshape" className="z-10 w-30 md:w-auto " />
+            <Image src={middleShape} alt="middleshape" className="z-10 w-30 md:w-auto "  priority/>
 
-            {/* Second Line */}
             <div className="relative">
-              {/* Animated light trail for second line */}
               <motion.div
                 className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
                 style={{
@@ -173,7 +169,6 @@ export default function Insight() {
                 }}
               />
 
-              {/* Main traveling light for second line */}
               <motion.div
                 className="w-2.5 h-2.5 bg-[#8B9BFF] absolute top-1/2 -translate-y-1/2 rounded-full z-20"
                 style={{
@@ -205,9 +200,8 @@ export default function Insight() {
               </svg>
             </div>
 
-            <Image src={rightLock} alt="rightShape" className="z-10" />
+            <Image src={rightLock} alt="rightShape" className="z-10" priority />
 
-            {/* Ambient glow effect */}
             <motion.div
               className="absolute inset-0 rounded-2xl pointer-events-none"
               animate={{

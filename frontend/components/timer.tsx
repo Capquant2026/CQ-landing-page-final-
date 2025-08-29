@@ -24,9 +24,9 @@ export function Timer() {
       <motion.div
         className="w-1/5 rounded-lg  from-[#141516] border border-[#1A1C1F]  hover:bg-[#151515]"
         whileHover={{
-          z: 40, // Strong detachment in 3D space
-          y: -12, // Clean upward lift
-          scale: 1.02, // Minimal scale for subtle emphasis
+          z: 40, 
+          y: -12, 
+          scale: 1.02, 
         }}
         transition={{
           type: "spring",

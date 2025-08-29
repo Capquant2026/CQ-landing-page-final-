@@ -1,11 +1,10 @@
 "use client";
 
 import Dashboard from "./dashboard";
-import { IoMdPlay } from "react-icons/io";
 import { motion } from "motion/react";
 
 export default function Hero() {
-  const titleContent = "Idea to Live Trading in 60 Minutes".split(" ");
+  const titleContent = "Idea to live trading in 60 minutes".split(" ");
 
   return (
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
