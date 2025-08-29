@@ -137,7 +137,6 @@ export default function NoCode() {
                           top-0 right-0 absolute z-10 opacity-75" />
         </div>
         
-        {/* Right Panel - Image */}
         <div className="w-full lg:w-1/2 
                         h-64 sm:h-72 lg:h-full 
                         relative 
@@ -156,6 +155,7 @@ export default function NoCode() {
             src={automationIMG} 
             alt="automationImage" 
             className="p-1 w-full h-full object-contain" 
+            priority
           />
         </div>
       </motion.div>

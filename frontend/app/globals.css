@@ -121,12 +121,7 @@
   }
 }
 
-.containerdiv {
-  transform: translateX(2%) scale(1.2) rotateX(47deg) rotateY(31deg)
-    rotate(324deg);
-  transform-origin: top left;
-  transform-style: preserve-3d;
-}
+
 
 * {
   font-family: var(--font-inter);

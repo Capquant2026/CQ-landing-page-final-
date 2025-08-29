@@ -92,7 +92,7 @@ export default function AnalyticsSection() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
-            Multi-Asset.Deploy Alpha. Collect Rewards
+            Multi-asset.deploy alpha. collect rewards
           </motion.h2>
           
           <motion.p

@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // custom CSS variable
+  variable: "--font-inter", 
   display: "swap",
 });
-const jetbrainsFont = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-jetBrains",
-});
+
 export const metadata: Metadata = {
-  title: "CapQuand",
+  title: "CapQuant",
   icons: {
     icon: "/logo.svg",
   },
-  description: "CapQuand landing page",
+  description: "CapQuant landing page",
 };
 
 export default function RootLayout({
@@ -26,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsFont.variable}`}>
+    <html lang="en" className={`${inter.variable} `}>
       <body>{children}</body>
     </html>
   );

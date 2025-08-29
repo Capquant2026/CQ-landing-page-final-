@@ -110,7 +110,7 @@ export default function LowCode() {
         }}
         transition={{
           duration: 1.2,
-          ease: [0.215, 0.61, 0.355, 1], // easeOutCubic
+          ease: [0.215, 0.61, 0.355, 1], 
         }}
       className="mr-20 flex mt-5 flex-col lg:flex-row items-center justify-between lg:justify-center gap-15 lg:gap-0">
         <MovingSymbolCode />
