@@ -118,7 +118,7 @@ href: "/",
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
                 <Image src={logo} width={40} alt="" priority />
-                <h2 className="text-xl">CapQuant</h2>
+                <h2 className="text-lg font-semibold">CapQuant</h2>
               </div>
               <button
                 className="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
