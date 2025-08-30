@@ -1,58 +1,51 @@
 "use client";
-import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { MdOutlineTimer } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 
-export function Timer() {
-  const [second, setSecond] = useState<number>(59);
-  const [min, setMin] = useState<number>(59);
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (second == 0) {
-        setMin((prev) => prev - 1);
-      }
-      setSecond((prev) => (prev === 0 ? 59 : prev - 1));
-    }, 1000);
+export default function Timer() {
+  // Use single state for total seconds instead of separate min/sec
+  const [totalSeconds, setTotalSeconds] = useState<number>(3599); // 59:59
 
-    return () => clearInterval(intervalId);
+
+  const formattedTime = useMemo(() => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `00:${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  }, [totalSeconds]);
+
+  const tick = useCallback(() => {
+    setTotalSeconds((prev) => (prev > 0 ? prev - 1 : 3599)); // 
   }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(tick, 1000);
+    return () => clearInterval(intervalId);
+  }, [tick]);
+
   return (
-    <div className=" flex items-center scale-120 mt-5 justify-center mx-auto w-1/2 ">
+    <div className="flex items-center scale-120 mt-5 justify-center mx-auto w-1/2">
       <p className="opacity-50 mr-2">Next Round</p>
 
-      <motion.div
-        className="w-1/5 rounded-lg  from-[#141516] border border-[#1A1C1F]  hover:bg-[#151515]"
-        whileHover={{
-          z: 40, 
-          y: -12, 
-          scale: 1.02, 
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 350,
-          damping: 25,
-        }}
-        style={{
-          transformStyle: "preserve-3d",
-        }}
+      <div
+        className="w-1/5 rounded-lg from-[#141516] border border-[#1A1C1F] hover:bg-[#151515]
+                   hover:-translate-y-3 hover:scale-105 hover:shadow-xl hover:shadow-[#5E6AD2]/20
+                   transition-all duration-300 ease-out transform-gpu"
       >
-        <motion.div
-          whileHover={{
-            boxShadow:
-              "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
-          }}
-          className="p-1 rounded-lg"
-        >
+        <div className="p-1 rounded-lg">
           <Button
             variant="ghost"
-            className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
+            className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer 
+                       overflow-hidden flex items-center justify-start border-gray-700 
+                       backdrop-blur-sm transition-all duration-300"
           >
             <MdOutlineTimer className="ml-2 text-[#5E6AD2]" />
-            {`00:${min}:${second}`}
+            {formattedTime}
           </Button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -18,9 +18,10 @@ import {
 } from "recharts";
 
 import { TrendingUp } from "lucide-react";
+import { useMemo } from "react";
 
-export function PeakUsageAnalysis() {
-  const data = [
+export default function PeakUsageAnalysis() {
+  const data = useMemo(() => [
     { month: "Jan", percentage: 3.2 },
     { month: "Feb", percentage: 4.8 },
     { month: "Mar", percentage: 7.1 },
@@ -33,14 +34,7 @@ export function PeakUsageAnalysis() {
     { month: "Oct", percentage: 10.1 },
     { month: "Nov", percentage: 8.4 },
     { month: "Dec", percentage: 4.6 },
-  ];
-
-  const peakMonth = data.reduce(
-    (max, current) => (current.percentage > max.percentage ? current : max),
-    data[0]
-  );
-  const avgPercentage =
-    data.reduce((sum, current) => sum + current.percentage, 0) / data.length;
+  ],[]);
 
   return (
     <Card className="bg-transparent mt-3 border-[#2A2A2A] text-[#EDEDED] ">
@@ -51,7 +45,7 @@ export function PeakUsageAnalysis() {
             Overall Performance
           </CardTitle>
           <CardDescription className="text-[#9A9A9A]">
-          Highest model contribution return : 11.2%
+            Highest model contribution return : 11.2%
           </CardDescription>
         </div>
       </CardHeader>

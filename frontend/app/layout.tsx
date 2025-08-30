@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LenisProvider } from "@/hooks/useLenis";
 import { Inter } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],

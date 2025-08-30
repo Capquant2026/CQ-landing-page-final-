@@ -1,10 +1,14 @@
 "use client";
 
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 import Dashboard from "./dashboard";
 import { motion } from "motion/react";
-
+// const Dashboard = dynamic(()=>import("./dashboard"),{
+//   ssr:false
+// })
 export default function Hero() {
-  const titleContent = "Idea to live trading in 60 minutes".split(" ");
+  const titleWords = useMemo(() => "Idea to live trading in 60 minutes".split(" "), []);
 
   return (
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
@@ -14,17 +18,14 @@ export default function Hero() {
             initial={{
               y: 10,
               opacity: 0,
-              filter: "blur(10px)",
             }}
             animate={{
               y: 0,
               opacity: 1,
-              filter: "blur(0px)",
             }}
             transition={{
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
-              staggerChildren: 0.1,
             }}
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
@@ -32,7 +33,7 @@ export default function Hero() {
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
             <span className="flex flex-wrap items-start justify-center md:justify-start gap-1 sm:gap-3">
-              {titleContent.map((item: string, index: number) => (
+              {titleWords.map((item: string, index: number) => (
                 <span key={index} className="whitespace-nowrap">
                   {item}
                 </span>
@@ -44,18 +45,15 @@ export default function Hero() {
             initial={{
               y: 10,
               opacity: 0,
-              filter: "blur(10px)",
             }}
             animate={{
               y: 0,
               opacity: 1,
-              filter: "blur(0px)",
             }}
             transition={{
               delay: 0.1,
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
-              staggerChildren: 0.1,
             }}
             className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-5 
@@ -84,7 +82,6 @@ export default function Hero() {
           delay: 0.3,
           duration: 0.8,
           ease: [0.25, 0.46, 0.45, 0.94],
-          staggerChildren: 0.1,
         }}
         className="w-full max-w-[1600px] mt-16 px-4 sm:px-6 lg:px-8"
       >
