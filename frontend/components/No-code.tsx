@@ -151,6 +151,7 @@ export default function NoCode() {
           <div className="w-full h-full 
                           bg-gradient-to-t from-[#0d0e0f] to-transparent 
                           pointer-events-none inset-0 absolute z-10 opacity-0" />
+                          
           <Image 
             src={automationIMG} 
             alt="automationImage" 

@@ -209,7 +209,12 @@ export async function POST(request: Request) {
           success: false,
           message: "all Field Are Required",
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+          },
+        }
       );
     }
     if (typeof name !== "string" || name.length > 50) {
@@ -218,7 +223,12 @@ export async function POST(request: Request) {
           success: false,
           message: "Invalid name !",
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+          },
+        }
       );
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -228,7 +238,12 @@ export async function POST(request: Request) {
           success: false,
           message: "Invalid Email !",
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+          },
+        }
       );
     }
     if (!allowedCountries.includes(country) || !allowedRole.includes(role)) {
@@ -237,7 +252,12 @@ export async function POST(request: Request) {
           success: false,
           message: "Invalid Country Or Role !",
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+          },
+        }
       );
     }
     const client = await clientPromise;
@@ -257,6 +277,9 @@ export async function POST(request: Request) {
       },
       {
         status: 200,
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        },
       }
     );
   } catch (err) {
@@ -265,7 +288,12 @@ export async function POST(request: Request) {
         success: false,
         message: "something went Wrong !",
       },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        },
+      }
     );
   }
 }

@@ -126,3 +126,17 @@
 * {
   font-family: var(--font-inter);
 }
+body {
+  background-color: #09090a;
+}
+.dashboard-container {
+  perspective: 5000px;
+  perspective-origin: 100% 0;
+  transform-style: preserve-3d;
+}
+.main-motion-div {
+  transform: translateX(2%) scale(1.2) rotateX(47deg) rotateY(31deg) rotate(324deg);
+  transform-origin: top left;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
