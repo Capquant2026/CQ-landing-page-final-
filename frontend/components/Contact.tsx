@@ -17,12 +17,14 @@ import { FormEvent, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
 
 export default function Contact() {
+  const currentYear = new Date()
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const roleRef = useRef<HTMLSelectElement>(null);
   const countryRef = useRef<HTMLSelectElement>(null);
+   
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -407,13 +409,16 @@ export default function Contact() {
 
       {/* Footer */}
       <motion.div
-        className="w-full border-t border-t-zinc-800/80 p-4 text-center mt-20"
+        className="w-full border-t border-t-zinc-800/80 p-4  text-[#8a8f98] flex items-center justify-between text-center mt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <p className="font-[510] tracking-[-0.011em] text-[#8a8f98]">
+       <span>
+        &copy; {currentYear.getFullYear()} CapQuant. All rights reserved
+       </span>
+       <p className="font-[510] tracking-[-0.011em] ">
           Powered by Lotus Capital
         </p>
       </motion.div>
