@@ -45,12 +45,12 @@ export default function AnalyticsSection() {
       {
         title: "Weighted Model",
         semiTitle:
-          "Stronger prediction earn higher weight — and greater capital allocation",
+          "Stronger predictions earn higher weight",
         time: "11:23",
       },
       {
         title: "Live Prediction",
-        semiTitle: "prediction weighted. signal triggered",
+        semiTitle: "Prediction weighted. signal triggered",
         time: "11:30",
       },
       {
