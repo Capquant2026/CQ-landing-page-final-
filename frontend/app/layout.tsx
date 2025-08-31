@@ -10,7 +10,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "CapQuant",
   icons: {
-    icon: "/logo.svg",
+    icon: "/CQ.svg",
   },
   description:
     "From idea to live trading in 60 minutes. First institutional alpha marketplace where multi-asset, intraday model submissions compete for capital through real-time performance scoring—no-code, low-code, or pro-code supported​",

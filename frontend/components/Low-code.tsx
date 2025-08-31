@@ -61,7 +61,7 @@ export default function LowCode() {
                      font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
                      max-w-full mb-5 px-4 sm:px-0"
         >
-          Low-Code: ecure model-to-prediction bridge
+          Low-Code: secure model-to-prediction bridge
         </motion.h2>
 
         <motion.p
