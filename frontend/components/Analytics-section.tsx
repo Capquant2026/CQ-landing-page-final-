@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { FaCaretDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function AnalyticsSection() {
   const [isDropMenuHovered, setIsDropMenuHovered] = useState<boolean>(false);
@@ -25,46 +25,49 @@ export default function AnalyticsSection() {
     return () => clearInterval(cardsInterval);
   }, []);
 
-  const titles = [
-    {
-      title: "Round 14- Model Received",
-      semiTitle: "Your model entered our system",
-      time: "11:07",
-    },
-    {
-      title: "Scoring ",
-      semiTitle: "Your model is tested instantly across real market data",
-      time: "11:18",
-    },
-    {
-      title: "Status : Accepted ",
-      semiTitle: "Your model has been picked and gained influence.",
-      time: "11:19",
-    },
-    {
-      title: "Weighted Model",
-      semiTitle:
-        "Stronger models earn higher weight — and greater capital allocation",
-      time: "11:23",
-    },
-    {
-      title: "live Model",
-      semiTitle:
-        "Model weighted. Signal triggered",
-      time: "11:30",
-    },
-    {
-      title: "Reward & Recognition",
-      semiTitle:
-        "Unlock rewards and community recognition as your models perform",
-      time: "Ongoing",
-    },
-  ];
+  const titles = useMemo(
+    () => [
+      {
+        title: "Round 14- Prediction Received",
+        semiTitle: "Your prediction entered our system",
+        time: "11:07",
+      },
+      {
+        title: "Scoring ",
+        semiTitle: "Your prediction is tested instantly across real market data",
+        time: "11:18",
+      },
+      {
+        title: "Status : Accepted ",
+        semiTitle: "Your prediction has been picked and gained influence.",
+        time: "11:19",
+      },
+      {
+        title: "Weighted Model",
+        semiTitle:
+          "Stronger prediction earn higher weight — and greater capital allocation",
+        time: "11:23",
+      },
+      {
+        title: "Live Prediction",
+        semiTitle: "prediction weighted. signal triggered",
+        time: "11:30",
+      },
+      {
+        title: "Reward & Recognition",
+        semiTitle:
+          "Unlock rewards and community recognition as your predictions perform",
+        time: "Ongoing",
+      },
+    ],
+    []
+  );
 
   return (
-    <div className="text-[#f7f8f8] flex flex-col items-center justify-start w-full mt-40"
+    <div
+      className="text-[#f7f8f8] flex flex-col items-center justify-start w-full mt-40"
       style={{
-        background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)"
+        background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)",
       }}
     >
       <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
@@ -92,9 +95,9 @@ export default function AnalyticsSection() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl  lg:max-w-5xl"
           >
-            Submit multi-asset models. Test live. Collect rewards
+            Submit multi-asset predictions. test live. collect rewards
           </motion.h2>
-          
+
           <motion.p
             initial={{
               y: 30,
@@ -114,13 +117,9 @@ export default function AnalyticsSection() {
             }}
             className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6 text-xl mt-5"
           >
-            Deploy your models across any asset and timeframe. Our forward-testing engine runs live
-           
+            Deploy your predictions across any asset and timeframe. Our
+            forward-testing engine runs live
           </motion.p>
-          
-         
-
-         
         </div>
 
         <motion.div
