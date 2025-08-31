@@ -31,7 +31,7 @@ const Dashboard = () => {
       { label: "Dashboard" },
       { label: "Profile" },
       { label: "API" },
-      { label: "Import Prediction" },
+      { label: "Import" },
       { label: "No-code" },
       { label: "Backtester" },
       { label: "Reward Tracker" },
@@ -80,7 +80,7 @@ const Dashboard = () => {
       { title: "Uniqueness Score", value: "1.5", change: "+5.03%" },
       { title: "Live Predictions", value: "2", change: "" },
       {
-        title: "Prediction Avg Drawdown",
+        title: "Predictions Avg Drawdown",
         value: "1.3%",
         change: "+3.03%",
       },
@@ -132,7 +132,7 @@ const Dashboard = () => {
                   const color = colors[index];
                   if (
                     item.label === "No-code" ||
-                    item.label == "Import Prediction"
+                    item.label == "Import"
                   ) {
                     return (
                       <motion.div
@@ -165,7 +165,7 @@ const Dashboard = () => {
                           >
                             <Icon
                               className="mr-2"
-                              style={{ color: "#5E6AD2" }}
+                              style={{ color: color }}
                               size={20}
                             />
                             <span className="relative z-50 ">{item.label}</span>
