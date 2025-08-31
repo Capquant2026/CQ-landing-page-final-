@@ -24,7 +24,7 @@ const MovingSymbolCode = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Import strategies from your platform
+          Seamless integration with your preferred platform
         </motion.h2>
 
         {/* ticker container */}

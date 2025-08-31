@@ -31,7 +31,7 @@ const Dashboard = () => {
       { label: "Dashboard" },
       { label: "Profile" },
       { label: "API" },
-      { label: "Import Strategy" },
+      { label: "Import Prediction" },
       { label: "No-code" },
       { label: "Backtester" },
       { label: "Reward Tracker" },
@@ -70,21 +70,21 @@ const Dashboard = () => {
   );
   const cardContent = useMemo(
     () => [
-      { title: "Validated Models", value: "7", change: "+12.03%" },
-      { title: "Archived Models", value: "2", change: "+9.03%" },
+      { title: "Validated Predictions", value: "7", change: "+12.03%" },
+      { title: "Archived Predictions", value: "2", change: "+9.03%" },
       {
         title: "Contribution Rewards",
         value: "$8340",
         change: "+22%",
       },
       { title: "Uniqueness Score", value: "1.5", change: "+5.03%" },
-      { title: "Live Models", value: "2", change: "" },
+      { title: "Live Predictions", value: "2", change: "" },
       {
-        title: "Model Avg Drawdown",
+        title: "Prediction Avg Drawdown",
         value: "1.3%",
         change: "+3.03%",
       },
-      { title: "Strategies Deployed", value: "9", change: "+50%" },
+      { title: "Predictions Weighted", value: "9", change: "+50%" },
       { title: "Accuracy", value: "55%", change: "+12.03%" },
     ],
     []
@@ -132,7 +132,7 @@ const Dashboard = () => {
                   const color = colors[index];
                   if (
                     item.label === "No-code" ||
-                    item.label == "Import Strategy"
+                    item.label == "Import Prediction"
                   ) {
                     return (
                       <motion.div
@@ -432,7 +432,7 @@ const Dashboard = () => {
                     className="bg-[#1A1B1C] border   border-[#22262A] rounded-xl p-4 text-white  h-36   transition-all duration-300 "
                   >
                     <h2 className="text-lg font-semibold tracking-[1px]">
-                      {card.title == "Live Models" ? (
+                      {card.title == "Live Predictions" ? (
                         <div className="flex items-center space-x-2">
                           <motion.div
                             className="w-3 h-3  rounded-full bg-green-500 relative"
@@ -468,7 +468,7 @@ const Dashboard = () => {
                     <p
                       className="text-xs text-gray-400 mb-6"
                       style={{
-                        opacity: card.title == "Live Models" ? 0 : 1,
+                        opacity: card.title == "Live Predictions" ? 0 : 1,
                       }}
                     >
                       Jan 1 - July 16
