@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import MovingSymbolCode from "./MovingSymbolCode";
-import arrowImg from "../public/Connector line.svg";
+import MovingSymbolCode from "./MovingSymbolCode"
 import code from "../public/browsercode.svg";
 import Image from "next/image";
 
@@ -62,7 +61,7 @@ export default function LowCode() {
                      font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
                      max-w-full mb-5 px-4 sm:px-0"
         >
-          Low-Code: import your own strategies
+          Low-Code: ecure model-to-prediction bridge
         </motion.h2>
 
         <motion.p
@@ -84,12 +83,13 @@ export default function LowCode() {
             staggerChildren: 0.1,
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                     w-full sm:w-3/4  lg:w-1/2 
+                     w-full sm:w-3/4  lg:w-4/6
                      px-4 sm:px-0 text-center sm:text-left
 md:w-4/6 text-xl"
         >
-          Ideal for traders with basic coding knowledge who want flexibility
-          without starting from scratch.
+          Ideal for contributors with basic coding skills who want to connect
+          their models securely. Your code stays private — we only extract
+          encrypted predictions
         </motion.p>
       </motion.div>
 
@@ -116,7 +116,7 @@ md:w-4/6 text-xl"
       >
         <MovingSymbolCode />
         <svg
-        className="rotate-90 lg:rotate-0"
+          className="rotate-90 lg:rotate-0"
           xmlns="http://www.w3.org/2000/svg"
           width="139"
           height="38"
@@ -128,7 +128,7 @@ md:w-4/6 text-xl"
             fill="#202122"
           />
         </svg>
-     
+
         <Image src={code} alt="code" width={300} priority />
       </motion.div>
     </div>
