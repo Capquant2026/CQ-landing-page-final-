@@ -93,7 +93,7 @@ export default function NoCode() {
                      mt-5 px-4 sm:px-0 text-center sm:text-left
                       md:w-4/6 text-xl"
         >
-          Perfect for traders who have ideas but no coding background—stack
+          Perfect for contributors who have ideas but no coding background—stack
           conditions, test, and deploy in minutes.
         </motion.p>
       </motion.div>
