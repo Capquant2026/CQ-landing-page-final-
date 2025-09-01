@@ -1,20 +1,15 @@
-"use client";
 
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
+
 import Dashboard from "./dashboard";
-import { motion } from "motion/react";
-// const Dashboard = dynamic(()=>import("./dashboard"),{
-//   ssr:false
-// })
+import { MotionDiv, MotionH1, MotionP } from "./motion-wrapper";
+
 export default function Hero() {
-  const titleWords = useMemo(() => "Idea to live trading in 60 minutes".split(" "), []);
 
   return (
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
       <div className="w-full max-w-[1100px] mt-20 sm:mt-32 md:mt-40 px-4 sm:px-6 lg:px-8">
         <div className="text-[#f7f8f8] flex mx-auto flex-col gap-1 sm:gap-6 md:gap-1 items-center text-center md:items-start md:text-start">
-          <motion.h1
+          <MotionH1
             initial={{
               y: 10,
               opacity: 0,
@@ -30,18 +25,12 @@ export default function Hero() {
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
+                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl md:text-nowrap"
           >
-            <span className="flex flex-wrap items-start justify-center md:justify-start gap-1 sm:gap-3">
-              {titleWords.map((item: string, index: number) => (
-                <span key={index} className="whitespace-nowrap">
-                  {item}
-                </span>
-              ))}
-            </span>
-          </motion.h1>
+            Idea to live trading in 60 minutes
+          </MotionH1>
 
-          <motion.p
+          <MotionP
             initial={{
               y: 10,
               opacity: 0,
@@ -63,11 +52,11 @@ export default function Hero() {
             Compete for real capital{" "}
             <strong>every hour — No-code, Low-code, or Pro-code </strong>
             strategies go live <strong>intraday.</strong>
-          </motion.p>
+          </MotionP>
         </div>
       </div>
 
-      <motion.div
+      <MotionDiv
         initial={{
           y: 10,
           opacity: 0,
@@ -87,7 +76,7 @@ export default function Hero() {
       >
         <div className="absolute w-[200%] h-[80%] left-0 -bottom-[14%] bg-gradient-to-t pointer-events-none from-[#09090a] to-transparent z-50"></div>
         <Dashboard />
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

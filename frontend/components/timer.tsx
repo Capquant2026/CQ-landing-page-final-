@@ -4,8 +4,7 @@ import { MdOutlineTimer } from "react-icons/md";
 import { useEffect, useState, useCallback, useMemo } from "react";
 
 export default function Timer() {
-  // Use single state for total seconds instead of separate min/sec
-  const [totalSeconds, setTotalSeconds] = useState<number>(3599); // 59:59
+  const [totalSeconds, setTotalSeconds] = useState<number>(3599); 
 
 
   const formattedTime = useMemo(() => {
@@ -17,7 +16,7 @@ export default function Timer() {
   }, [totalSeconds]);
 
   const tick = useCallback(() => {
-    setTotalSeconds((prev) => (prev > 0 ? prev - 1 : 3599)); // 
+    setTotalSeconds((prev) => (prev > 0 ? prev - 1 : 3599)); 
   }, []);
 
   useEffect(() => {

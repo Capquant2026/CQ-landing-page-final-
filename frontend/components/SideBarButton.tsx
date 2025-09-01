@@ -5,10 +5,9 @@ interface ISideBar{
     label : string,
     Icon : IconType,
     color : string,
-    isSpecial : boolean
 }
 
-export default function SideBarButton({label,Icon,color,isSpecial} :  ISideBar) {
+export default function SideBarButton({label,Icon,color} :  ISideBar) {
   return (
     <Button
       variant={"ghost"}
