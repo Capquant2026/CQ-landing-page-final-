@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { MotionDiv } from "../motion-wrapper";
 type Line = {
   id: number;
   content: string;
@@ -180,7 +180,7 @@ const GetCode = () => {
   };
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{
         y: 30,
         opacity: 0,
@@ -209,7 +209,7 @@ const GetCode = () => {
           <div className="flex items-center space-x-4">
             <div className="flex space-x-2 py-3">
               <div className="flex items-center space-x-3">
-                <motion.div
+                <MotionDiv
                   className="w-3 h-3 rounded-full bg-yellow-500 relative"
                   animate={{
                     boxShadow: [
@@ -223,7 +223,7 @@ const GetCode = () => {
                     ease: "easeOut",
                   }}
                 >
-                  <motion.div
+                  <MotionDiv
                     className="absolute inset-0 rounded-full bg-yellow-400"
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{
@@ -232,7 +232,7 @@ const GetCode = () => {
                       ease: "easeInOut",
                     }}
                   />
-                </motion.div>
+                </MotionDiv>
 
                 <span className="text-gray-400  font-semibold uppercase tracking-wider">
                   GET
@@ -254,16 +254,16 @@ const GetCode = () => {
           {/* Display completed lines sliding from bottom to top */}
           <div>
             {visibleLines.map((line, index) => (
-              <motion.div key={index} className="whitespace-pre">
+              <MotionDiv key={index} className="whitespace-pre">
                 {formatLine(line.content)}
-              </motion.div>
+              </MotionDiv>
             ))}
 
             {/* Current typing line with cursor */}
             {!isComplete && (
               <div className="whitespace-pre flex">
                 <span>{formatLine(currentTypingLine)}</span>
-                <motion.div
+                <MotionDiv
                   className="inline-block w-2 h-4 bg-green-500 ml-1"
                   animate={{ opacity: [1, 0] }}
                   transition={{
@@ -277,13 +277,13 @@ const GetCode = () => {
 
             {/* Fixed cursor when complete */}
             {isComplete && (
-              <motion.div
+              <MotionDiv
                 className="text-cyan-400 mt-2 flex items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <motion.div
+                <MotionDiv
                   className="inline-block w-2 h-4 bg-green-500 opacity-50 ml-1"
                   animate={{ opacity: [1, 0] }}
                   transition={{
@@ -292,7 +292,7 @@ const GetCode = () => {
                     repeatType: "reverse",
                   }}
                 />
-              </motion.div>
+              </MotionDiv>
             )}
           </div>
         </div>
@@ -317,7 +317,7 @@ const GetCode = () => {
           background: #6b7280;
         }
       `}</style>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

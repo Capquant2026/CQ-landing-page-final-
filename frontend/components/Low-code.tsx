@@ -1,9 +1,8 @@
-"use client";
 
-import { motion } from "motion/react";
 import MovingSymbolCode from "./MovingSymbolCode"
 import code from "../public/browsercode.svg";
 import Image from "next/image";
+import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
 
 export default function LowCode() {
   return (
@@ -18,7 +17,7 @@ export default function LowCode() {
         background: "linear-gradient(to bottom, #ffffff0d, transparent 20%)",
       }}
     >
-      <motion.div
+      <MotionDiv
         initial={{
           y: 30,
           opacity: 0,
@@ -38,7 +37,7 @@ export default function LowCode() {
         }}
         className="flex self-center items-start w-full max-w-6xl flex-col"
       >
-        <motion.h2
+        <MotionH2
           initial={{
             y: 30,
             opacity: 0,
@@ -62,9 +61,9 @@ export default function LowCode() {
                      max-w-full mb-5 px-4 sm:px-0"
         >
           Low-Code: secure model-to-prediction bridge
-        </motion.h2>
+        </MotionH2>
 
-        <motion.p
+        <MotionP
           initial={{
             y: 30,
             opacity: 0,
@@ -90,10 +89,10 @@ md:w-4/6 text-xl"
           Ideal for contributors with basic coding skills who want to connect
           their models securely. Your code stays private — we only extract
           encrypted predictions
-        </motion.p>
-      </motion.div>
+        </MotionP>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         initial={{
           y: 60,
           opacity: 0,
@@ -130,7 +129,7 @@ md:w-4/6 text-xl"
         </svg>
 
         <Image src={code} alt="code" width={300} priority />
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

@@ -1,13 +1,14 @@
+"use client";
 import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("@/components/Header"), {
-  ssr: true,
+  ssr: false,
 });
 
 const AnalyticsSection = dynamic(
   () => import("@/components/Analytics-section"),
   {
-    ssr: true,
+    ssr: false,
     loading: () => (
       <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
     ),
@@ -15,45 +16,45 @@ const AnalyticsSection = dynamic(
 );
 
 const Hero = dynamic(() => import("@/components/Hero"), {
-  ssr: true,
+  ssr: false,
 });
 
 const ApiSection = dynamic(() => import("@/components/CapquantApi"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
 
 const Contact = dynamic(() => import("@/components/Contact"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
 
 const Security = dynamic(() => import("@/components/Security"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
 
 const LowCode = dynamic(() => import("@/components/Low-code"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
 
 const NoCode = dynamic(() => import("@/components/No-code"), {
-  ssr: true,
+  ssr: false,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
 
-export default function Home() {
+const ContainerWrapper = () => {
   return (
     <div className="font-sans flex flex-col items-center">
       <Header />
@@ -66,4 +67,6 @@ export default function Home() {
       <Contact />
     </div>
   );
-}
+};
+
+export default ContainerWrapper;
