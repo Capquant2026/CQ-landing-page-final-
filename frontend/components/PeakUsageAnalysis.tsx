@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Card,
@@ -21,20 +21,23 @@ import { TrendingUp } from "lucide-react";
 import { useMemo } from "react";
 
 export default function PeakUsageAnalysis() {
-  const data = useMemo(() => [
-    { month: "Jan", percentage: 3.2 },
-    { month: "Feb", percentage: 4.8 },
-    { month: "Mar", percentage: 7.1 },
-    { month: "Apr", percentage: 9.4 },
-    { month: "May", percentage: 11.2 },
-    { month: "Jun", percentage: 8.7 },
-    { month: "Jul", percentage: 6.3 },
-    { month: "Aug", percentage: 5.9 },
-    { month: "Sep", percentage: 7.8 },
-    { month: "Oct", percentage: 10.1 },
-    { month: "Nov", percentage: 8.4 },
-    { month: "Dec", percentage: 4.6 },
-  ],[]);
+  const data = useMemo(
+    () => [
+      { month: "Jan", percentage: 3.2 },
+      { month: "Feb", percentage: 4.8 },
+      { month: "Mar", percentage: 7.1 },
+      { month: "Apr", percentage: 9.4 },
+      { month: "May", percentage: 11.2 },
+      { month: "Jun", percentage: 8.7 },
+      { month: "Jul", percentage: 6.3 },
+      { month: "Aug", percentage: 5.9 },
+      { month: "Sep", percentage: 7.8 },
+      { month: "Oct", percentage: 10.1 },
+      { month: "Nov", percentage: 8.4 },
+      { month: "Dec", percentage: 4.6 },
+    ],
+    []
+  );
 
   return (
     <Card className="bg-transparent mt-3 border-[#2A2A2A] text-[#EDEDED] ">

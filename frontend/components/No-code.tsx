@@ -1,9 +1,7 @@
-"use client";
-
-import { motion } from "motion/react";
 import Prompt from "./prompt";
 import Image from "next/image";
 import automationIMG from "../public/automationIMG.svg";
+import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
 
 export default function NoCode() {
   return (
@@ -16,15 +14,17 @@ export default function NoCode() {
           "linear-gradient(to bottom, hsla(0,0%,100%,.05), transparent 20%), linear-gradient(180deg, rgba(97, 106, 115, 0) 0, rgba(97, 106, 115, .05) 40%, rgba(97, 106, 115, .05) 80%, rgba(97, 106, 115, 0) 100%)",
       }}
     >
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+      <h1
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                      mt-8 sm:mt-10 md:mt-12 lg:mt-15
                      leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                      font-[555] tracking-[-.0325em] text-balance text-center
-                     max-w-full px-4">
+                     max-w-full px-4"
+      >
         Multi-Deployment Methods
       </h1>
-      
-      <motion.div
+
+      <MotionDiv
         initial={{
           y: 30,
           opacity: 0,
@@ -44,7 +44,7 @@ export default function NoCode() {
         }}
         className="flex items-start w-full max-w-6xl flex-col"
       >
-        <motion.h2
+        <MotionH2
           initial={{
             y: 30,
             opacity: 0,
@@ -68,9 +68,9 @@ export default function NoCode() {
                      max-w-full mt-16 sm:mt-24 md:mt-32 lg:mt-40 px-4 sm:px-0"
         >
           No-Code: drag-and-drop logic and simple prompts
-        </motion.h2>
-        
-        <motion.p
+        </MotionH2>
+
+        <MotionP
           initial={{
             y: 30,
             opacity: 0,
@@ -95,10 +95,10 @@ export default function NoCode() {
         >
           Perfect for contributors who have ideas but no coding background—stack
           conditions, test, and deploy in minutes.
-        </motion.p>
-      </motion.div>
-      
-      <motion.div
+        </MotionP>
+      </MotionDiv>
+
+      <MotionDiv
         initial={{
           y: 60,
           opacity: 0,
@@ -124,42 +124,49 @@ export default function NoCode() {
                    w-full max-w-6xl"
       >
         {/* Left Panel - Prompt */}
-        <div className="w-full lg:w-1/2 
+        <div
+          className="w-full lg:w-1/2 
                         h-64 sm:h-72 lg:h-full 
                         border-t flex items-center justify-center border-b lg:border-r-0
                         border-zinc-800/60 relative 
                         border-b-zinc-800/80 
-                        ">
+                        "
+        >
           <Prompt />
-          <div className="w-full lg:w-1/2 h-full 
+          <div
+            className="w-full lg:w-1/2 h-full 
                           bg-gradient-to-l from-[#0d0e0f] to-transparent 
                           pointer-events-none 
-                          top-0 right-0 absolute z-10 opacity-75" />
+                          top-0 right-0 absolute z-10 opacity-75"
+          />
         </div>
-        
-        <div className="w-full lg:w-1/2 
+
+        <div
+          className="w-full lg:w-1/2 
                         h-64 sm:h-72 lg:h-full 
                         relative 
                         p-4 sm:p-6 md:p-8 lg:p-10 
                           border-t border-b lg:border-r-0
-                        border-zinc-800/60 relative 
-                        border-b-zinc-800/80
+                        
                         border-zinc-800/60 
                         border-b-zinc-800/80 
                         lg:border-l lg:border-l-zinc-800/80
-                      ">
-          <div className="w-full h-full 
+                      "
+        >
+          <div
+            className="w-full h-full 
                           bg-gradient-to-t from-[#0d0e0f] to-transparent 
-                          pointer-events-none inset-0 absolute z-10 opacity-0" />
-                          
-          <Image 
-            src={automationIMG} 
-            alt="automationImage" 
-            className="p-1 w-full h-full object-contain" 
+                          pointer-events-none inset-0 absolute z-10 opacity-0"
+          />
+
+          <Image
+            src={automationIMG}
+            alt="automationImage"
+            className="p-1 w-full h-full object-contain"
             priority
           />
         </div>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }
