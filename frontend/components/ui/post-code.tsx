@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./button";
+import { MotionDiv, MotionSpan } from "../motion-wrapper";
 type Line = {
   id: number;
   content: string;
@@ -84,21 +85,19 @@ X-Model-Version: 4.7.2
 
   const codeLines = codeData.split("\n");
 
-  // Type each line character by character, then add to visible lines
   useEffect(() => {
     if (currentLineIndex < codeLines.length) {
       const currentLine = codeLines[currentLineIndex];
 
       if (currentCharIndex < currentLine.length) {
-        // Type next character
+        
         const timeout = setTimeout(() => {
           setCurrentTypingLine((prev) => prev + currentLine[currentCharIndex]);
           setCurrentCharIndex((prev) => prev + 1);
-        }, 50); // Random typing speed
+        }, 50);
 
         return () => clearTimeout(timeout);
       } else {
-        // Line complete, add to visible lines and move to next
         const timeout = setTimeout(() => {
           const newLine = {
             id: currentLineIndex,
@@ -109,7 +108,7 @@ X-Model-Version: 4.7.2
           setCurrentLineIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
           setCurrentTypingLine("");
-        }, 200); // Brief pause before adding line
+        }, 200); 
 
         return () => clearTimeout(timeout);
       }
@@ -118,7 +117,6 @@ X-Model-Version: 4.7.2
     }
   }, [currentLineIndex, currentCharIndex, codeLines]);
 
-  // Auto-scroll to bottom to show new lines
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -177,12 +175,10 @@ X-Model-Version: 4.7.2
     );
   };
 
-  const getCurrentTypingLine = () => {
-    return null; // No typing line needed
-  };
+
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{
         y: 30,
         opacity: 0,
@@ -197,8 +193,7 @@ X-Model-Version: 4.7.2
       transition={{
         delay: 0.3,
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
-        staggerChildren: 0.1, // If animating multiple items
+        ease: [0.25, 0.46, 0.45, 0.94], 
       }}
       key={"tested"}
       className="w-full max-w-6xl mx-auto p-6  "
@@ -211,7 +206,7 @@ X-Model-Version: 4.7.2
             <div className="flex space-x-2 py-3 w-full">
               <div className="flex items-center justify-between relative z-50 w-full space-x-3">
                 <div className="flex items-center space-x-3 ">
-                  <motion.div
+                  <MotionDiv
                     className="w-3 h-3  rounded-full bg-green-500 relative"
                     animate={{
                       boxShadow: [
@@ -225,7 +220,7 @@ X-Model-Version: 4.7.2
                       ease: "easeOut",
                     }}
                   >
-                    <motion.div
+                    <MotionDiv
                       className="absolute inset-0 rounded-full bg-green-400"
                       animate={{ opacity: [0.5, 1, 0.5] }}
                       transition={{
@@ -234,12 +229,12 @@ X-Model-Version: 4.7.2
                         ease: "easeInOut",
                       }}
                     />
-                  </motion.div>
+                  </MotionDiv>
                   <span className="text-gray-400  font-semibold uppercase tracking-wider">
                     POST
                   </span>
                 </div>
-                <motion.span
+                <MotionSpan
                   className="inline-block cursor-pointer"
                   whileHover={{
                     scale: 1.01,
@@ -252,7 +247,7 @@ X-Model-Version: 4.7.2
                   <Button className="bg-white  opacity-50 hover:bg-white text-black cursor-pointer">
                     Deploy
                   </Button>
-                </motion.span>
+                </MotionSpan>
               </div>
             </div>
           </div>
@@ -270,16 +265,16 @@ X-Model-Version: 4.7.2
           {/* Display completed lines sliding from bottom to top */}
           <div>
             {visibleLines.map((line, index) => (
-              <motion.div key={line.id} className="whitespace-pre">
+              <MotionDiv key={line.id} className="whitespace-pre">
                 {formatLine(line.content)}
-              </motion.div>
+              </MotionDiv>
             ))}
 
             {/* Current typing line with cursor */}
             {!isComplete && (
               <div className="whitespace-pre flex">
                 <span>{formatLine(currentTypingLine)}</span>
-                <motion.div
+                <MotionDiv
                   className="inline-block w-2 h-4 bg-green-500 ml-1"
                   animate={{ opacity: [1, 0] }}
                   transition={{
@@ -293,13 +288,13 @@ X-Model-Version: 4.7.2
 
             {/* Fixed cursor when complete */}
             {isComplete && (
-              <motion.div
+              <MotionDiv
                 className="text-cyan-400 mt-2 flex items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <motion.div
+                <MotionDiv
                   className="inline-block w-2 h-4 bg-green-500 opacity-50 ml-1"
                   animate={{ opacity: [1, 0] }}
                   transition={{
@@ -308,12 +303,12 @@ X-Model-Version: 4.7.2
                     repeatType: "reverse",
                   }}
                 />
-              </motion.div>
+              </MotionDiv>
             )}
           </div>
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

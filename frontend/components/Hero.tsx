@@ -1,10 +1,9 @@
-
-
-import Dashboard from "./dashboard";
+// import Dashboard from "./dashboard";
 import { MotionDiv, MotionH1, MotionP } from "./motion-wrapper";
+import dashboard from "./dashboard";
+import Dashboard from "./dashboard";
 
 export default function Hero() {
-
   return (
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col items-center min-h-screen w-full">
       <div className="w-full max-w-[1100px] mt-20 sm:mt-32 md:mt-40 px-4 sm:px-6 lg:px-8">
@@ -19,8 +18,7 @@ export default function Hero() {
               opacity: 1,
             }}
             transition={{
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              ease: "easeInOut",
             }}
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
@@ -40,9 +38,7 @@ export default function Hero() {
               opacity: 1,
             }}
             transition={{
-              delay: 0.1,
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              ease: "easeInOut",
             }}
             className="text-[#8A8F98] text-sm sm:text-base md:text-md font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-5 
@@ -68,9 +64,7 @@ export default function Hero() {
           filter: "blur(0px)",
         }}
         transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94],
+          ease: "easeInOut",
         }}
         className="w-full max-w-[1600px] mt-16 px-4 sm:px-6 lg:px-8"
       >

@@ -15,16 +15,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
+import { MotionDiv, MotionH2, MotionInput, MotionP, MotionSelect } from "./motion-wrapper";
 
 export default function Contact() {
-  const currentYear = new Date()
+  const currentYear = new Date();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const roleRef = useRef<HTMLSelectElement>(null);
   const countryRef = useRef<HTMLSelectElement>(null);
-   
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -48,10 +48,14 @@ export default function Contact() {
     )
       .then((response) => response.json())
       .then((data) => {
-        toast.success(data.message);
+        if (data.success) {
+          toast.success(data.message);
+        } else {
+          toast.error(data.message || "Something went wrong");
+        }
       })
       .catch((e) => {
-        console.log(e);
+        toast.error("Something went Wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -68,14 +72,14 @@ export default function Contact() {
       id="contact"
     >
       <Toaster richColors position="top-right" />
-      <motion.div
+      <MotionDiv
         className="flex items-center flex-col w-full px-4 sm:px-0"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        <motion.div
+        <MotionDiv
           initial={{
             y: 60,
             opacity: 0,
@@ -93,9 +97,7 @@ export default function Contact() {
             ease: [0.215, 0.61, 0.355, 1],
           }}
         >
-        
-
-          <motion.h2
+          <MotionH2
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[538] tracking-[-.0325em] text-balance 
@@ -110,9 +112,9 @@ export default function Contact() {
             }}
           >
             Ready to outsmart the market ?
-          </motion.h2>
+          </MotionH2>
 
-          <motion.p
+          <MotionP
             className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center  text-xl mt-5"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 0.75, y: 0 }}
@@ -120,10 +122,8 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             Get early access to CapQuant's Institutional grade platform
-          </motion.p>
-        </motion.div>
-
-        {/* Form Section */}
+          </MotionP>
+        </MotionDiv>
         <motion.form
           className="w-full md:w-1/2 my-10 md:my-30"
           variants={formVariants}
@@ -132,7 +132,7 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.3 }}
           onSubmit={handleSubmit}
         >
-          <motion.div
+          <MotionDiv
             className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             whileInView={{
@@ -148,36 +148,36 @@ export default function Contact() {
               once: true,
             }}
           >
-            <motion.div
+            <MotionDiv
               className="w-full md:w-1/2"
               whileHover={{ scale: 1.02 }}
               whileFocus={{ scale: 1.02 }}
             >
-              <motion.input
+              <MotionInput
+                required
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                required
                 placeholder="Full name"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
-            </motion.div>
-            <motion.div
+            </MotionDiv>
+            <MotionDiv
               className="w-full md:w-1/2"
               whileHover={{ scale: 1.02 }}
             >
-              <motion.input
-                type="email"
+              <MotionInput
                 required
+                type="email"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
                 placeholder="Email"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
-            </motion.div>
-          </motion.div>
+            </MotionDiv>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             className="flex flex-col md:flex-row mt-3 justify-center items-center gap-5 md:gap-10"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             whileInView={{
@@ -193,11 +193,11 @@ export default function Contact() {
               once: true,
             }}
           >
-            <motion.div
+            <MotionDiv
               className="w-full md:w-1/2 "
               whileHover={{ scale: 1.02 }}
             >
-              <motion.select
+              <MotionSelect
                 required
                 ref={roleRef}
                 className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10"
@@ -210,15 +210,15 @@ export default function Contact() {
                     </option>
                   );
                 })}
-              </motion.select>
-            </motion.div>
-            <motion.div
+              </MotionSelect>
+            </MotionDiv>
+            <MotionDiv
               className="w-full md:w-1/2"
               whileHover={{ scale: 1.02 }}
             >
-              <motion.select
-                ref={countryRef}
+              <MotionSelect
                 required
+                ref={countryRef}
                 className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg "
               >
                 <option value="">Select a Country</option>
@@ -229,11 +229,11 @@ export default function Contact() {
                     </option>
                   );
                 })}
-              </motion.select>
-            </motion.div>
-          </motion.div>
+              </MotionSelect>
+            </MotionDiv>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             className="w-full mt-5"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             whileInView={{
@@ -249,7 +249,7 @@ export default function Contact() {
               once: true,
             }}
           >
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <MotionDiv whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 className="bg-white cursor-pointer hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
                 size={"lg"}
@@ -260,11 +260,11 @@ export default function Contact() {
                   "Join The Waitlist"
                 )}
               </Button>
-            </motion.div>
-          </motion.div>
+            </MotionDiv>
+          </MotionDiv>
         </motion.form>
 
-        <motion.div
+        <MotionDiv
           className="scroll-m-20 font-[510] tracking-[-0.011em]  text-center mt-10"
           initial="hidden"
           whileInView="visible"
@@ -278,7 +278,7 @@ export default function Contact() {
             },
           }}
         >
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: -30 }}
             whileInView={{
               opacity: 1,
@@ -296,8 +296,8 @@ export default function Contact() {
             <p className="opacity-50">
               Be among the first to experience CapQuant
             </p>
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             className="my-4"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{
@@ -314,8 +314,8 @@ export default function Contact() {
           >
             <h2 className="font-semibold">No Commitment</h2>
             <p className="opacity-50">Join the waitlist With no obligations</p>
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             initial={{ opacity: 0, x: -30 }}
             whileInView={{
               opacity: 1,
@@ -333,11 +333,11 @@ export default function Contact() {
             <p className="opacity-50">
               Get insider Updates on platform development
             </p>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
 
         {/* Social Media Section */}
-        <motion.div
+        <MotionDiv
           className="flex mt-10 text-2xl gap-5"
           initial="hidden"
           whileInView="visible"
@@ -378,7 +378,7 @@ export default function Contact() {
               url: "https://x.com/capquant_",
             },
           ].map(({ icon: Icon, label, url }) => (
-            <motion.div
+            <MotionDiv
               key={label}
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{
@@ -402,26 +402,25 @@ export default function Contact() {
                   <p>{label}</p>
                 </TooltipContent>
               </Tooltip>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
 
-      {/* Footer */}
-      <motion.div
+      <MotionDiv
         className="w-full border-t border-t-zinc-800/80 p-4  text-[#8a8f98] flex items-center justify-between text-center mt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-       <span>
-        &copy; {currentYear.getFullYear()} CapQuant. All rights reserved
-       </span>
-       <p className="font-[510] tracking-[-0.011em] ">
+        <span>
+          &copy; {currentYear.getFullYear()} CapQuant. All rights reserved
+        </span>
+        <p className="font-[510] tracking-[-0.011em] ">
           Powered by Lotus Capital
         </p>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

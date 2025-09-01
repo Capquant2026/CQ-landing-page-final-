@@ -16,7 +16,6 @@ export default function Prompt() {
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  // Trading strategy placeholders
   const placeholders = [
     "Buy WTI when price closes above the 50-period SMA and RSI(14) is below 70",
     "Sell Nasdaq when price crosses back below SMA",
