@@ -111,7 +111,7 @@ export const State = () => {
               </MotionDiv>
             </div>
             <MotionH2
-              className="text-sm text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+              className="text-sm  text-gray-400 tracking-tighter font-semibold uppercase"
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
@@ -168,7 +168,7 @@ export const State = () => {
               </MotionDiv>
             </div>
             <MotionH2
-              className="text-sm text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+              className="text-sm text-zinc-400 dark:text-gray-400 tracking-tighter font-semibold uppercase"
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
@@ -236,7 +236,7 @@ export const State = () => {
               </MotionDiv>
             </div>
             <MotionH2
-              className="text-sm text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+              className="text-sm  text-gray-400 tracking-tighter font-semibold uppercase"
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
@@ -283,7 +283,7 @@ export const State = () => {
               </MotionDiv>
             </div>
             <MotionH2
-              className="text-sm text-zinc-100 dark:text-zinc-900 tracking-tighter font-semibold uppercase"
+              className="text-sm  text-gray-400 tracking-tighter font-semibold uppercase"
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
