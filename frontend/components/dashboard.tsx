@@ -1,5 +1,3 @@
-"use client";
-
 import logo from "../public/CQ.svg";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -12,62 +10,30 @@ import { PiRankingLight } from "react-icons/pi";
 import { FaCaretDown } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdContactSupport } from "react-icons/md";
-import { motion } from "motion/react";
 import { CiImport } from "react-icons/ci";
 import { MdPayment } from "react-icons/md";
 import { AiOutlineCloudServer } from "react-icons/ai";
 import { memo, useMemo } from "react";
 import SideBarButton from "./SideBarButton";
-import dynamic from "next/dynamic";
-const PeakUsageAnalysis = dynamic(() => import("./PeakUsageAnalysis"), {
-  ssr: false,
-});
-const Timer = dynamic(() => import("./timer"), {
-  ssr: false,
-});
+import TimerWrapper from "./Timer-wrapper";
+import { MotionDiv } from "./motion-wrapper";
+import ChartWrapper from "./chart-wrapper";
 const Dashboard = () => {
   const allLinks = useMemo(
     () => [
-      { label: "Dashboard" },
-      { label: "Profile" },
-      { label: "API" },
-      { label: "Import" },
-      { label: "No-code" },
-      { label: "Backtester" },
-      { label: "Reward Tracker" },
-      { label: "Reports" },
-      { label: "Leaderboard" },
+      { label: "Dashboard", icon: GrHomeRounded, color: "#5F6163" },
+      { label: "Profile", icon: IoPersonSharp, color: "#26B5CE" },
+      { label: "API", icon: AiOutlineCloudServer, color: "#50E2C2" },
+      { label: "Import", icon: CiImport, color: "#EB5757" },
+      { label: "No-code", icon: FaCode, color: "#50E2C2" },
+      { label: "Backtester", icon: TfiStatsUp, color: "#5E6AD2" },
+      { label: "Reward Tracker", icon: MdPayment, color: "#26B5CE" },
+      { label: "Reports", icon: IoFlag, color: "#4EA7FC" },
+      { label: "Leaderboard", icon: PiRankingLight, color: "#68CC58" },
     ],
     []
   );
-  const icons = useMemo(
-    () => [
-      GrHomeRounded,
-      IoPersonSharp,
-      AiOutlineCloudServer,
-      CiImport,
-      FaCode,
-      TfiStatsUp,
-      MdPayment,
-      IoFlag,
-      PiRankingLight,
-    ],
-    []
-  );
-  const colors = useMemo(
-    () => [
-      "5F6163",
-      "26B5CE",
-      "50E2C2",
-      "EB5757",
-      "50E2C2",
-      "5E6AD2",
-      "26B5CE",
-      "4EA7FC",
-      "68CC58",
-    ],
-    []
-  );
+
   const cardContent = useMemo(
     () => [
       { title: "Validated Predictions", value: "7", change: "+12.03%" },
@@ -91,7 +57,7 @@ const Dashboard = () => {
   );
   return (
     <div className="relative  dashboard-container ">
-      <motion.div className="main-motion-div w-[1600px]   rounded-lg  mt-20   relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] z-0">
+      <MotionDiv className="main-motion-div w-[1600px]   rounded-lg  mt-20   relative bg-[#08090A] flex border border-[#1A1C1F]  h-[900px] z-0">
         <div className=" absolute  h-full  right-0 w-[50%] top-0 bg-gradient-to-l pointer-events-none from-[#08090A] to-transparent  z-20" />
 
         <div
@@ -103,8 +69,10 @@ const Dashboard = () => {
           <div className="w-full">
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
-                <Image src={logo} width={40} alt="" priority />
-                <h2 className="text-lg font-semibold">CapQuant</h2>
+                <h1 className="text-[#e6e6e6] flex text-md items-center gap-2 md:text-xl font-semibold">
+                  <Image src={logo} alt="logo" width={25} priority />
+                  <span>CapQuant</span>
+                </h1>
               </div>
               <button
                 className="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
@@ -128,14 +96,9 @@ const Dashboard = () => {
               </span>
               <div className="flex flex-col items-start">
                 {allLinks.map((item, index) => {
-                  const Icon = icons[index];
-                  const color = colors[index];
-                  if (
-                    item.label === "No-code" ||
-                    item.label == "Import"
-                  ) {
+                  if (item.label === "No-code" || item.label == "Import") {
                     return (
-                      <motion.div
+                      <MotionDiv
                         className="w-full rounded-lg cursor-pointer"
                         key={index}
                         whileHover={{
@@ -152,36 +115,29 @@ const Dashboard = () => {
                           transformStyle: "preserve-3d",
                         }}
                       >
-                        <motion.div
+                        <MotionDiv
                           whileHover={{
                             boxShadow:
                               "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
                           }}
                           className="rounded-lg "
                         >
-                          <Button
-                            variant="ghost"
-                            className="  w-full py-3 relative hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700  transition-all duration-300"
-                          >
-                            <Icon
-                              className="mr-2"
-                              style={{ color: color }}
-                              size={20}
-                            />
-                            <span className="relative z-50 ">{item.label}</span>
-                          </Button>
-                        </motion.div>
-                      </motion.div>
+                          <SideBarButton
+                            label={item.label}
+                            color={item.color}
+                            Icon={item.icon}
+                          />
+                        </MotionDiv>
+                      </MotionDiv>
                     );
                   }
 
                   return (
                     <SideBarButton
                       key={index}
-                      isSpecial={false}
                       label={item.label}
-                      color={color}
-                      Icon={Icon}
+                      color={item.color}
+                      Icon={item.icon}
                     />
                   );
                 })}
@@ -218,7 +174,7 @@ const Dashboard = () => {
                 transformStyle: "preserve-3d",
               }}
             >
-              <motion.div
+              <MotionDiv
                 className="w-full rounded-lg"
                 whileHover={{
                   z: 2,
@@ -236,7 +192,7 @@ const Dashboard = () => {
                   pointerEvents: "auto",
                 }}
               >
-                <motion.div
+                <MotionDiv
                   whileHover={{
                     boxShadow:
                       "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
@@ -252,9 +208,9 @@ const Dashboard = () => {
                   >
                     Intraday
                   </Button>
-                </motion.div>
-              </motion.div>
-              <motion.div
+                </MotionDiv>
+              </MotionDiv>
+              <MotionDiv
                 className="w-full rounded-lg"
                 whileHover={{
                   z: 2,
@@ -270,7 +226,7 @@ const Dashboard = () => {
                   transformStyle: "preserve-3d",
                 }}
               >
-                <motion.div
+                <MotionDiv
                   whileHover={{
                     boxShadow:
                       "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
@@ -283,10 +239,10 @@ const Dashboard = () => {
                   >
                     Swing
                   </Button>
-                </motion.div>
-              </motion.div>
+                </MotionDiv>
+              </MotionDiv>
             </div>
-            <motion.div
+            <MotionDiv
               className="w-full rounded-lg bg-[#333638] cursor-pointer mt-1"
               whileHover={{
                 z: 2,
@@ -302,7 +258,7 @@ const Dashboard = () => {
                 transformStyle: "preserve-3d",
               }}
             >
-              <motion.div
+              <MotionDiv
                 whileHover={{
                   boxShadow:
                     "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
@@ -315,8 +271,8 @@ const Dashboard = () => {
                 >
                   Deploy
                 </Button>
-              </motion.div>
-            </motion.div>
+              </MotionDiv>
+            </MotionDiv>
           </div>
           <div className="w-full">
             <span className="mb-3 inline-block text-sm  opacity-50">
@@ -425,7 +381,6 @@ const Dashboard = () => {
                 {cardContent.map((card, i) => (
                   <div
                     style={{
-                      // marginTop  : i >= 4 ? "1px" : "0px",
                       transformStyle: "preserve-3d",
                     }}
                     key={i}
@@ -434,7 +389,7 @@ const Dashboard = () => {
                     <h2 className="text-lg font-semibold tracking-[1px]">
                       {card.title == "Live Predictions" ? (
                         <div className="flex items-center space-x-2">
-                          <motion.div
+                          <MotionDiv
                             className="w-3 h-3  rounded-full bg-green-500 relative"
                             animate={{
                               boxShadow: [
@@ -448,7 +403,7 @@ const Dashboard = () => {
                               ease: "easeOut",
                             }}
                           >
-                            <motion.div
+                            <MotionDiv
                               className="absolute inset-0 rounded-full bg-green-400"
                               animate={{ opacity: [0.5, 1, 0.5] }}
                               transition={{
@@ -457,7 +412,7 @@ const Dashboard = () => {
                                 ease: "easeInOut",
                               }}
                             />
-                          </motion.div>
+                          </MotionDiv>
 
                           <span>{card.title}</span>
                         </div>
@@ -488,11 +443,11 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <Timer />
-            <PeakUsageAnalysis />
+            <TimerWrapper />
+            <ChartWrapper />
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 };

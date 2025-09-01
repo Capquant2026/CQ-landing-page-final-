@@ -4,64 +4,66 @@ import { AnimatePresence, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { FaCaretDown } from "react-icons/fa";
 import { useEffect, useMemo, useState } from "react";
+import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
+import Notification  from "./notifications";
 
 export default function AnalyticsSection() {
   const [isDropMenuHovered, setIsDropMenuHovered] = useState<boolean>(false);
   const [showAsset, setShowAsset] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  // const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  useEffect(() => {
-    const cardsInterval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        if (prev >= titles.length - 1) {
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 2500);
-    console.log(titles.length);
-    console.log(titles.length - 1);
+  // useEffect(() => {
+  //   const cardsInterval = setInterval(() => {
+  //     setCurrentIndex((prev) => {
+  //       if (prev >= titles.length - 1) {
+  //         return 0;
+  //       }
+  //       return prev + 1;
+  //     });
+  //   }, 2500);
+  //   console.log(titles.length);
+  //   console.log(titles.length - 1);
 
-    return () => clearInterval(cardsInterval);
-  }, []);
+  //   return () => clearInterval(cardsInterval);
+  // }, []);
 
-  const titles = useMemo(
-    () => [
-      {
-        title: "Round 14- Prediction Received",
-        semiTitle: "Your prediction entered our system",
-        time: "11:07",
-      },
-      {
-        title: "Scoring ",
-        semiTitle: "Your prediction is tested instantly across real market data",
-        time: "11:18",
-      },
-      {
-        title: "Status : Accepted ",
-        semiTitle: "Your prediction has been picked and gained influence.",
-        time: "11:19",
-      },
-      {
-        title: "Weighted Model",
-        semiTitle:
-          "Stronger predictions earn higher weight",
-        time: "11:23",
-      },
-      {
-        title: "Live Prediction",
-        semiTitle: "Prediction weighted. signal triggered",
-        time: "11:30",
-      },
-      {
-        title: "Reward & Recognition",
-        semiTitle:
-          "Unlock rewards and community recognition as your predictions perform",
-        time: "Ongoing",
-      },
-    ],
-    []
-  );
+  // const titles = useMemo(
+  //   () => [
+  //     {
+  //       title: "Round 14- Prediction Received",
+  //       semiTitle: "Your prediction entered our system",
+  //       time: "11:07",
+  //     },
+  //     {
+  //       title: "Scoring ",
+  //       semiTitle:
+  //         "Your prediction is tested instantly across real market data",
+  //       time: "11:18",
+  //     },
+  //     {
+  //       title: "Status : Accepted ",
+  //       semiTitle: "Your prediction has been picked and gained influence.",
+  //       time: "11:19",
+  //     },
+  //     {
+  //       title: "Weighted Model",
+  //       semiTitle: "Stronger predictions earn higher weight",
+  //       time: "11:23",
+  //     },
+  //     {
+  //       title: "Live Prediction",
+  //       semiTitle: "Prediction weighted. signal triggered",
+  //       time: "11:30",
+  //     },
+  //     {
+  //       title: "Reward & Recognition",
+  //       semiTitle:
+  //         "Unlock rewards and community recognition as your predictions perform",
+  //       time: "Ongoing",
+  //     },
+  //   ],
+  //   []
+  // );
 
   return (
     <div
@@ -72,7 +74,7 @@ export default function AnalyticsSection() {
     >
       <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
         <div className="flex flex-col items-center text-center md:items-start md:text-start">
-          <motion.h2
+          <MotionH2
             initial={{
               y: 30,
               opacity: 0,
@@ -96,9 +98,9 @@ export default function AnalyticsSection() {
                          max-w-full sm:max-w-3xl md:max-w-4xl  lg:max-w-5xl"
           >
             Submit multi-asset predictions. test live. collect rewards
-          </motion.h2>
+          </MotionH2>
 
-          <motion.p
+          <MotionP
             initial={{
               y: 30,
               opacity: 0,
@@ -119,10 +121,10 @@ export default function AnalyticsSection() {
           >
             Deploy your predictions across any asset and timeframe. Our
             forward-testing engine runs live
-          </motion.p>
+          </MotionP>
         </div>
 
-        <motion.div
+        <MotionDiv
           initial={{
             y: 60,
             opacity: 0,
@@ -279,33 +281,12 @@ export default function AnalyticsSection() {
               }}
             >
               <div className="w-full h-full bg-gradient-to-l from-[#0d0e0f] inset-0 absolute z-10 opacity-70" />
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                className="w-full"
-              >
-                <div className="text-gray-500 px-2 py-1 rounded text-sm font-bold">
-                  {titles[currentIndex].time}
-                </div>
-                <motion.div className="bg-[#393939] w-full border relative text-center rounded-md p-5 border-[#ffffff1a]">
-                  <h2 className="text-lg text-green-500 font-semibold tracking-[-.0325em]">
-                    {titles[currentIndex].title}
-                  </h2>
-                  <hr className="border border-[#ffffff1a] my-2" />
-                  <p className="tracking-[-.0325em] opacity-50">
-                    {titles[currentIndex].semiTitle}
-                  </p>
-                </motion.div>
-              </motion.div>
+              <Notification
+                
+              />
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </div>
   );

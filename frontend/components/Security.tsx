@@ -1,9 +1,6 @@
-"use client";
-import { motion } from "motion/react";
-import leftLock from "../public/left-Lock.svg";
 import rightLock from "../public/right-Lock.svg";
-import middleShape from "../public/square-Shape.svg";
 import Image from "next/image";
+import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
 export default function Insight() {
   return (
     <div
@@ -14,7 +11,7 @@ export default function Insight() {
     >
       <div className="w-full max-w-[1200px]  px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
         <div className="flex flex-col items-center text-center md:items-start md:text-start">
-          <motion.h2
+          <MotionH2
             initial={{
               y: 30,
               opacity: 0,
@@ -38,9 +35,9 @@ export default function Insight() {
                          max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
           >
             Security & Encryption
-          </motion.h2>
+          </MotionH2>
 
-          <motion.p
+          <MotionP
             initial={{
               y: 30,
               opacity: 0,
@@ -61,10 +58,10 @@ export default function Insight() {
           >
             Your models stay protected with full encryption on both ends, secure
             APIs, and complete IP safeguarding
-          </motion.p>
+          </MotionP>
         </div>
 
-        <motion.div
+        <MotionDiv
           initial={{
             y: 60,
             opacity: 0,
@@ -85,7 +82,7 @@ export default function Insight() {
           }}
           className="w-full flex items-center relative justify-center max-w-[1100px] mt-16 lg:mt-10"
         >
-          <motion.div
+          <MotionDiv
             className={`w-full before:content-[""] before:absolute    before:w-full before:bg-gradient-to-t  md:flex-row before:inset-0 before:from-[#09090a] before:opacity-50 before:to-transparent before:z-50 before:h-full flex items-center justify-center p-4 bg-gradient-to-b from-[#141516] via-[#0f1011] to-[#08090A] rounded-2xl shadow-2xl border border-white/5 backdrop-blur-sm min-h-[300px] sm:min-h-[400px] relative overflow-hidden`}
             transition={{
               delay: 0.3,
@@ -94,7 +91,7 @@ export default function Insight() {
             }}
           >
             <svg
-            className="z-10"
+              className="z-10"
               xmlns="http://www.w3.org/2000/svg"
               width="141"
               height="141"
@@ -122,7 +119,7 @@ export default function Insight() {
             </svg>
 
             <div className="relative">
-              <motion.div
+              <MotionDiv
                 className="absolute scale-50  top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
                 style={{
                   transform: "translateY(-50%)",
@@ -140,7 +137,7 @@ export default function Insight() {
                 }}
               />
 
-              <motion.div
+              <MotionDiv
                 className="w-2.5  h-2.5 bg-[#8B9BFF] absolute top-1/2 -translate-y-1/2 rounded-full z-20"
                 style={{
                   filter: "blur(0.5px)",
@@ -265,7 +262,7 @@ export default function Insight() {
             </svg>
 
             <div className="relative">
-              <motion.div
+              <MotionDiv
                 className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-transparent via-[#8B9BFF] to-transparent"
                 style={{
                   transform: "translateY(-50%)",
@@ -283,7 +280,7 @@ export default function Insight() {
                 }}
               />
 
-              <motion.div
+              <MotionDiv
                 className="w-2.5 h-2.5 bg-[#8B9BFF] absolute top-1/2 -translate-y-1/2 rounded-full z-20"
                 style={{
                   filter: "blur(0.5px)",
@@ -316,7 +313,7 @@ export default function Insight() {
 
             <Image src={rightLock} alt="rightShape" className="z-10" priority />
 
-            <motion.div
+            <MotionDiv
               className="absolute inset-0 rounded-2xl pointer-events-none"
               animate={{
                 background: [
@@ -333,8 +330,8 @@ export default function Insight() {
                 ease: "easeInOut",
               }}
             />
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </div>
     </div>
   );
