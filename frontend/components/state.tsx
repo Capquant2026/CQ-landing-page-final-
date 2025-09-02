@@ -53,7 +53,7 @@ export const State = () => {
   }, []);
   return (
     <div className="flex  flex-wrap  lg:flex-row gap-3 mt-10 items-center">
-      <Card className="w-64 h-40 mx-auto   p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+      <Card className="w-64 h-40 scale-80 lg:scale-100 mx-auto   p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
         <CardContent className="space-y-4 flex flex-col items-center justify-center">
           <MotionDiv
             className="space-y-2 text-center w-full"
@@ -121,7 +121,7 @@ export const State = () => {
           </MotionDiv>
         </CardContent>
       </Card>
-      <Card className="w-64 h-40  mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+      <Card className="w-64 h-40 scale-80 lg:scale-100  mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
         <CardContent className="space-y-4 flex flex-col items-center justify-center">
           <MotionDiv
             className="space-y-2 text-center w-full"
@@ -178,7 +178,7 @@ export const State = () => {
           </MotionDiv>
         </CardContent>
       </Card>
-      <Card className="w-64 h-40  mx-auto p-6   flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+      <Card className="w-64 h-40 scale-80 lg:scale-100  mx-auto p-6   flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
         <CardContent className="space-y-4 flex flex-col items-center justify-center">
           <MotionDiv
             className="space-y-2 text-center w-full"
@@ -246,7 +246,7 @@ export const State = () => {
           </MotionDiv>
         </CardContent>
       </Card>
-      <Card className="w-64 h-40  mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
+      <Card className="w-64 h-40 scale-80 lg:scale-100  mx-auto p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
         <CardContent className="space-y-4 flex flex-col items-center justify-center">
           <MotionDiv
             className="space-y-2 text-center w-full"
