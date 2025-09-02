@@ -18,6 +18,7 @@ import SideBarButton from "./SideBarButton";
 import TimerWrapper from "./Timer-wrapper";
 import { MotionDiv } from "./motion-wrapper";
 import ChartWrapper from "./chart-wrapper";
+import Spicail3dButton from "./Spicail3dButton";
 const Dashboard = () => {
   const allLinks = useMemo(
     () => [
@@ -59,7 +60,7 @@ const Dashboard = () => {
     <div className="relative  dashboard-container   ">
       <MotionDiv className="main-motion-div w-[1200px] sm:w-[1600px]  scale-[0.4] sm:scale-100 rounded-lg mt-20  bg-[#08090A] flex border border-[#1A1C1F] h-[900px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#08090A] before:to-transparent before:pointer-events-none before:z-20">
         <div
-          className="w-64 bg-[#08090A] border-r  border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white"
+          className="w-64 bg-[#08090A] border-r  border-[#1A1C1F] p-4  h-full  text-white"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -88,45 +89,34 @@ const Dashboard = () => {
               </button>
             </div>
             <hr className="my-3 border border-[#1A1C1F]" />
-            <div>
+          </div>
+          <div className=" flex flex-col items-start justify-between h-[90%]"    style={{
+            transformStyle: "preserve-3d",
+          }}>
+            <div
+              className="w-full"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+            >
               <span className="mb-3 inline-block text-sm  opacity-50">
                 Menu
               </span>
-              <div className="flex flex-col items-start">
+              <div
+                className="flex flex-col items-start w-full"
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
                 {allLinks.map((item, index) => {
                   if (item.label === "No-code" || item.label == "Import") {
                     return (
-                      <MotionDiv
-                        className="w-full rounded-lg cursor-pointer"
+                      <Spicail3dButton
                         key={index}
-                        whileHover={{
-                          z: 40,
-                          y: -12,
-                          scale: 1.02,
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 350,
-                          damping: 25,
-                        }}
-                        style={{
-                          transformStyle: "preserve-3d",
-                        }}
-                      >
-                        <MotionDiv
-                          whileHover={{
-                            boxShadow:
-                              "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
-                          }}
-                          className="rounded-lg "
-                        >
-                          <SideBarButton
-                            label={item.label}
-                            color={item.color}
-                            Icon={item.icon}
-                          />
-                        </MotionDiv>
-                      </MotionDiv>
+                        label={item.label}
+                        Icon={item.icon}
+                        color={item.color}
+                      />
                     );
                   }
 
@@ -141,75 +131,106 @@ const Dashboard = () => {
                 })}
               </div>
             </div>
-          </div>
 
-          <div
-            className="w-full"
-            style={{
-              transformStyle: "preserve-3d",
-            }}
-          >
-            <span className="mb-3 inline-block text-sm  opacity-50">
-              Deployment
-            </span>
             <div
-              className=""
+              className="w-full"
               style={{
                 transformStyle: "preserve-3d",
               }}
             >
-              <Button
-                variant={"ghost"}
-                className="w-full flex items-center justify-between py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
-              >
-                Horizon
-                <FaCaretDown />
-              </Button>
-            </div>
-            <div
-              className="mt-2 bg-gradient-to-r border border-[#1A1C1F] from-[#141516]  rounded-xl"
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-            >
-              <MotionDiv
-                className="w-full rounded-lg"
-                whileHover={{
-                  z: 2,
-                  y: -6,
-                  scale: 1.02,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  damping: 25,
-                }}
+              <span className="mb-3 inline-block text-sm  opacity-50">
+                Deployment
+              </span>
+              <div
+                className=""
                 style={{
-                  transform: "translateZ(0)",
                   transformStyle: "preserve-3d",
-                  pointerEvents: "auto",
+                }}
+              >
+                <Button
+                  variant={"ghost"}
+                  className="w-full flex items-center justify-between py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
+                >
+                  Horizon
+                  <FaCaretDown />
+                </Button>
+              </div>
+              <div
+                className="mt-2 bg-gradient-to-r border border-[#1A1C1F] from-[#141516]  rounded-xl"
+                style={{
+                  transformStyle: "preserve-3d",
                 }}
               >
                 <MotionDiv
+                  className="w-full rounded-lg"
                   whileHover={{
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
+                    z: 2,
+                    y: -6,
+                    scale: 1.02,
                   }}
-                  className="p-1 rounded-lg"
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    damping: 25,
+                  }}
+                  style={{
+                    transform: "translateZ(0)",
+                    transformStyle: "preserve-3d",
+                    pointerEvents: "auto",
+                  }}
+                >
+                  <MotionDiv
+                    whileHover={{
+                      boxShadow:
+                        "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
+                    }}
+                    className="p-1 rounded-lg"
+                    style={{
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    <Button
+                      variant="ghost"
+                      className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
+                    >
+                      Intraday
+                    </Button>
+                  </MotionDiv>
+                </MotionDiv>
+                <MotionDiv
+                  className="w-full rounded-lg"
+                  whileHover={{
+                    z: 2,
+                    y: -6,
+                    scale: 1.02,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    damping: 25,
+                  }}
                   style={{
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  <Button
-                    variant="ghost"
-                    className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
+                  <MotionDiv
+                    whileHover={{
+                      boxShadow:
+                        "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
+                    }}
+                    className="p-1 rounded-lg"
                   >
-                    Intraday
-                  </Button>
+                    <Button
+                      variant="ghost"
+                      className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
+                    >
+                      Swing
+                    </Button>
+                  </MotionDiv>
                 </MotionDiv>
-              </MotionDiv>
+              </div>
               <MotionDiv
-                className="w-full rounded-lg"
+                className="w-full rounded-lg bg-[#333638] cursor-pointer mt-1"
                 whileHover={{
                   z: 2,
                   y: -6,
@@ -235,62 +256,31 @@ const Dashboard = () => {
                     variant="ghost"
                     className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
                   >
-                    Swing
+                    Deploy
                   </Button>
                 </MotionDiv>
               </MotionDiv>
             </div>
-            <MotionDiv
-              className="w-full rounded-lg bg-[#333638] cursor-pointer mt-1"
-              whileHover={{
-                z: 2,
-                y: -6,
-                scale: 1.02,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 350,
-                damping: 25,
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-            >
-              <MotionDiv
-                whileHover={{
-                  boxShadow:
-                    "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(94, 106, 210, 0.5), 0 0 40px rgba(94, 106, 210, 0.3)",
-                }}
-                className="p-1 rounded-lg"
-              >
+            <div className="w-full">
+              <span className="mb-3 inline-block text-sm  opacity-50">
+                Help & Settings
+              </span>
+              <div>
                 <Button
-                  variant="ghost"
-                  className="w-full py-3 relative hover:text-white hover:bg-gray-800/40 cursor-pointer overflow-hidden flex items-center justify-start border-gray-700 backdrop-blur-sm transition-all duration-300"
+                  variant={"ghost"}
+                  className="w-full mb-3 flex items-center justify-start py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
                 >
-                  Deploy
+                  <MdContactSupport className="text-[#EB5757] mr-2" />
+                  Support
                 </Button>
-              </MotionDiv>
-            </MotionDiv>
-          </div>
-          <div className="w-full">
-            <span className="mb-3 inline-block text-sm  opacity-50">
-              Help & Settings
-            </span>
-            <div>
-              <Button
-                variant={"ghost"}
-                className="w-full mb-3 flex items-center justify-start py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
-              >
-                <MdContactSupport className="text-[#EB5757] mr-2" />
-                Support
-              </Button>
-              <Button
-                variant={"ghost"}
-                className="w-full flex items-center justify-start py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
-              >
-                <IoSettingsSharp className="text-[#26B5CE] mr-2" />
-                Settings
-              </Button>
+                <Button
+                  variant={"ghost"}
+                  className="w-full flex items-center justify-start py-2 hover:bg-[#151515] border border-[#1A1C1F] hover:text-white cursor-pointer  "
+                >
+                  <IoSettingsSharp className="text-[#26B5CE] mr-2" />
+                  Settings
+                </Button>
+              </div>
             </div>
           </div>
         </div>
