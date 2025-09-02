@@ -11,7 +11,7 @@ export default function AnalyticsSection() {
       }}
     >
       <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40">
-        <div className="flex flex-col items-center text-center md:items-start md:text-start">
+        <div className="flex flex-col items-start text-start md:items-start md:text-start">
           <MotionH2
             initial={{
               y: 30,
@@ -33,7 +33,7 @@ export default function AnalyticsSection() {
             className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl  lg:max-w-5xl"
+                         max-w-full sm:max-w-3xl md:max-w-4xl text-left lg:max-w-5xl"
           >
             Submit multi-asset predictions. test live. collect rewards
           </MotionH2>
@@ -55,7 +55,7 @@ export default function AnalyticsSection() {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6 text-xl mt-5"
+            className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6  text-sm md:text-xl mt-5"
           >
             Deploy your predictions across any asset and timeframe. Our
             forward-testing engine runs live
@@ -84,7 +84,7 @@ export default function AnalyticsSection() {
           className="lg:mt-10  flex flex-col md:flex-row h-72 items-center mt-40 justify-center "
         >
           <DeploymentVisual />
-          <div className="md:w-1/2 w-full h-full p-4 border-t border-b border-zinc-800/60 border-b-zinc-800/80 border-l border-l-zinc-800/80">
+          <div className="md:w-1/2 w-full h-full py-4 sm:px-4  border-t border-b border-zinc-800/60 border-b-zinc-800/80 sm:border-l border-l-zinc-800/80">
             <div
               className="p-4 rounded-lg h-full relative border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] flex items-center justify-center flex-col transition-all duration-150 ease-in-out"
               style={{

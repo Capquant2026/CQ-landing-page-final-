@@ -2,11 +2,12 @@ import Prompt from "./prompt";
 import Image from "next/image";
 import automationIMG from "../public/automationIMG.svg";
 import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
+import { CardSlider } from "./CardSlider";
 
 export default function NoCode() {
   return (
     <div
-      className="min-h-screen text-[#f7f8f8] flex flex-col items-center justify-start 
+      className=" text-[#f7f8f8] flex flex-col items-center justify-start 
                  px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 
                  w-full mt-10 sm:mt-20 md:mt-32 lg:mt-40"
       style={{
@@ -62,9 +63,9 @@ export default function NoCode() {
             ease: [0.25, 0.46, 0.45, 0.94],
             staggerChildren: 0.1,
           }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+          className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
                      leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                     font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
+                     font-[538] tracking-[-.0325em] text-balance text-left
                      max-w-full mt-16 sm:mt-24 md:mt-32 lg:mt-40 px-4 sm:px-0"
         >
           No-Code: drag-and-drop logic and simple prompts
@@ -90,14 +91,15 @@ export default function NoCode() {
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
                      w-full sm:w-3/4 lg:w-1/2 
-                     mt-5 px-4 sm:px-0 text-center sm:text-left
-                      md:w-4/6 text-xl"
+                     mt-5 px-4 sm:px-0 text-left
+                      md:w-4/6 text-sm md:text-xl"
         >
           Perfect for contributors who have ideas but no coding background—stack
           conditions, test, and deploy in minutes.
         </MotionP>
       </MotionDiv>
 
+    
       <MotionDiv
         initial={{
           y: 60,
@@ -118,16 +120,15 @@ export default function NoCode() {
           ease: [0.215, 0.61, 0.355, 1],
         }}
         className="mt-6 sm:mt-8 md:mt-10 
-                   flex flex-col lg:flex-row 
+                    flex-col  flex lg:flex-row 
                    h-auto lg:h-72 
                    items-center justify-center 
                    w-full max-w-6xl"
       >
-        {/* Left Panel - Prompt */}
         <div
-          className="w-full lg:w-1/2 
+          className="w-full lg:w-1/2 hidden  
                         h-64 sm:h-72 lg:h-full 
-                        border-t flex items-center justify-center border-b lg:border-r-0
+                        border-t sm:flex items-center justify-center border-b lg:border-r-0
                         border-zinc-800/60 relative 
                         border-b-zinc-800/80 
                         "
@@ -140,14 +141,14 @@ export default function NoCode() {
                           top-0 right-0 absolute z-10 opacity-75"
           />
         </div>
-
+        <CardSlider />
         <div
           className="w-full lg:w-1/2 
                         h-64 sm:h-72 lg:h-full 
                         relative 
                         p-4 sm:p-6 md:p-8 lg:p-10 
                           border-t border-b lg:border-r-0
-                        
+                        hidden sm:block
                         border-zinc-800/60 
                         border-b-zinc-800/80 
                         lg:border-l lg:border-l-zinc-800/80

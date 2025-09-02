@@ -56,8 +56,8 @@ const Dashboard = () => {
     []
   );
   return (
-    <div className="relative  dashboard-container ">
-      <MotionDiv className="main-motion-div w-[1600px] rounded-lg mt-20 relative bg-[#08090A] flex border border-[#1A1C1F] h-[900px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#08090A] before:to-transparent before:pointer-events-none before:z-20">
+    <div className="relative  dashboard-container   ">
+      <MotionDiv className="main-motion-div w-[1200px] sm:w-[1600px]  scale-[0.4] sm:scale-100 rounded-lg mt-20  bg-[#08090A] flex border border-[#1A1C1F] h-[900px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#08090A] before:to-transparent before:pointer-events-none before:z-20">
         <div
           className="w-64 bg-[#08090A] border-r  border-[#1A1C1F] p-4  h-full flex flex-col items-start justify-between text-white"
           style={{
