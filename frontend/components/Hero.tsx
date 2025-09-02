@@ -45,7 +45,8 @@ export default function Hero() {
                         md:max-w-1/2"
           >
             Compete for real capital{" "}
-            <strong>every hour — No-code, Low-code, or Pro-code </strong>
+            <strong>every hour — No-code, Low-code, </strong> or{" "}
+            <strong>Pro-code </strong>
             strategies go live <strong>intraday.</strong>
           </MotionP>
         </div>
