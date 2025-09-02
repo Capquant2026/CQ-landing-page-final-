@@ -116,7 +116,7 @@ export const State = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
             >
-              Live Models
+              Live Weighted Predictions
             </MotionH2>
           </MotionDiv>
         </CardContent>
