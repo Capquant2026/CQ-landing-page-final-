@@ -96,7 +96,7 @@ const GetCode = () => {
         const timeout = setTimeout(() => {
           setCurrentTypingLine((prev) => prev + currentLine[currentCharIndex]);
           setCurrentCharIndex((prev) => prev + 1);
-        }, Math.random() * 50 + 30); // Random typing speed
+        }, Math.random() * 50 + 30); 
 
         return () => clearTimeout(timeout);
       } else {
@@ -116,7 +116,9 @@ const GetCode = () => {
         return () => clearTimeout(timeout);
       }
     } else {
-      setIsComplete(true);
+      setCurrentCharIndex(0)
+      setCurrentLineIndex(0)
+      // setIsComplete(true);
     }
   }, [currentLineIndex, currentCharIndex, codeLines]);
 
