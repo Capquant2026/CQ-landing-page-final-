@@ -17,87 +17,91 @@ const PostCode = () => {
   const terminalRef = useRef<HTMLDivElement | null>(null);
 
   const codeData = `Authorization: Bearer <xxxxx>
-Content-Type: application/json
-X-Participant-Tier: Pro
-X-Model-Version: 4.7.2
-{
  "user_id": "5845BUS21",
- "timestamp": "2025-11-20T13:45:22Z",
+ "model_name": "IntraDay_Breakout_V3",
  "asset": "WTI_CRUDE_OIL",
  "symbol": "CL",
- "model_name": "IntraDay_Breakout_V3",
- "parameters": {
- "feature_set": [
- "order_flow_imbalance",
- "realized_volatility_5m",
- "vwap_deviation",
- "inventory_report_drift",
- "term_structure_slope"
+"submission_timestamp":"2025-11-20T13:45:22Z",
+ "status": "ACCEPTED",
+ "validation": {
+ "integrity_checks": {
+ "feature_stability_score": 0.948,
+ "overfitting_risk": 0.035,
+ "look_ahead_bias": false,
+ "data_leakage_detected": false
+ },
+ "performance_summary": {
+ "expected_sharpe_ratio": 2.31,
+ "information_ratio": 1.86,
+ "max_drawdown": 0.066,
+ "tail_risk_var99": 0.0231
+ },
+ "uniqueness_metrics": {
+ "orthogonality_score": 0.85,
+ "correlation_existing_models": 0.22,
+ "novel_alpha_contribution": 0.158,
+ "diversification_ratio": 2.61
+ },
+ "backtest_oos": [
+ { "start": "2023-01-01", "end": "2023-12-31", "sharpe": 2.17, "max_dd": 0.053, "calmar": 4.12 },
+ { "start": "2024-01-01", "end": "2024-12-31", "sharpe": 2.40, "max_dd": 0.072, "calmar": 3.82 }
  ],
- "lookback_bars": 120,
- "signal_horizon": "15m",
- "target": "directional_return",
- "model_architecture": {
- "components": [
- {
- "type": "xgboost_regressor",
- "hyperparams": {
- "n_estimators": 600,
- "max_depth": 7,
- "learning_rate": 0.012,
- "subsample": 0.8,
- "colsample_bytree": 0.6
+ "regime_performance": {
+ "low_volatility": { "sharpe": 1.88, "hit_rate": 0.66 },
+ "high_volatility": { "sharpe": 2.77, "hit_rate": 0.71 },
+ "trending": { "sharpe": 3.10, "hit_rate": 0.73 },
+ "mean_reverting": { "sharpe": 1.66, "hit_rate": 0.62 }
+ },
+ "stress_tests": {
+ "covid_march_2020": -0.088,
+ "energy_crisis_2022": 0.131,
+ "banking_stress_2023": -0.024,
+ "monte_carlo_var95": -0.0185
  }
  },
- {
- "type": "lstm_attention",
- "sequence_length": 60,
- "hidden_units": [256, 128, 64],
- "dropout": 0.3,
- "attention_heads": 8
- }
- ],
- "meta_learner": "ridge_regression",
- "walk_forward_windows": 252
+ "deployment": {
+ "execution_start": "2025-11-20T14:00:00Z",
+ "allocation_weight": 0.10,
+ "ensemble_model": "CapQuant_Ensemble_v1.9",
+ "risk_state": "within_limits",
+ "live_metrics": {
+ "pnl_intraday": 0.0043,
+ "realized_volatility": 0.0121,
+ "exposure": 0.097,
+ "live_sharpe_estimate": 2.04,
+ "slippage_realized": 0.0009
  },
- "risk_controls": {
- "max_drawdown": 0.025,
- "var_95": 0.018,
- "exposure_limit": 0.10,
- "stop_loss": "adaptive_atr",
- "position_limit_contracts": 25
- },
- "execution_spec": {
- "slippage_model": "adaptive_spread",
- "order_type": "TWAP",
- "latency_budget_ms": 50
- "broker_emulation": "FX_Bridge",
- "max_adv_percent": 0.08
+ "monitoring": {
+ "realtime_pnl": "/v3/strategies/sub_14_9c8f7a6d2e1b/pnl",
+ "risk_metrics": "/v3/strategies/sub_14_9c8f7a6d2e1b/risk",
+ "execution_quality": "/v3/strategies/sub_14_9c8f7a6d2e1b/execution"
  }
  },
- "expected_metrics": {
- "annualized_sharpe": 2.20,
- "hit_ratio": 0.60,
- "turnover_daily": 4.1,
+ "round_statistics": {
+ "total_submissions": 1247,
+ "acceptance_rate": 0.067,
+ "top_decile_sharpe_threshold": 2.15,
  "expected_volatility": 0.012
  }
 }`;
 
   const codeLines = codeData.split("\n");
 
+  // Type each line character by character, then add to visible lines
   useEffect(() => {
     if (currentLineIndex < codeLines.length) {
       const currentLine = codeLines[currentLineIndex];
 
       if (currentCharIndex < currentLine.length) {
-        
+        // Type next character
         const timeout = setTimeout(() => {
           setCurrentTypingLine((prev) => prev + currentLine[currentCharIndex]);
           setCurrentCharIndex((prev) => prev + 1);
-        }, 50);
+        }, Math.random() * 50 + 30);
 
         return () => clearTimeout(timeout);
       } else {
+        // Line complete, add to visible lines and move to next
         const timeout = setTimeout(() => {
           const newLine = {
             id: currentLineIndex,
@@ -108,15 +112,18 @@ X-Model-Version: 4.7.2
           setCurrentLineIndex((prev) => prev + 1);
           setCurrentCharIndex(0);
           setCurrentTypingLine("");
-        }, 200); 
+        }, 200); // Brief pause before adding line
 
         return () => clearTimeout(timeout);
       }
     } else {
-      setIsComplete(true);
+      setCurrentCharIndex(0);
+      setCurrentLineIndex(0);
+      // setIsComplete(true);
     }
   }, [currentLineIndex, currentCharIndex, codeLines]);
 
+  // Auto-scroll to bottom to show new lines
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -145,7 +152,7 @@ X-Model-Version: 4.7.2
                 : /\d/.test(valuePart)
                 ? "text-gray-400"
                 : valuePart.includes("true") || valuePart.includes("false")
-                ? "text-purple-400"
+                ? "text-gray-400"
                 : "text-gray-300"
             }
           >
@@ -175,8 +182,6 @@ X-Model-Version: 4.7.2
     );
   };
 
-
-
   return (
     <MotionDiv
       initial={{
@@ -191,63 +196,50 @@ X-Model-Version: 4.7.2
         once: true,
       }}
       transition={{
-        delay: 0.3,
+        delay: 0.6,
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94], 
+        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic bezier for smooth feel
+        staggerChildren: 0.1, // If animating multiple items
       }}
-      key={"tested"}
       className="w-full max-w-6xl mx-auto p-6  "
     >
       <div className="rounded-lg shadow-2xl relative bg-gradient-to-b from-[#141516]  to-[#08090A] overflow-hidden border border-zinc-800/80">
         <div className="w-full absolute left-0 top-0 bg-gradient-to-l from-[#141516]  to-[#08090a00] h-full z-20" />
+        <div className="w-full absolute h-full inset-0 z-30 bg-gradient-to-tl from-[#141516] to-[#08090a00]" />
+
         {/* Windows Terminal Header */}
-        <div className="bg-[#0d0e0f] px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
-          <div className="flex items-center space-x-4 w-full">
-            <div className="flex space-x-2 py-3 w-full">
-              <div className="flex items-center justify-between relative z-50 w-full space-x-3">
-                <div className="flex items-center space-x-3 ">
-                  <MotionDiv
-                    className="w-3 h-3  rounded-full bg-green-500 relative"
-                    animate={{
-                      boxShadow: [
-                        "0 0 0 0 rgba(34, 197, 94, 0.7)",
-                        "0 0 0 8px rgba(34, 197, 94, 0)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <MotionDiv
-                      className="absolute inset-0 rounded-full bg-green-400"
-                      animate={{ opacity: [0.5, 1, 0.5] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </MotionDiv>
-                  <span className="text-gray-400  font-semibold uppercase tracking-wider">
-                    POST
-                  </span>
-                </div>
-                <MotionSpan
-                  className="inline-block cursor-pointer"
-                  whileHover={{
-                    scale: 1.01,
-                    y: -2,
+        <div className=" px-4 py-2 flex items-center justify-between border-b border-zinc-700/80">
+          <div className="flex items-center space-x-4">
+            <div className="flex space-x-2 py-3">
+              <div className="flex items-center space-x-3">
+                <MotionDiv
+                  className="w-3 h-3 rounded-full bg-yellow-500 relative"
+                  animate={{
+                    boxShadow: [
+                      "0 0 0 0 rgba(250, 204, 21, 0.7)", // yellow glow
+                      "0 0 0 8px rgba(250, 204, 21, 0)", // fade out
+                    ],
                   }}
-                  whileTap={{
-                    scale: 0.9,
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeOut",
                   }}
                 >
-                  <Button className="bg-white  opacity-50 hover:bg-white text-black cursor-pointer">
-                    Deploy
-                  </Button>
-                </MotionSpan>
+                  <MotionDiv
+                    className="absolute inset-0 rounded-full bg-yellow-400"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </MotionDiv>
+
+                <span className="text-gray-400  font-semibold uppercase tracking-wider">
+                  GET
+                </span>
               </div>
             </div>
           </div>
@@ -265,7 +257,7 @@ X-Model-Version: 4.7.2
           {/* Display completed lines sliding from bottom to top */}
           <div>
             {visibleLines.map((line, index) => (
-              <MotionDiv key={line.id} className="whitespace-pre">
+              <MotionDiv key={index} className="whitespace-pre">
                 {formatLine(line.content)}
               </MotionDiv>
             ))}
@@ -308,6 +300,26 @@ X-Model-Version: 4.7.2
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        /* Custom scrollbar for webkit browsers */
+        div::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        div::-webkit-scrollbar-track {
+          background: #1f2937;
+        }
+
+        div::-webkit-scrollbar-thumb {
+          background: #4b5563;
+          border-radius: 4px;
+        }
+
+        div::-webkit-scrollbar-thumb:hover {
+          background: #6b7280;
+        }
+      `}</style>
     </MotionDiv>
   );
 };
