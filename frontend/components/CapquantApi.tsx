@@ -1,9 +1,8 @@
-
-
 import GetCode from "./ui/get-code";
 import PostCode from "./ui/post-code";
 import { State } from "./state";
 import { MotionDiv, MotionH2, MotionP } from "./motion-wrapper";
+import { CodeSlider } from "./ui/CodeSlider";
 
 export default function ApiSection() {
   return (
@@ -34,7 +33,6 @@ export default function ApiSection() {
           delay: 0.1,
           duration: 0.8,
           ease: [0.25, 0.46, 0.45, 0.94],
-          
         }}
         className="flex self-center items-start w-full max-w-6xl flex-col"
       >
@@ -55,9 +53,9 @@ export default function ApiSection() {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+          className="text-4xl   sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
                    leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                   font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
+                   font-[538] tracking-[-.0325em] text-balance text-left  w-full sm:text-left
                    max-w-full  px-4 sm:px-0"
         >
           Pro-Code: the CapQuant API
@@ -79,26 +77,25 @@ export default function ApiSection() {
             delay: 0.3,
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
-            
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                   w-full sm:w-3/4 lg:w-[80%]
-                   px-4 sm:px-0 text-center sm:text-left
-                  md:w-full mt-5 text-xl"
+                   w-full  sm:w-3/4 lg:w-[80%]
+                   px-4 sm:px-0 text-left
+                  md:w-full mt-5 text-sm md:text-xl"
         >
           <span className="">
             Full access to our <strong>SDK</strong> and advanced coding
             environment, with complete <strong>API</strong> control
           </span>
-          <span className="text-nowrap">
+          <span className="md:text-nowrap">
             {" "}
             Built for quant researchers and data scientists who demand
             institutional-grade precision.
           </span>
         </MotionP>
       </MotionDiv>
-
-      <div className="flex flex-col lg:flex-row w-full gap-5 items-center justify-center lg:mt-10">
+          <CodeSlider/>
+      <div className="sm:flex hidden flex-col lg:flex-row w-full gap-5 items-center justify-center lg:mt-10">
         <PostCode />
         <GetCode />
       </div>

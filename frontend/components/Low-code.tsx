@@ -55,9 +55,9 @@ export default function LowCode() {
             ease: [0.25, 0.46, 0.45, 0.94],
             staggerChildren: 0.1,
           }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+          className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
                      leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                     font-[538] tracking-[-.0325em] text-balance text-center sm:text-left
+                     font-[538] tracking-[-.0325em] text-balance  sm:text-left
                      max-w-full mb-5 px-4 sm:px-0"
         >
           Low-Code: secure model-to-prediction bridge
@@ -83,8 +83,8 @@ export default function LowCode() {
           }}
           className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
                      w-full sm:w-3/4  lg:w-4/6
-                     px-4 sm:px-0 text-center sm:text-left
-md:w-4/6 text-xl"
+                     px-4 sm:px-0  sm:text-left
+md:w-4/6  text-sm md:text-xl"
         >
           Ideal for contributors with basic coding skills who want to connect
           their models securely. Your code stays private — we only extract
@@ -111,7 +111,7 @@ md:w-4/6 text-xl"
           duration: 1.2,
           ease: [0.215, 0.61, 0.355, 1],
         }}
-        className="mr-20 flex mt-10 flex-col lg:flex-row items-center justify-between lg:justify-center gap-15 lg:gap-0"
+        className="mr-20 flex mt-10 flex-col  w-full xl:w-auto lg:flex-row items-center justify-between lg:justify-center gap-15 lg:gap-0"
       >
         <MovingSymbolCode />
         <svg
@@ -128,7 +128,7 @@ md:w-4/6 text-xl"
           />
         </svg>
 
-        <Image src={code} alt="code" width={300} priority />
+        <Image src={code} alt="code" width={300} className="scale-90 md:scale-100" priority />
       </MotionDiv>
     </div>
   );

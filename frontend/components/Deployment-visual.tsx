@@ -14,7 +14,7 @@ export function DeploymentVisual() {
   );
 
   return (
-    <div className="md:w-1/2 w-full h-full border-t border-b border-zinc-800/60 border-b-zinc-800/80 p-4">
+    <div className="md:w-1/2 w-full h-full border-t border-b border-zinc-800/60 border-b-zinc-800/80 py-4 sm:px-4">
       <div
         className="p-4 rounded-lg h-full relative flex flex-col border-t border-l border-t-[#ffffff1a] border-l-[#ffffff1a] transition-all duration-150 ease-in-out"
         style={{
@@ -36,7 +36,7 @@ export function DeploymentVisual() {
               Horizon{" "}
               <MotionSpan
                 animate={{
-                  rotate: isDropMenuHovered == 'horizon' ? -90 : 0,
+                  rotate: isDropMenuHovered == "horizon" ? -90 : 0,
                 }}
               >
                 <FaCaretDown />
