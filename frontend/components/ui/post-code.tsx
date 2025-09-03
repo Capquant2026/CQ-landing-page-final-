@@ -212,33 +212,33 @@ const PostCode = () => {
           <div className="flex items-center space-x-4">
             <div className="flex space-x-2 py-3">
               <div className="flex items-center space-x-3">
-                <MotionDiv
-                  className="w-3 h-3 rounded-full bg-yellow-500 relative"
-                  animate={{
-                    boxShadow: [
-                      "0 0 0 0 rgba(250, 204, 21, 0.7)", // yellow glow
-                      "0 0 0 8px rgba(250, 204, 21, 0)", // fade out
-                    ],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                  }}
-                >
-                  <MotionDiv
-                    className="absolute inset-0 rounded-full bg-yellow-400"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </MotionDiv>
+             <MotionDiv
+  className="w-3 h-3 rounded-full bg-green-500 relative"
+  animate={{
+    boxShadow: [
+      "0 0 0 0 rgba(34, 197, 94, 0.7)", // green glow
+      "0 0 0 8px rgba(34, 197, 94, 0)", // fade out
+    ],
+  }}
+  transition={{
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeOut",
+  }}
+>
+  <MotionDiv
+    className="absolute inset-0 rounded-full bg-green-400"
+    animate={{ opacity: [0.5, 1, 0.5] }}
+    transition={{
+      duration: 1.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+</MotionDiv>
 
                 <span className="text-gray-400  font-semibold uppercase tracking-wider">
-                  GET
+                  Post
                 </span>
               </div>
             </div>
