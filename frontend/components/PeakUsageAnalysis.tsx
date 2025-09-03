@@ -48,7 +48,7 @@ export default function PeakUsageAnalysis() {
             Overall Performance
           </CardTitle>
           <CardDescription className="text-[#9A9A9A]">
-            Highest model contribution return : 11.2%
+            Highest  contribution return : 11.2%
           </CardDescription>
         </div>
       </CardHeader>
