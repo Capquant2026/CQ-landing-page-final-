@@ -15,7 +15,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
-import { MotionDiv, MotionH2, MotionInput, MotionP, MotionSelect } from "./motion-wrapper";
+import {
+  MotionDiv,
+  MotionH2,
+  MotionInput,
+  MotionP,
+  MotionSelect,
+} from "./motion-wrapper";
 
 export default function Contact() {
   const currentYear = new Date();
@@ -161,10 +167,7 @@ export default function Contact() {
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
             </MotionDiv>
-            <MotionDiv
-              className="w-full md:w-1/2"
-              whileHover={{ scale: 1.02 }}
-            >
+            <MotionDiv className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
               <MotionInput
                 required
                 type="email"
@@ -212,10 +215,7 @@ export default function Contact() {
                 })}
               </MotionSelect>
             </MotionDiv>
-            <MotionDiv
-              className="w-full md:w-1/2"
-              whileHover={{ scale: 1.02 }}
-            >
+            <MotionDiv className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
               <MotionSelect
                 required
                 ref={countryRef}
@@ -408,7 +408,7 @@ export default function Contact() {
       </MotionDiv>
 
       <MotionDiv
-        className="w-full border-t border-t-zinc-800/80 p-4  text-[#8a8f98] flex items-center justify-between text-center mt-20"
+        className="w-full border-t border-t-zinc-800/80 p-4 text-xs md:text-base  text-[#8a8f98] flex items-center justify-between text-center mt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
