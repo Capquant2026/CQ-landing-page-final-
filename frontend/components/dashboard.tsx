@@ -109,7 +109,7 @@ const Dashboard = () => {
                 }}
               >
                 {allLinks.map((item, index) => {
-                  if (item.label === "No-code" || item.label == "Import") {
+                  if (item.label == "API" ||item.label === "No-code" || item.label == "Import") {
                     return (
                       <Spicail3dButton
                         key={index}
