@@ -56,7 +56,7 @@ export const State = () => {
       <Card className="w-64 h-40 scale-80 lg:scale-100 mx-auto   p-6  flex flex-col justify-center  border-zinc-800 dark:border-zinc-200 bg-transparent backdrop-blur-sm">
         <CardContent className="space-y-4 flex flex-col items-center justify-center">
           <MotionDiv
-            className="space-y-2 text-center w-full"
+            className="space-y-2 text-center w-full "
             initial={{
               y: 30,
               opacity: 0,
@@ -142,9 +142,9 @@ export const State = () => {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <div className="flex items-center gap-4">
+            <div className="flex justify-center items-center gap-4">
               <MotionDiv
-                className=" flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400 "
+                className=" flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400  "
                 initial={{
                   y: 30,
                   opacity: 0,
@@ -267,7 +267,7 @@ export const State = () => {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               <MotionDiv
                 className="flex-1 text-5xl  rounded-xl p-3 font-bold tracking-tight text-gray-400 "
                 initial={{ opacity: 0, scale: 0.95 }}
