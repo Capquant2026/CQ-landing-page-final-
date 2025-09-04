@@ -5,7 +5,7 @@ import { Card, CardContent } from "./ui/card";
 import { useEffect, useState } from "react";
 
 export const State = () => {
-  const [randomNumber, setRandomNumber] = useState<number>(66);
+  const [randomNumber, setRandomNumber] = useState<number>(54);
   const [latencyNumber, setLatencyNumber] = useState<number>(3.5);
   const [contributors, setContributors] = useState<number>(945);
 
