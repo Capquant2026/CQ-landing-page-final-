@@ -5,7 +5,7 @@ import { Card, CardContent } from "./ui/card";
 import { useEffect, useState } from "react";
 
 export const State = () => {
-  const [randomNumber, setRandomNumber] = useState<number>(110);
+  const [randomNumber, setRandomNumber] = useState<number>(66);
   const [latencyNumber, setLatencyNumber] = useState<number>(3.5);
   const [contributors, setContributors] = useState<number>(945);
 
@@ -24,14 +24,14 @@ export const State = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRandomNumber((prev) => {
-        if (prev > 135) {
-          return 110;
+        if (prev >= 70) {
+          return 54;
         }
         return prev + 1;
       });
 
       setContributors((prev) => {
-        if (randomNumber === 135) {
+        if (randomNumber === 70) {
           return 945;
         }
         return prev + 33;
