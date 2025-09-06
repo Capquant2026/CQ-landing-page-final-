@@ -18,8 +18,8 @@ export default function Header() {
         <Image
           src={logo}
           alt="logo"
-          width={30}
-          className="size-6 mt-[4px] sm:mt-0 sm:size-9"
+          width={25}
+          className="size-6 mt-[4px] sm:mt-0 sm:size-8"
           priority
         />
         <span>CapQuant</span>
