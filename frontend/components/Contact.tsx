@@ -408,7 +408,7 @@ export default function Contact() {
       </MotionDiv>
 
       <MotionDiv
-        className="w-full border-t border-t-zinc-800/80 p-4 text-xs md:text-base  text-[#8a8f98] flex items-center justify-between text-center mt-20"
+        className="w-full border-t border-t-zinc-800/80 p-4 text-[10px] md:text-base  text-[#8a8f98] flex items-center justify-between text-center mt-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
