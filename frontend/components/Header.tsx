@@ -12,9 +12,15 @@ export default function Header() {
       });
     }
   };
+  const scrollToTop = ()=>{
+    window.scroll({
+      top : 0,
+      behavior : "smooth"
+    })
+  }
   return (
     <div className="text-white flex items-center md:justify-evenly justify-between z-50 w-full sticky left-0 top-0 lg:gap-40 p-4 border-b border-[#1c1d1d] bg-[#0a0a0a]">
-      <h1 className="text-[#e6e6e6] flex text-lg items-center gap-2 md:text-2xl font-semibold">
+      <h1 onClick={scrollToTop} className="cursor-pointer text-[#e6e6e6] flex text-lg items-center gap-2 md:text-2xl font-semibold">
         <Image
           src={logo}
           alt="logo"
