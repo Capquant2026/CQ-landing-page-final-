@@ -44,7 +44,7 @@ export default function Hero() {
                         tracking-tight text-center md:text-left w-full md:w-1/2 
                         md:max-w-1/2"
           >
-            Compete for real capital{" "}
+            Compete for  capital{" "}
             <strong>every hour — No-code, Low-code, </strong> or{" "}
             <strong>Pro-code </strong>
             strategies go live <strong>intraday.</strong>
