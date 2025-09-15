@@ -251,7 +251,11 @@ export default function Contact() {
           >
             <MotionDiv whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
-                className="bg-white cursor-pointer hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
+                disabled={isLoading}
+                style={{
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                }}
+                className="bg-white   hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
                 size={"lg"}
               >
                 {isLoading ? (
@@ -336,7 +340,6 @@ export default function Contact() {
           </MotionDiv>
         </MotionDiv>
 
-        {/* Social Media Section */}
         <MotionDiv
           className="flex mt-10 text-2xl gap-5"
           initial="hidden"
