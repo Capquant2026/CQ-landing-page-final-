@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     icon: "/CQ.svg",
   },
   description:
-    "From idea to live trading in 60 minutes. First institutional alpha marketplace where multi-asset, intraday prediction submissions compete for capital through real-time performance scoring—no-code, low-code, or pro-code supported​",
+    "From idea to live trading in 60 minutes. First institutional alpha marketplace where multi-asset, intraday prediction submissions compete for capital through real-time performance scoring—no-code, low-code, or pro-code supported",
 };
 
 export default function RootLayout({
