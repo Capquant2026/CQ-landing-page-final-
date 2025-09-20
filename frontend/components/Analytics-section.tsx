@@ -55,11 +55,12 @@ export default function AnalyticsSection() {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6  text-sm md:text-xl mt-5"
+            className="font-[510] md:px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6  text-sm md:text-xl mt-5"
           >
-            Deploy your predictions across any asset and timeframe.
-            <strong>No-code, Low-code, or Pro-code</strong> strategies go live
-            intraday
+            CQ streams live data, you deploy your predictions across any asset
+            and timeframe. <strong>No-code, Low-code, or Pro-code</strong>{" "}
+            strategies go live intraday. Compete for <strong>capital</strong>{" "}
+            and earn rewards
           </MotionP>
         </div>
 
