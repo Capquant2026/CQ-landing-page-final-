@@ -316,8 +316,8 @@ export default function Contact() {
               once: true,
             }}
           >
-            <h2 className="font-semibold">No Commitment</h2>
-            <p className="opacity-50">Join the waitlist With no obligations</p>
+            <h2 className="font-semibold">Founder Circle</h2>
+            <p className="opacity-50">Join the exclusive group of early adopters</p>
           </MotionDiv>
           <MotionDiv
             initial={{ opacity: 0, x: -30 }}
