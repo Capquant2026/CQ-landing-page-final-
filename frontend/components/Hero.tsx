@@ -19,12 +19,15 @@ export default function Hero() {
             transition={{
               ease: "easeInOut",
             }}
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[50px] 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl md:text-nowrap"
+                         max-w-full text-center sm:max-w-3xl md:max-w-4xl  lg:max-w-6xl "
           >
-            Idea to live trading in 60 minutes
+            <span className="lg:text-nowrap">
+              "This isn’t a software. It’s a collective brain"{" "}
+            </span>{" "}
+            Turn ideas into live strategies in 60 minutes
           </MotionH1>
 
           <MotionP
@@ -41,13 +44,10 @@ export default function Hero() {
             }}
             className="text-[#8A8F98] text-sm sm:text-base md:text-xl font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-5 
-                        tracking-tight text-center md:text-left w-full md:w-1/2 
-                        md:max-w-1/2"
+                        tracking-tight text-center md:text-center w-full "
           >
-            Compete for capital{" "}
-            <strong>every hour — No-code, Low-code, </strong> or{" "}
-            <strong>Pro-code </strong>
-            strategies go live <strong>intraday.</strong>
+            Co-build the algorithm, compete for capital, and earn rewards as it
+            gets smarter from every prediction
           </MotionP>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function Hero() {
           opacity: 0,
           filter: "blur(10px)",
         }}
-    animate={{
+        animate={{
           y: 0,
           opacity: 1,
           filter: "blur(0px)",

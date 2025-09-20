@@ -35,7 +35,7 @@ export default function AnalyticsSection() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full sm:max-w-3xl md:max-w-4xl text-left lg:max-w-5xl"
           >
-            Submit multi-asset predictions. test live. collect rewards
+            Submit multi-asset predictions. Score live. Collect rewards
           </MotionH2>
 
           <MotionP
@@ -57,8 +57,9 @@ export default function AnalyticsSection() {
             }}
             className="font-[510] px-4 tracking-[-0.011em]   text-[#8a8f98] w-full md:w-4/6  text-sm md:text-xl mt-5"
           >
-            Deploy your predictions across any asset and timeframe. Our
-            forward-testing engine runs live
+            Deploy your predictions across any asset and timeframe.
+            <strong>No-code, Low-code, or Pro-code</strong> strategies go live
+            intraday
           </MotionP>
         </div>
 
