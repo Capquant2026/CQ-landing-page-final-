@@ -24,7 +24,7 @@ export default function Hero() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl "
           >
-            This isn’t a software. It’s a collective brain
+            This isn’t  software. It’s a collective brain
           </MotionH1>
 
           <MotionP
