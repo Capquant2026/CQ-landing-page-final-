@@ -1,6 +1,7 @@
 import { MotionDiv, MotionH1, MotionP } from "./motion-wrapper";
 
 import Dashboard from "./dashboard";
+import VideoPlayer from "./video-player";
 
 export default function Hero() {
   return (
@@ -24,7 +25,7 @@ export default function Hero() {
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl "
           >
-            This isn’t  software. It’s a collective brain
+            This isn’t software. It’s a collective brain
           </MotionH1>
 
           <MotionP
@@ -83,6 +84,7 @@ export default function Hero() {
       >
         <Dashboard />
       </MotionDiv>
+      <VideoPlayer />
     </div>
   );
 }
