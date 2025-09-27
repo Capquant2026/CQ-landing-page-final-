@@ -20,7 +20,7 @@ export default function Hero() {
             transition={{
               ease: "easeInOut",
             }}
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl  2xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
                          max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl "
@@ -40,9 +40,9 @@ export default function Hero() {
             transition={{
               ease: "easeInOut",
             }}
-            className="text-[#8A8F98] text-sm sm:text-base md:text-[28px] font-[555]
+            className="text-[#8A8F98] text-sm sm:text-base xl:text-2xl 2xl:text-[28px] font-[555]
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-2
-                        tracking-tight  text-center md:text-center w-full "
+                        tracking-tight  text-center md:text-center w-full  "
           >
             From idea to live trading in 60 minutes. Co-build the algorithm,
             compete, earn
@@ -67,7 +67,11 @@ export default function Hero() {
         className="  relative
     lg:scale-100 
     max-w-[500px]  
-    lg:max-w-[1600px] 
+    sm:max-w-[1000px]  
+    
+    lg:max-w-[1000px]
+    xl:max-w-[1300px] 
+    2xl:max-w-[1600px]
     mt-16 px-4 sm:px-6 lg:px-8
      h-[50vh] sm:h-auto
     before:content-[''] 
