@@ -58,7 +58,7 @@ const Dashboard = () => {
   );
   return (
     <div className="relative  dashboard-container   ">
-      <MotionDiv className="main-motion-div w-[1200px] sm:w-[1600px]  scale-[0.4] sm:scale-100 rounded-lg mt-20  bg-[#08090A] flex border border-[#1A1C1F] h-[900px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#08090A] before:to-transparent before:pointer-events-none before:z-20">
+      <MotionDiv className="main-motion-div w-[1300px] sm:w-[1600px]  scale-[0.4] sm:scale-100 rounded-lg mt-20  bg-[#08090A] flex border border-[#1A1C1F] h-[900px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#08090A] before:to-transparent before:pointer-events-none before:z-20">
         <div
           className="w-64 bg-[#08090A] border-r  border-[#1A1C1F] p-4  h-full  text-white"
           style={{
@@ -90,9 +90,12 @@ const Dashboard = () => {
             </div>
             <hr className="my-3 border border-[#1A1C1F]" />
           </div>
-          <div className=" flex flex-col items-start justify-between h-[90%]"    style={{
-            transformStyle: "preserve-3d",
-          }}>
+          <div
+            className=" flex flex-col items-start justify-between h-[90%]"
+            style={{
+              transformStyle: "preserve-3d",
+            }}
+          >
             <div
               className="w-full"
               style={{
@@ -109,7 +112,11 @@ const Dashboard = () => {
                 }}
               >
                 {allLinks.map((item, index) => {
-                  if (item.label == "API" ||item.label === "No-code" || item.label == "Import") {
+                  if (
+                    item.label == "API" ||
+                    item.label === "No-code" ||
+                    item.label == "Import"
+                  ) {
                     return (
                       <Spicail3dButton
                         key={index}
