@@ -427,7 +427,7 @@ const Dashboard = () => {
                       <span
                         className={`${
                           card.value == "$8340" ? "text-[29px]" : "text-3xl"
-                        } font-bold`}
+                        } font-bold text-gray-400`}
                       >
                         {card.value}
                       </span>
