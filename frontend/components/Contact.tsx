@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
 import {
   MotionDiv,
@@ -27,11 +27,19 @@ export default function Contact() {
   const currentYear = new Date();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [count, setCount] = useState(655);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const roleRef = useRef<HTMLSelectElement>(null);
   const countryRef = useRef<HTMLSelectElement>(null);
+  useEffect(() => {
+    // Add 7 every 3 seconds (adjust timing as needed)
+    const timer = setInterval(() => {
+      setCount((prev) => prev + 7);
+    }, 3000);
 
+    return () => clearInterval(timer);
+  }, []);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -265,6 +273,11 @@ export default function Contact() {
                 )}
               </Button>
             </MotionDiv>
+            <div className="w-full mt-5 text-center">
+              <p className="py-2 px-5 bg-[#121909] inline-block tracking-tight  rounded-full border border-[#5ea500] text-[#5ea500] text-sm">
+                {Math.floor(count)} people have already joinded the waitlist
+              </p>
+            </div>
           </MotionDiv>
         </motion.form>
 
@@ -317,7 +330,9 @@ export default function Contact() {
             }}
           >
             <h2 className="font-semibold">Founder Circle</h2>
-            <p className="opacity-50">Join the exclusive group of early adopters</p>
+            <p className="opacity-50">
+              Join the exclusive group of early adopters
+            </p>
           </MotionDiv>
           <MotionDiv
             initial={{ opacity: 0, x: -30 }}

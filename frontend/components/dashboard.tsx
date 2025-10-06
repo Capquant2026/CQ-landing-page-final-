@@ -430,7 +430,7 @@ const Dashboard = () => {
                         } font-bold text-gray-400`}
                       >
                         {card.value}
-                      </span>
+                      </span> 
                       <span className="text-[#50E2C2]">{card.change}</span>
                     </div>
                   </div>
