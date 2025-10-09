@@ -24,7 +24,7 @@ const Dashboard = () => {
     () => [
       { label: "Dashboard", icon: GrHomeRounded, color: "#5F6163" },
       { label: "Profile", icon: IoPersonSharp, color: "#26B5CE" },
-      { label: "API", icon: AiOutlineCloudServer, color: "#50E2C2" },
+      { label: "API", icon: AiOutlineCloudServer, color: "#f0701a" },
       { label: "Import", icon: CiImport, color: "#EB5757" },
       { label: "No-code", icon: FaCode, color: "#50E2C2" },
       { label: "Backtester", icon: TfiStatsUp, color: "#5E6AD2" },
