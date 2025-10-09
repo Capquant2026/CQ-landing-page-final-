@@ -5,43 +5,43 @@ import { useState } from "react";
 export default function VideoPlayer() {
   const flags = [
     {
-      name: "United Kingdom",
+      name: "Eng",
       url: "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg",
     },
     {
-      name: "China",
+      name: "Zh",
       url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
     },
     {
-      name: "Japan",
+      name: "Jp",
       url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg",
     },
     {
-      name: "India",
+      name: "Hi",
       url: "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
     },
     {
-      name: "Korean",
+      name: "Ko",
       url: "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg",
     },
     {
-      name: "France",
+      name: "Fr",
       url: "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
     },
     {
-      name: "Germany",
+      name: "De",
       url: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Flag_of_Germany_%28RGB%29.svg",
     },
     {
-      name: "Spain",
+      name: "Es",
       url: "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
     },
     {
-      name: "Portugal",
+      name: "Pt",
       url: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Portugal_%28official%29.svg",
     },
     {
-      name: "Italy",
+      name: "It",
       url: "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
     },
   ];
@@ -57,7 +57,7 @@ export default function VideoPlayer() {
           onClick={() => setOpen(!open)}
           className="flex items-center justify-between w-full bg-[#1b1b1d] border border-white/10 rounded-lg px-3 py-2 hover:bg-[#2a2a2c] transition "
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-sm">
             <Image
               src={selected.url}
               alt={selected.name}
@@ -85,7 +85,7 @@ export default function VideoPlayer() {
         </button>
 
         {open && (
-          <ul className="absolute z-10 mt-2 w-full bg-[#1b1b1d] border border-white/10 rounded-lg shadow-lg">
+          <ul className="absolute z-10 mt-2 w-full bg-[#1b1b1d] border text-sm border-white/10 rounded-lg shadow-lg">
             {flags.map((flag) => (
               <li
                 key={flag.name}
