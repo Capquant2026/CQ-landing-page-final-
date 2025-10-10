@@ -411,6 +411,11 @@ const Dashboard = () => {
 
                           <span>{card.title}</span>
                         </div>
+                      ) : card.title === "Predictions Avg DrawDown" ? (
+                        <div>
+                          <span className="hidden md:inline">{card.title}</span>
+                          <span className="md:hidden"> Avg Drawdown</span>
+                        </div>
                       ) : (
                         card.title
                       )}
@@ -430,7 +435,7 @@ const Dashboard = () => {
                         } font-bold text-gray-400`}
                       >
                         {card.value}
-                      </span> 
+                      </span>
                       <span className="text-[#50E2C2]">{card.change}</span>
                     </div>
                   </div>
