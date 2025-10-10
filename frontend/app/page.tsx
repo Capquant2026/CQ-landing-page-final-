@@ -1,3 +1,5 @@
+import { ScrollUp } from "@/components/scroll-up";
+import { MoveUp } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("@/components/Header"), {
@@ -56,6 +58,7 @@ const NoCode = dynamic(() => import("@/components/No-code"), {
 export default function Home() {
   return (
     <div className="font-sans flex flex-col items-center">
+      <ScrollUp />
       <Header />
       <Hero />
       <AnalyticsSection />
