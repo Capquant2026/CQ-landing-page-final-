@@ -273,11 +273,11 @@ export default function Contact() {
                 )}
               </Button>
             </MotionDiv>
-            <div className="w-full mt-5 text-center">
+            {/* <div className="w-full mt-5 text-center">
               <p className="py-2 px-5 bg-[#121909] inline-block tracking-tight  rounded-full border border-[#5ea500] text-[#5ea500] text-sm">
                 {Math.floor(count)} people have already joinded the waitlist
               </p>
-            </div>
+            </div> */}
           </MotionDiv>
         </motion.form>
 
