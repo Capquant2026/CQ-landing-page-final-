@@ -47,7 +47,7 @@ const Dashboard = () => {
       { title: "Uniqueness Score", value: "1.5", change: "+5.03%" },
       { title: "Live Predictions", value: "2", change: "" },
       {
-        title: "Predictions Avg Drawdown",
+        title: "Avg Drawdown",
         value: "1.3%",
         change: "+3.03%",
       },
@@ -410,11 +410,6 @@ const Dashboard = () => {
                           </MotionDiv>
 
                           <span>{card.title}</span>
-                        </div>
-                      ) : card.title === "Predictions Avg DrawDown" ? (
-                        <div>
-                          <span className="hidden md:inline">{card.title}</span>
-                          <span className="md:hidden"> Avg Drawdown</span>
                         </div>
                       ) : (
                         card.title
