@@ -172,7 +172,7 @@ export default function Contact() {
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="Full name"
-                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
+                className="bg-[#141516] mt-3 py-3 px-4 outline-none h-13 rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
             </MotionDiv>
             <MotionDiv className="w-full md:w-1/2" whileHover={{ scale: 1.02 }}>
@@ -183,7 +183,7 @@ export default function Contact() {
                   setEmail(e.target.value);
                 }}
                 placeholder="Email"
-                className="bg-[#141516] mt-3 py-3 px-4 outline-none rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
+                className="bg-[#141516] mt-3 py-3 px-4 outline-none h-13 rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
             </MotionDiv>
           </MotionDiv>
@@ -211,7 +211,7 @@ export default function Contact() {
               <MotionSelect
                 required
                 ref={roleRef}
-                className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10"
+                className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 h-13 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10"
               >
                 <option value="">Role</option>
                 {roles.map((item) => {
@@ -227,7 +227,7 @@ export default function Contact() {
               <MotionSelect
                 required
                 ref={countryRef}
-                className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg "
+                className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 h-13 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg "
               >
                 <option value="">Select a Country</option>
                 {countries.map((item) => {
