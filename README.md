@@ -1,39 +1,22 @@
 # CQ Landing Page UI
 
-This repository contains the source code for the CAP QUANT Landing Page. It is built with Next.js, React, and TypeScript, and its development environment is managed by Docker.
+Next.js + TypeScript marketing site for CapQuant. The app now lives at the repository root so Vercel can build without a subdirectory and no external backend is required.
 
-## 🚀 Getting Started
+## Local development
+- Node 18+ and npm installed
+- `npm install`
+- `npm run dev` (http://localhost:3000)
+- `npm run lint` to check linting
+- `npm run build && npm run start` for a production preview
 
-This project is fully containerized. To get the development environment up and running, you only need to have **Docker** and **Docker Compose** installed on your machine.
+## API behavior
+- `/api/contact` validates the form input and returns a mocked payload; no database or environment variables are needed. Safe for static/Vercel deployments.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [URL_OF_YOUR_REPOSITORY]
-    cd cq-landing-page
-    ```
+## Deploying to Vercel
+- Import this repository in Vercel; framework detection will pick Next.js with root set to `.`
+- Build command: `npm run build`
+- Output directory: `.next`
+- No environment variables required
 
-2.  **Start the development server:**
-    Run the following command in your terminal. Docker will build the necessary image and start the container.
-
-    ```bash
-    docker-compose up
-    ```
-
-3.  **Open the application:**
-    Once the container is running, open your web browser and navigate to:
-    **[http://localhost:3000](http://localhost:3000)**
-
-The application supports hot-reloading, so any changes you make to the source code will be reflected in your browser instantly.
-
-### Available Scripts
-
-Inside the Docker container, the following scripts are available:
-
-*   `npm run dev`: Starts the development server. (This is the default command in `docker-compose.yml`)
-*   `npm run build`: Builds the application for production.
-*   `npm test`: Runs the test suite using Jest.
-
-To run a command inside the running container, you can use `docker-compose exec`:
-```bash
-# Example: Running the tests
-docker-compose exec landing-page npm test
+## Optional Docker
+- `Dockerfile` and `docker-compose.yaml` remain if you prefer containerized development (`docker-compose up`), but they are not required for local runs or Vercel deploys.

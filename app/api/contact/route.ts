@@ -1,7 +1,5 @@
-import xss from "xss";
-
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import xss from "xss";
 
 const allowedRole = ["Student", "Professional"];
 const allowedCountries = [
@@ -260,20 +258,18 @@ export async function POST(request: Request) {
         }
       );
     }
-    const client = await clientPromise;
-    const db = client.db("contact");
-    const collection = db.collection("contact");
-    await collection.insertOne({
-      name: xss(name),
-      email: email,
-      role: role,
-      country: country,
-      createdAT: new Date(),
-    });
+    // Mock persistence for Vercel/static deployments: echo sanitized payload.
     return NextResponse.json(
       {
         success: true,
         message: "Successfully joined the waitlist!",
+        mockRecord: {
+          name: xss(name),
+          email,
+          role,
+          country,
+          createdAt: new Date().toISOString(),
+        },
       },
       {
         status: 200,
