@@ -22,6 +22,7 @@ import {
   MotionP,
   MotionSelect,
 } from "./motion-wrapper";
+import {supabase} from "../lib/supabase";
 
 export default function Contact() {
   const currentYear = new Date();
@@ -40,7 +41,7 @@ export default function Contact() {
 
     return () => clearInterval(timer);
   }, []);
-  const handleSubmit = async (e: FormEvent) => {
+  /*const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     await fetch("/api/contact", {
@@ -70,7 +71,67 @@ export default function Contact() {
       .finally(() => {
         setIsLoading(false);
       });
-  };
+  };*/
+
+const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  setIsLoading(true);
+
+  try {
+    // 1. Vérification si email vide
+    if (!email || email.trim() === "") {
+      toast.error("Email ne peut pas être vide");
+      setIsLoading(false);
+      return;
+    }
+
+    // 2. Vérification si email existe déjà
+    const { data: existingEmails, error: fetchError } = await supabase
+      .from("waitlist")
+      .select("email")
+      .eq("email", email)
+      .limit(1);
+
+    if (fetchError) {
+      toast.error("Erreur lors de la vérification de l'email");
+      setIsLoading(false);
+      return;
+    }
+
+    if (existingEmails && existingEmails.length > 0) {
+      toast.error("Cet email est déjà enregistré !");
+      setIsLoading(false);
+      return;
+    }
+
+    // 3. Insertion si tout est bon
+    const { data, error } = await supabase.from("waitlist").insert([
+      {
+        full_name: name,
+        email: email,
+        role: roleRef.current?.value,
+        country: countryRef.current?.value,
+      },
+    ]);
+
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Successfully joined the waitlist!");
+      // Reset form
+      setName("");
+      setEmail("");
+      if (roleRef.current) roleRef.current.value = "";
+      if (countryRef.current) countryRef.current.value = "";
+    }
+  } catch (e) {
+    toast.error("Something went wrong");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+
 
   return (
     <div
