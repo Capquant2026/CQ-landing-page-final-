@@ -44,7 +44,7 @@ export default function Hero() {
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-2
                         tracking-tight  text-center md:text-center w-full  "
           >
-            From idea to live trading in 60 minutes. Co-build the algorithm,
+            From idea to markets in 60 minutes. Co-build the algorithm,
             compete, earn
           </MotionP>
         </div>
