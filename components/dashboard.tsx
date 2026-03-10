@@ -1,4 +1,5 @@
 import logo from "../public/CQ.svg";
+import dash from "../public/file.png";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { GrHomeRounded } from "react-icons/gr";
@@ -69,8 +70,7 @@ const Dashboard = () => {
             <div className="flex   justify-between b w-full">
               <div className="flex items-center">
                 <h1 className="text-[#e6e6e6] flex text-md items-center gap-2 md:text-xl font-semibold">
-                  <Image src={logo} alt="logo" width={25} priority />
-                  <span>CapQuant</span>
+                  <Image src={dash} alt="logo" width={900} priority />
                 </h1>
               </div>
               <button
