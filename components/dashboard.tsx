@@ -38,22 +38,20 @@ const Dashboard = () => {
 
   const cardContent = useMemo(
     () => [
-      { title: "Validated Predictions", value: "7", change: "+12.03%" },
-      { title: "Archived Predictions", value: "2", change: "+9.03%" },
+      { title: "Live Predictions", value: "3" },
+      { title: "Accuracy", value: "67%" },
       {
         title: "Contribution Rewards",
         value: "$8340",
-        change: "+22%",
       },
-      { title: "Uniqueness Score", value: "1.5", change: "+5.03%" },
-      { title: "Live Predictions", value: "2", change: "" },
+      { title: "Uniqueness Score", value: "1.5"},
+      { title: "Validated Predictions", value: "7", change: "" },
       {
-        title: "Avg Drawdown",
-        value: "1.3%",
-        change: "+3.03%",
+        title: "Sharp Ratio",
+        value: "1.3",
       },
-      { title: "Predictions Weighted", value: "9", change: "+50%" },
-      { title: "Accuracy", value: "55%", change: "+12.03%" },
+      { title: "Predictions Weighted", value: "9" },
+      { title: "Accuracy", value: "55%" },
     ],
     []
   );
@@ -415,14 +413,8 @@ const Dashboard = () => {
                         card.title
                       )}
                     </h2>
-                    <p
-                      className="text-xs text-gray-400 mb-6"
-                      style={{
-                        opacity: card.title == "Live Predictions" ? 0 : 1,
-                      }}
-                    >
-                      Jan 1 - July 16
-                    </p>
+                    
+            
                     <div className="flex justify-between items-center">
                       <span
                         className={`${
