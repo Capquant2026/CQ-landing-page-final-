@@ -6,6 +6,16 @@ const Header = dynamic(() => import("@/components/Header"), {
   ssr: true,
 });
 
+const OkSection = dynamic(
+  () => import("@/components/ok"),
+  { ssr: true, loading: () => <div className="h-96 animate-pulse ..." /> }
+);
+
+const HowItWorks = dynamic(
+
+  ()=> import("@/components/HowItWorks"),
+  {ssr: true, loading : ()=>  <div className="h-96 animate-pulse ..." />}
+)
 const AnalyticsSection = dynamic(
   () => import("@/components/Analytics-section"),
   {
@@ -22,6 +32,12 @@ const Hero = dynamic(() => import("@/components/Hero"), {
 
 const ApiSection = dynamic(() => import("@/components/CapquantApi"), {
   ssr: true,
+  loading: () => (
+    <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
+  ),
+});
+const Methods = dynamic (()=> import("@/components/methods"),{
+  ssr:true,
   loading: () => (
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
@@ -54,18 +70,27 @@ const NoCode = dynamic(() => import("@/components/No-code"), {
     <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
   ),
 });
-
+ const VideoPlayer = dynamic(() => import("@/components/video-player"), {
+  ssr: true,
+  loading: () => (
+    <div className="h-96 animate-pulse bg-gray-800/20 rounded-lg" />
+  ),
+});
 export default function Home() {
   return (
     <div className="font-sans flex flex-col items-center">
       <ScrollUp />
       <Header />
+      <OkSection /> 
       <Hero />
+      <HowItWorks/>  
       <AnalyticsSection />
+      <Methods/>
       <Security />
       <NoCode />
       <LowCode />
       <ApiSection />
+      <VideoPlayer/>
       <Contact />
     </div>
   );

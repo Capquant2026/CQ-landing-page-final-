@@ -182,7 +182,8 @@ const handleSubmit = async (e: FormEvent) => {
               ease: [0.215, 0.61, 0.355, 1],
             }}
           >
-            Ready to outsmart the market ?
+            Be a founding contributor
+
           </MotionH2>
 
           <MotionP
@@ -192,8 +193,7 @@ const handleSubmit = async (e: FormEvent) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Get early access to CapQuant's Institutional grade platform
-          </MotionP>
+CapQuant is launching soon. Founding members get priority access, elevated CQXT reward multipliers, and a direct role in shaping the platform          </MotionP>
         </MotionDiv>
         <motion.form
           className="w-full md:w-1/2 my-10 md:my-30"

@@ -88,7 +88,6 @@ export default function Hero() {
       >
         <Dashboard />
       </MotionDiv>
-      <VideoPlayer />
     </div>
   );
 }
