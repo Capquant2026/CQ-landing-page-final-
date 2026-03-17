@@ -187,13 +187,12 @@ const handleSubmit = async (e: FormEvent) => {
           </MotionH2>
 
           <MotionP
-            className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center  text-xl mt-5"
-            initial={{ opacity: 0, y: 30 }}
+className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center text-sm sm:text-base xl:text-xl 2xl:text-2xl mt-5"            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 0.75, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-CapQuant is launching soon. Founding members get priority access, elevated CQXT reward multipliers, and a direct role in shaping the platform          </MotionP>
+CapQuant is launching soon. Founding members get priority access, <br/> elevated CQXT reward multipliers, and a direct role in shaping the platform          </MotionP>
         </MotionDiv>
         <motion.form
           className="w-full md:w-1/2 my-10 md:my-30"

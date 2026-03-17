@@ -30,12 +30,12 @@ export default function AnalyticsSection() {
               ease: [0.25, 0.46, 0.45, 0.94],
               staggerChildren: 0.1,
             }}
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl  2xl:text-7xl 
                          leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                          font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full sm:max-w-3xl md:max-w-4xl text-left lg:max-w-5xl"
+                         max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl "
           >
-            Submit multi-asset predictions. Score live. Collect rewards
+            Submit multi-asset predictions. <br/>Score live. Collect rewards
           </MotionH2>
 
           <MotionP

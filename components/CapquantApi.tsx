@@ -78,10 +78,7 @@ export default function ApiSection() {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="font-[510] tracking-[-0.011em] text-[#8a8f98] 
-                   w-full  sm:w-3/4 lg:w-[80%]
-                   px-4 sm:px-0 text-left
-                  md:w-full mt-5 text-sm md:text-xl"
+       className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center  text-xl mt-5"
         >
           <span className="">
             Full access to our <strong>SDK</strong> and advanced coding
@@ -99,7 +96,6 @@ export default function ApiSection() {
         <PostCode />
         <GetCode />
       </div>
-      <State />
     </div>
   );
 }

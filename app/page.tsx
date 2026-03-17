@@ -1,5 +1,4 @@
 import { ScrollUp } from "@/components/scroll-up";
-import { MoveUp } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("@/components/Header"), {
@@ -86,9 +85,7 @@ export default function Home() {
       <HowItWorks/>  
       <AnalyticsSection />
       <Methods/>
-      <Security />
       <NoCode />
-      <LowCode />
       <ApiSection />
       <VideoPlayer/>
       <Contact />
