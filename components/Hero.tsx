@@ -8,26 +8,29 @@ export default function Hero() {
     <div className="flex text-[#f7f8f8] overflow-hidden flex-col   items-center  w-full">
       <div className="w-full max-w-[1100px]  mt-20 sm:mt-32 md:mt-40 px-4 sm:px-6 lg:px-8">
         <div className="text-[#f7f8f8] flex mx-auto flex-col gap-1 sm:gap-6 md:gap-1 items-center text-center md:items-center  md:text-start">
-          <MotionH1
-            initial={{
-              y: 10,
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-            }}
-            transition={{
-              ease: "easeInOut",
-            }}
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl  2xl:text-7xl 
-                         leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                         font-[555] tracking-[-.0325em] text-balance 
-                         max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl "
-          >
-            This isn’t software. It’s a collective brain
-          </MotionH1>
-
+<MotionH1
+  initial={{
+    y: 10,
+    opacity: 0,
+  }}
+  animate={{
+    y: 0,
+    opacity: 1,
+  }}
+  transition={{
+    ease: "easeInOut",
+  }}
+  className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl
+             leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1]
+             font-[555] tracking-[-.0325em] text-balance
+             max-w-full sm:max-w-3xl md:max-w-4xl md:text-nowrap lg:max-w-7xl
+             text-center"
+>
+  From idea to markets in 60 minutes.<br />
+  Co-build the algorithm. compete. earn.
+</MotionH1>
+          
+{/*
           <MotionP
             initial={{
               y: 10,
@@ -44,9 +47,10 @@ export default function Hero() {
                         leading-relaxed sm:leading-relaxed md:leading-relaxed mt-2
                         tracking-tight  text-center md:text-center w-full  "
           >
-            From idea to markets in 60 minutes. Co-build the algorithm,
-            compete, earn
+            From idea to markets in 60 minutes. Co-build the algorithm.
+            compete. earn.
           </MotionP>
+*/}
         </div>
       </div>
 

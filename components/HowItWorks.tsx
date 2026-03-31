@@ -45,14 +45,14 @@ export default function HowItWorks() {
         </MotionDiv>
 
         {/* Title */}
-        <MotionH2
-          className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl 
-                     leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
-          variants={itemVariants}
-        >
-          Three steps. <br /> Signal to reward.
-        </MotionH2>
-
+<MotionH2
+  className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
+  initial={false}   // dit à Motion de ne pas utiliser l'état initial invisible
+  animate={false}   // dit à Motion de ne pas animer
+>
+  Three steps. <br /> Signal to reward.
+</MotionH2>
         {/* Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, index) => (

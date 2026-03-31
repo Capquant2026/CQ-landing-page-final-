@@ -1,13 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { MotionDiv, MotionH1, MotionP } from "./motion-wrapper";
 import { easeInOut } from "framer-motion";
 
 export default function QuickInfoTwoCols() {
+  const [language, setLanguage] = useState("en");
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  // Map des vidéos par langue (mettre les fichiers dans /public)
+  const videoSrcMap = {
+    en: "/CQenglishFinal.mp4",
+    fr: "/CQfrenchFinal.mp4",
+    it: "/CQitalianFinal.mp4",
+    es: "/CQspanishFinal.mp4",
+    zh: "/CQchineseFinal.mp4",
+    ko: "/CQkoreanFinal.mp4",
+    ja: "/CQjapaneseFinal.mp4",
+    pt: "/CQportugueseFinal.mp4",
+    de: "/CQgermanFinal.mp4",
+  };
+
   return (
     <MotionDiv
       className="flex text-white bg-[#08090A] overflow-hidden flex-col items-center w-full pt-16"
-      variants={containerVariants}    // <-- animation parent
+      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -18,10 +38,11 @@ export default function QuickInfoTwoCols() {
           {/* Texte à gauche */}
           <MotionDiv
             className="flex-1 flex flex-col gap-4"
-            variants={itemVariants}    // <-- animation fade + slide
+            variants={itemVariants}
           >
             {/* Titre principal */}
-            <MotionH1 className="font-bold tracking-tight">
+            <MotionH1 className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12">
               <span className="block text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl leading-[1.05]">
                 60 seconds.
               </span>
@@ -38,12 +59,30 @@ export default function QuickInfoTwoCols() {
 
           {/* Video à droite */}
           <MotionDiv
-            className="flex-1 w-full max-w-[600px] aspect-video bg-[#1C1D1E] rounded-lg overflow-hidden"
-            variants={itemVariants}    // <-- animation fade + slide
+            className="flex-1 w-full max-w-[600px] relative"
+            variants={itemVariants}
           >
+            {/* Dropdown des langues en haut à gauche */}
+            <select
+              className="absolute top-2 left-2 bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer z-10"
+              value={language}
+              onChange={handleLanguageChange}
+            >
+              <option value="en">EN - English</option>
+              <option value="fr">FR - French</option>
+              <option value="it">IT - Italian</option>
+              <option value="es">ES - Spanish</option>
+              <option value="zh">ZH - Chinese</option>
+              <option value="ko">KO - Korean</option>
+              <option value="ja">JA - Japanese</option>
+              <option value="pt">PT - Portuguese</option>
+              <option value="de">DE - German</option>
+            </select>
+
+            {/* Video */}
             <video
-              src="https://delicate-bombolone-7a37e8.netlify.app/ma-video.mp4"
-              className="w-full h-full object-cover"
+              src={videoSrcMap[language]}   // vidéo selon la langue choisie
+              className="w-full h-full object-cover rounded-lg"
               controls
             />
           </MotionDiv>
@@ -60,7 +99,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,  // animation cascade
+      staggerChildren: 0.2,
       delayChildren: 0.1,
     },
   },

@@ -53,10 +53,8 @@ export default function ApiSection() {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="text-4xl   sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-                   leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                   font-[538] tracking-[-.0325em] text-balance text-left  w-full sm:text-left
-                   max-w-full  px-4 sm:px-0"
+  className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
         >
           Pro-Code: the CapQuant API
         </MotionH2>

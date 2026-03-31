@@ -24,16 +24,12 @@ export default function ContributionMethods() {
           CONTRIBUTION METHODS
         </MotionDiv>
 
-        {/* Title */}
-        <MotionH2
-          className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl  2xl:text-7xl 
-                     leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
-                     font-[555] tracking-[-.0325em] text-balance 
-                     max-w-full  sm:max-w-3xl md:max-w-4xl md:text-nowrap  lg:max-w-7xl mb-10"
-          variants={itemVariants}   // <--- animation
-        >
-          Your signal, <br /> Your way.
-        </MotionH2>
+<h2
+  className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
+>
+  Your signal, <br /> Your way.
+</h2>
 
         {/* Grid */}
         <MotionDiv
