@@ -11,7 +11,6 @@ export default function QuickInfoTwoCols() {
     setLanguage(e.target.value);
   };
 
-  // Map des vidéos par langue (mettre les fichiers dans /public)
   const videoSrcMap = {
     en: "/CQenglishFinal.mp4",
     fr: "/CQfrenchFinal.mp4",
@@ -62,7 +61,7 @@ export default function QuickInfoTwoCols() {
             className="flex-1 w-full max-w-[600px] relative"
             variants={itemVariants}
           >
-            {/* Dropdown des langues en haut à gauche */}
+            {/* Dropdown des langues */}
             <select
               className="absolute top-2 left-2 bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer z-10"
               value={language}
@@ -81,7 +80,7 @@ export default function QuickInfoTwoCols() {
 
             {/* Video */}
             <video
-              src={videoSrcMap[language]}   // vidéo selon la langue choisie
+              src={videoSrcMap[language]}   
               className="w-full h-full object-cover rounded-lg"
               controls
             />
