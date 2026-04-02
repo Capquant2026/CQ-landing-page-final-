@@ -7,12 +7,10 @@ import { easeInOut } from "framer-motion";
 export default function QuickInfoTwoCols() {
   const [language, setLanguage] = useState<string>("en");
 
-  // TypeScript fix pour l'événement select
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
   };
 
-  // Map des vidéos par langue (locale files)
   const videoSrcMap: Record<string, string> = {
     en: "https://drive.google.com/file/d/1U7yqVEG66PhYYWUznCPFyGYesRZCoy-h/preview",
     fr: "/CQfrenchFinal.mp4",
@@ -27,38 +25,43 @@ export default function QuickInfoTwoCols() {
 
   return (
     <MotionDiv
-      className="flex text-white bg-[#08090A] overflow-hidden flex-col items-center w-full pt-16"
+      className="flex text-white bg-[#08090A] flex-col items-center w-full pt-16"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="w-full max-w-[1200px] mt-12 sm:mt-16 md:mt-20 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
 
-          {/* Texte à gauche */}
-          <MotionDiv className="flex-1 flex flex-col gap-4" variants={itemVariants}>
-            <MotionH1 className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
-              leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12">
-              <span className="block text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl leading-[1.05]">
-                60 seconds.
-              </span>
-              <span className="block text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.05] mt-2">
-                Everything you need to know.
-              </span>
-            </MotionH1>
+        {/* TITLE */}
+        <MotionH1
+          className="block text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl
+          leading-[1.05] font-[555] tracking-[-.0325em] mb-6"
+          variants={itemVariants}
+        >
+          <span className="block">60 seconds.</span>
+          <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl">
+            Everything you need to know.
+          </span>
+        </MotionH1>
 
-            <MotionP className="text-[#8A8F98] text-sm sm:text-base xl:text-xl 2xl:text-2xl font-[555] leading-relaxed mt-2 max-w-[600px]">
-              Watch how a prediction goes from idea to live market — and how contributors get rewarded for every signal that performs.
-            </MotionP>
-          </MotionDiv>
+        {/* DESCRIPTION */}
+        <MotionP
+          className="text-[#A1A1AA] leading-relaxed md:px-4 tracking-[-0.011em] w-full md:w-2/3 text-sm md:text-xl mt-2"
+          variants={itemVariants}
+        >
+          Watch how a prediction goes from idea to live market — and how contributors get rewarded for every signal that performs.
+        </MotionP>
 
-          {/* Video à droite */}
-          <MotionDiv className="flex-1 w-full max-w-[600px] relative" variants={itemVariants}>
-
-            {/* Dropdown des langues */}
+        {/* VIDEO SECTION */}
+        <MotionDiv
+          className="w-full flex justify-center mt-10 relative"
+          variants={itemVariants}
+        >
+          {/* LANGUAGE SELECT OUTSIDE VIDEO (slightly left) */}
+          <div className="absolute -top-10 left-[35%] md:left-[35%] transform md:-translate-x-1/2">
             <select
-              className="absolute top-2 left-2 bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer z-10"
+              className="bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer"
               value={language}
               onChange={handleLanguageChange}
             >
@@ -72,26 +75,28 @@ export default function QuickInfoTwoCols() {
               <option value="pt">PT - Portuguese</option>
               <option value="de">DE - German</option>
             </select>
+          </div>
 
-            {/* Video ou iframe selon la langue */}
+          {/* VIDEO CONTAINER */}
+          <div className="w-full md:w-2/3 lg:w-1/2 relative">
             {language === "en" ? (
               <iframe
                 key={language}
                 src={videoSrcMap[language]}
-                className="w-full h-[350px] rounded-lg"
+                className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
                 allow="autoplay"
               />
             ) : (
               <video
                 key={language}
                 src={videoSrcMap[language]}
-                className="w-full h-[350px] rounded-lg"
+                className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
                 controls
               />
             )}
-          </MotionDiv>
+          </div>
+        </MotionDiv>
 
-        </div>
       </div>
     </MotionDiv>
   );

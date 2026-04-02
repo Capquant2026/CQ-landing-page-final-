@@ -313,22 +313,24 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
               once: true,
             }}
           >
-            <MotionDiv whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                disabled={isLoading}
-                style={{
-                  cursor: isLoading ? "not-allowed" : "pointer",
-                }}
-                className="bg-white   hover:bg-white w-full text-black font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
-                size={"lg"}
-              >
-                {isLoading ? (
-                  <LuLoaderCircle className="animate-spin" />
-                ) : (
-                  "Join The Waitlist"
-                )}
-              </Button>
-            </MotionDiv>
+           <MotionDiv whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+  <Button
+    disabled={isLoading}
+    size="lg"
+    className="w-full font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-white/20"
+    style={{
+      backgroundColor: "#C8A97E", // couleur de fond
+      color: "#08090A",            // couleur du texte
+      cursor: isLoading ? "not-allowed" : "pointer",
+    }}
+  >
+    {isLoading ? (
+      <LuLoaderCircle className="animate-spin" />
+    ) : (
+      "Join The Waitlist"
+    )}
+  </Button>
+</MotionDiv>
             {/* <div className="w-full mt-5 text-center">
               <p className="py-2 px-5 bg-[#121909] inline-block tracking-tight  rounded-full border border-[#5ea500] text-[#5ea500] text-sm">
                 {Math.floor(count)} people have already joinded the waitlist

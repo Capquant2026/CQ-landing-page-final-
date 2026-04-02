@@ -14,6 +14,7 @@ export default function Ok() {
         <div className="flex mx-auto flex-col gap-4 sm:gap-6 md:gap-6 items-center text-center">
 
           {/* Header secondaire */}
+          {/*
           <MotionP
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -22,7 +23,7 @@ export default function Ok() {
           >
             Collective Intelligence · Financial Markets
           </MotionP>
-
+          */}
           {/* Titre */}
           <MotionH1
             initial={{ y: 10, opacity: 0 }}
@@ -55,29 +56,34 @@ export default function Ok() {
   initial={{ y: 10, opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
   transition={{ ease: "easeInOut", delay: 0.1 }}
-  className="text-[#8A8F98] text-base sm:text-lg xl:text-2xl 2xl:text-3xl font-[555] leading-relaxed mt-2 max-w-[600px]"
+  className="text-[#8A8F98] text-base sm:text-lg xl:text-2xl 2xl:text-3xl font-[555] leading-relaxed w-full text-center overflow-hidden"
+  style={{
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+  }}
 >
   Submit your market predictions, compete on live performance, and earn CQXT tokens for every signal that moves the algorithm forward.
 </MotionP>
 
-          {/* Bouton */}
-          <MotionDiv
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: "easeInOut", delay: 0.2 }}
-            className="mb-6"
-          >
-            <button
-              onClick={scrollToSection}
-              className="px-4 py-2 sm:px-4 sm:py-2.5 font-semibold rounded-md transition"
-              style={{
-                backgroundColor: "#C8A97E",  // Gold
-                color: "#08090A"
-              }}
-            >
-              Get Early Access
-            </button>
-          </MotionDiv>
+{/* Bouton */}
+<MotionDiv
+  initial={{ y: 10, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ ease: "easeInOut", delay: 0.2 }}
+  className="mt-3"   // <-- réduit l'espace (au lieu de mb-6)
+>
+  <button
+    onClick={scrollToSection}
+    className="px-4 py-2 sm:px-4 sm:py-2.5 font-semibold rounded-md transition"
+    style={{
+      backgroundColor: "#C8A97E", // Gold
+      color: "#08090A",
+    }}
+  >
+    Get Early Access
+  </button>
+</MotionDiv>
 
           {/* Texte secondaire */}
           <MotionP

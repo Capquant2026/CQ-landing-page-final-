@@ -39,8 +39,9 @@ export default function HowItWorks() {
         <MotionDiv
           className="flex items-center gap-3 mb-6 text-sm tracking-widest text-[#A1A1AA]"
           variants={itemVariants}
+           style={{ color: "#C8A97E" }}
         >
-          <span className="w-10 h-[2px] bg-[#5F6163] inline-block"></span>
+          <span className="w-10 h-[2px] bg-[#5F6163] inline-block" ></span>
           HOW IT WORKS
         </MotionDiv>
 
@@ -66,7 +67,7 @@ export default function HowItWorks() {
               variants={itemVariants}
               viewport={{ once: true, amount: 0.2 }}
             >
-              <p className="text-xs tracking-widest text-[#A1A1AA] mb-4 sm:mb-6">
+              <p className="text-xs tracking-widest text-[#A1A1AA] mb-4 sm:mb-6"  style={{ color: "#C8A97E" }}>
                 {step.id}
               </p>
 

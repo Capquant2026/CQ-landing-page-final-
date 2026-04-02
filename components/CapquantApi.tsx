@@ -78,11 +78,11 @@ export default function ApiSection() {
           }}
        className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center  text-xl mt-5"
         >
-          <span className="">
+          <span className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base">
             Full access to our <strong>SDK</strong> and advanced coding
             environment, with complete <strong>API</strong> control
           </span>
-          <span className="md:text-nowrap">
+          <span className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base">
             {" "}
             Built for quant researchers and data scientists who demand
             institutional-grade precision.
