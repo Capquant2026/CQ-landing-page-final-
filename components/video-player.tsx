@@ -58,8 +58,8 @@ export default function QuickInfoTwoCols() {
           className="w-full flex justify-center mt-10 relative"
           variants={itemVariants}
         >
-          {/* LANGUAGE SELECT OUTSIDE VIDEO (slightly left) */}
-          <div className="absolute -top-10 left-[35%] md:left-[35%] transform md:-translate-x-1/2">
+          {/* LANGUAGE SELECT (au-dessus de la vidéo, à gauche, avec z-index) */}
+          <div className="absolute -top-10 left-2 z-50">
             <select
               className="bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer"
               value={language}
@@ -78,19 +78,20 @@ export default function QuickInfoTwoCols() {
           </div>
 
           {/* VIDEO CONTAINER */}
-          <div className="w-full md:w-2/3 lg:w-1/2 relative">
+          <div className="w-full relative">
             {language === "en" ? (
               <iframe
                 key={language}
                 src={videoSrcMap[language]}
                 className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
                 allow="autoplay"
+                allowFullScreen
               />
             ) : (
               <video
                 key={language}
                 src={videoSrcMap[language]}
-                className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl border border-[#1A1C1F]"
                 controls
               />
             )}
