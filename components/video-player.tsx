@@ -12,7 +12,7 @@ export default function QuickInfoTwoCols() {
   };
 
   const videoSrcMap: Record<string, string> = {
-    en: "https://drive.google.com/file/d/1U7yqVEG66PhYYWUznCPFyGYesRZCoy-h/preview",
+    en: "https://www.youtube.com/embed/TdAl5x0m_0s",
     fr: "/CQfrenchFinal.mp4",
     it: "/CQitalianFinal.mp4",
     es: "/CQspanishFinal.mp4",
@@ -39,9 +39,10 @@ export default function QuickInfoTwoCols() {
           leading-[1.05] font-[555] tracking-[-.0325em] mb-6"
           variants={itemVariants}
         >
-          <span className="block">60 seconds.</span>
-          <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl">
-            Everything you need to know.
+          <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
+          >
+            This isn't software. <br/>It's a collective brain.
           </span>
         </MotionH1>
 
@@ -58,7 +59,7 @@ export default function QuickInfoTwoCols() {
           className="w-full flex justify-center mt-10 relative"
           variants={itemVariants}
         >
-          {/* LANGUAGE SELECT (au-dessus de la vidéo, à gauche, avec z-index) */}
+          {/* LANGUAGE SELECT */}
           <div className="absolute -top-10 left-2 z-50">
             <select
               className="bg-[#1C1D1E] text-white border border-[#333] rounded-md p-2 cursor-pointer"
@@ -84,8 +85,9 @@ export default function QuickInfoTwoCols() {
                 key={language}
                 src={videoSrcMap[language]}
                 className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
-                allow="autoplay"
+                allow="autoplay; encrypted-media"
                 allowFullScreen
+                title="English Video"
               />
             ) : (
               <video
