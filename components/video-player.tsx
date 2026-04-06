@@ -47,13 +47,14 @@ export default function QuickInfoTwoCols() {
 </span>
         </MotionH1>
 
-        {/* DESCRIPTION */}
+        {/* DESCRIPTION 
         <MotionP
           className="text-[#A1A1AA] leading-relaxed md:px-4 tracking-[-0.011em] w-full md:w-2/3 text-sm md:text-xl mt-2"
           variants={itemVariants}
         >
           Watch how a prediction goes from idea to live market — and how contributors get rewarded for every signal that performs.
         </MotionP>
+        */}
 
         {/* VIDEO SECTION */}
         <MotionDiv
