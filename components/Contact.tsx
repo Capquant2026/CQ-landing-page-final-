@@ -1,6 +1,6 @@
 "use client";
 
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
@@ -227,7 +227,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
                 required
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                placeholder="Full name"
+                placeholder="Full name *"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none h-13 rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
             </MotionDiv>
@@ -238,7 +238,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                placeholder="Email"
+                placeholder="Email *"
                 className="bg-[#141516] mt-3 py-3 px-4 outline-none h-13 rounded-md w-full border border-zinc-800 transition-all duration-300 focus:shadow-lg "
               />
             </MotionDiv>
@@ -269,7 +269,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
                 ref={roleRef}
                 className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 px-4 h-13 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg focus:shadow-[#68cc58]/10"
               >
-                <option value="">Role</option>
+                <option value="">Role *</option>
                 {roles.map((item) => {
                   return (
                     <option value={item} key={item}>
@@ -285,7 +285,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
                 ref={countryRef}
                 className="bg-[#141516] text-[#9b9b9c] mt-3 py-3 h-13 px-4 outline-none rounded-md w-full border  border-zinc-800 transition-all duration-300  focus:shadow-lg "
               >
-                <option value="">Select a Country</option>
+                <option value="">Select a Country *</option>
                 {countries.map((item) => {
                   return (
                     <option value={item} key={item}>
@@ -429,9 +429,9 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
         >
           {[
             {
-              icon: FaDiscord,
-              label: "Discord",
-              url: "https://discord.gg/AW2H3ckuPw",
+              icon: FaYoutube,
+              label: "Youtube",
+              url: "https://www.youtube.com/@Capquant",
             },
             {
               icon: FaLinkedin,
@@ -443,11 +443,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
               label: "Instagram",
               url: "https://www.instagram.com/capquant",
             },
-            {
-              icon: FaTiktok,
-              label: "Tik Tok",
-              url: "https://www.tiktok.com/@capquant",
-            },
+
             {
               icon: FaXTwitter,
               label: "X",
@@ -501,7 +497,7 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
   );
 }
 
-const roles: string[] = ["Student", "Professional"];
+const roles: string[] = ["Student", "Professional", "Trader","Hobbyist ","Quant ","Analyst "," Data scientist","Systematic Trader"];
 const countries = [
   "Afghanistan",
   "Albania",

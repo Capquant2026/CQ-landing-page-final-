@@ -26,7 +26,7 @@ export default function Hero() {
              max-w-full sm:max-w-3xl md:max-w-4xl md:text-nowrap lg:max-w-7xl
              text-center"
 >
-  From idea to markets in 60 minutes.<br />
+  From idea to markets <span style={{ color: "#C8A97E" }}> in 60 minutes.</span><br />
   Co-build the algorithm. compete. earn.
 </MotionH1>
           

@@ -5,7 +5,7 @@ import { easeInOut } from "framer-motion";
 const steps = [
   {
     id: "01 — BUILD",
-    title: "Create your signal",
+    title: "Create your Prediction",
     description:
       "Design your prediction your way. Quick input, natural language prompt, or direct API. You choose your level of control.",
   },
