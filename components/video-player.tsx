@@ -13,14 +13,14 @@ export default function QuickInfoTwoCols() {
 
   const videoSrcMap: Record<string, string> = {
     en: "https://www.youtube.com/embed/TdAl5x0m_0s",
-    fr: "/CQfrenchFinal.mp4",
-    it: "/CQitalianFinal.mp4",
-    es: "/CQspanishFinal.mp4",
-    zh: "/CQchineseFinal.mp4",
-    ko: "/CQkoreanFinal.mp4",
-    ja: "/CQjapaneseFinal.mp4",
-    pt: "/CQportugueseFinal.mp4",
-    de: "/CQgermanFinal.mp4",
+    fr: "https://www.youtube.com/embed/OhoM1AA1Cm0",
+    de: "https://www.youtube.com/embed/8sJ_mAxb7KE",
+    it: "https://www.youtube.com/embed/uy3i_B0Crys",
+    ja: "https://www.youtube.com/embed/3IkuAX1mC94",
+    ko: "https://www.youtube.com/embed/bM7dX_CMGjI",
+    zh: "https://www.youtube.com/embed/uhv99ex40lM",
+    pt: "https://www.youtube.com/embed/_UoO15EG9Ik",
+    es: "https://www.youtube.com/embed/XzKA8q0EXuI",
   };
 
   return (
@@ -82,23 +82,14 @@ export default function QuickInfoTwoCols() {
 
           {/* VIDEO CONTAINER */}
           <div className="w-full relative">
-            {language === "en" ? (
-              <iframe
-                key={language}
-                src={videoSrcMap[language]}
-                className="w-full h-[350px] md:h-[400px] rounded-xl border border-[#1A1C1F]"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                title="English Video"
-              />
-            ) : (
-              <video
-                key={language}
-                src={videoSrcMap[language]}
-                className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl border border-[#1A1C1F]"
-                controls
-              />
-            )}
+            <iframe
+              key={language}
+              src={videoSrcMap[language]}
+              className="w-full h-[350px] md:h-[400px] lg:h-[600px] rounded-xl border border-[#1A1C1F]"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title={`${language.toUpperCase()} Video`}
+            />
           </div>
         </MotionDiv>
 

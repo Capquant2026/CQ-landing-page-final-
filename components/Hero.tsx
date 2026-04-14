@@ -94,6 +94,17 @@ From idea to markets{" "}
     before:pointer-events-none 
     before:z-50  "
       >
+        {/* Premium gradient mask — radial reveal + edge darkening */}
+        <div
+          className="absolute -inset-x-[50vw] -top-17 -bottom-4 z-80 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(ellipse 45% 75% at 15% 30%, transparent 0%, rgba(9,9,10,0.20) 60%, rgba(9,9,10,0.95) 100%),
+              linear-gradient(to left, rgba(9,9,10,0.5) 0%, rgba(9,9,10,0.5) 10%, transparent 30%),
+              linear-gradient(to top, rgba(9,9,10,0.5) 0%, rgba(9,9,10,0.3) 5%, transparent 30%)
+            `,
+          }}
+        />
         <Dashboard />
       </MotionDiv>
     </div>
