@@ -63,10 +63,10 @@ export default function NoCode() {
             ease: [0.25, 0.46, 0.45, 0.94],
             staggerChildren: 0.1,
           }}
-          className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
                      leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1] 
                      font-[538] tracking-[-.0325em] text-balance text-left
-                     max-w-full mt-16 sm:mt-24 md:mt-32 lg:mt-40 px-4 sm:px-0"
+                     max-w-full mt-16 sm:mt-24 md:mt-32 lg:mt-40 px-4 sm:px-0 mb-4 sm:mb-6 md:mb-8"
         >
           No-Code: drag-and-drop logic and simple prompts
         </MotionH2>
@@ -89,7 +89,7 @@ export default function NoCode() {
             ease: [0.25, 0.46, 0.45, 0.94],
             staggerChildren: 0.1,
           }}
-    className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base"
+          className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base px-4 sm:px-0"
         >
           Perfect for contributors who have ideas but no coding background—stack
           conditions, test, and deploy in minutes.
