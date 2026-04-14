@@ -40,8 +40,8 @@ export default function QuickInfoTwoCols() {
           variants={itemVariants}
         >
         <span
-  className="inline-block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
-             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12 whitespace-nowrap"
+  className="inline-block text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
 >
   This isn't software. It's a collective brain.
 </span>

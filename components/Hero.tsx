@@ -96,7 +96,7 @@ From idea to markets{" "}
       >
         {/* Premium gradient mask — radial reveal + edge darkening */}
         <div
-          className="absolute -inset-x-[50vw] -top-17 -bottom-4 z-80 pointer-events-none"
+          className="absolute -inset-x-[50vw] -top-[3rem] sm:-top-17 -bottom-4 z-80 pointer-events-none opacity-100"
           style={{
             background: `
               radial-gradient(ellipse 45% 75% at 15% 30%, transparent 0%, rgba(9,9,10,0.20) 60%, rgba(9,9,10,0.95) 100%),

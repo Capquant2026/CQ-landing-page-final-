@@ -72,10 +72,10 @@ const Sidebar = memo(() => {
 
   return (
     <div
-      className="flex-shrink-0 border-r border-white/[.06] transition-all duration-300 ease-in-out hidden md:block"
-      style={{ width: isOpen ? 260 : 72, background: "#0d0d0d", transformStyle: "preserve-3d", zIndex: 50 }}
+      className="flex-shrink-0 border-b md:border-b-0 md:border-r border-white/[.06] transition-all duration-300 ease-in-out md:block z-10 flex flex-col md:items-start relative top-0 left-0 bg-[#0d0d0d] h-auto md:h-full py-2 sm:py-0 w-[full] sm:w-[auth]"
+      style={{ width: isOpen ? 260 : 72, zIndex: 50, transformStyle: "preserve-3d" }}
     >
-      <div className="p-4 text-white h-full flex flex-col gap-4 w-full overflow-hidden" style={{ transformStyle: "preserve-3d", fontFamily: "var(--font-poppins), sans-serif" }}>
+      <div className="p-4 text-white md:h-full flex flex-col gap-4 w-full overflow-hidden" style={{ transformStyle: "preserve-3d", fontFamily: "var(--font-poppins), sans-serif" }}>
         
         {/* Header */}
         <div className={`flex ${isOpen ? "items-center justify-between" : "flex-col items-center justify-center"} relative h-10 shrink-0`}>
@@ -490,34 +490,43 @@ LivePulse.displayName = "LivePulse";
 // --- MAIN DASHBOARD ---
 const Dashboard = () => {
   return (
-    <div className="relative dashboard-container">
-      <MotionDiv className="main-motion-div w-[1300px] sm:w-[1600px] scale-[0.4] sm:scale-100 rounded-[14px] mt-20 bg-[#0c0d0e] flex border border-[#1A1C1F] h-[850px] z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#0c0d0e] before:to-transparent before:pointer-events-none before:z-20 overflow-hidden">
-        
-        {/* Left Sidebar */}
-        <Sidebar />
-
-        {/* Dashboard Content */}
-        <div className="flex flex-col xl:flex-row gap-4 flex-1 w-full font-sans bg-[#0d0d0d] p-4 overflow-hidden" style={{ transformStyle: "preserve-3d" }}>
+    <div className="w-full flex justify-center py-4 sm:py-10 px-0 sm:px-6 md:px-8 mt-10 md:mt-20 overflow-x-hidden md:overflow-visible">
+      {/* Container scaling for mobile view to maintain desktop aspect and layout intact */}
+      <div 
+        className="transform origin-top scale-[0.27] sm:scale-100 transition-transform duration-300 relative"
+      >
+        <MotionDiv className="main-motion-div w-[1400px] bg-[#0c0d0e] rounded-[14px] flex flex-row border border-[#1A1C1F] relative z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#0c0d0e] before:to-transparent before:pointer-events-none before:z-20 overflow-hidden shadow-2xl h-[850px] sm:h-auto">
           
-          {/* Left Column: Metrics & Chart & Assets */}
-          <div className="flex-[3] flex flex-col gap-4 min-w-0" style={{ transformStyle: "preserve-3d" }}>
-            <WelcomeMetrics />
-            <div className="flex-1 flex flex-col gap-4" style={{ transformStyle: "preserve-3d" }}>
-              <PerformanceChart />
-              <LiveAssets />
-            </div>
-          </div>
+          {/* Left Sidebar */}
+          <Sidebar />
 
-          {/* Right Column: Live Pulse */}
-          <div className="w-full xl:w-[28%] min-w-[320px] max-w-[450px] flex-shrink-0 flex flex-col" style={{ transformStyle: "preserve-3d" }}>
-            <WelcomeSpacer />
-            <div className="flex-1" style={{ transformStyle: "preserve-3d" }}>
-              <LivePulse />
+          {/* Dashboard Content */}
+          <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 flex-1 w-full bg-[#0d0d0d] p-3 sm:p-5 overflow-y-auto" style={{ transformStyle: "flat" }}>
+            
+            {/* Left Column: Metrics & Chart & Assets */}
+            <div className="flex-[3] flex flex-col gap-4 sm:gap-6 min-w-0" style={{ transformStyle: "flat" }}>
+              <WelcomeMetrics />
+              <div className="flex-1 flex flex-col lg:flex-row xl:flex-col gap-4 sm:gap-6" style={{ transformStyle: "flat" }}>
+                <div className="flex-1 min-w-0">
+                  <PerformanceChart />
+                </div>
+                <div className="flex-1 min-w-0 overflow-x-auto custom-scrollbar pb-2">
+                  <LiveAssets />
+                </div>
+              </div>
             </div>
+
+            {/* Right Column: Live Pulse */}
+            <div className="w-full xl:w-[28%] min-w-0 xl:max-w-[450px] flex-shrink-0 flex flex-col mt-4 xl:mt-0" style={{ transformStyle: "flat" }}>
+              <WelcomeSpacer />
+              <div className="flex-1 h-[400px] md:h-auto" style={{ transformStyle: "flat" }}>
+                <LivePulse />
+              </div>
+            </div>
+            
           </div>
-          
-        </div>
-      </MotionDiv>
+        </MotionDiv>
+      </div>
     </div>
   );
 };
