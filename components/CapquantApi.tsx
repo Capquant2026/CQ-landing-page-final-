@@ -54,7 +54,7 @@ export default function ApiSection() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
   className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
-             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-4 sm:mb-6 md:mb-8"
         >
           Pro-Code: the CapQuant API
         </MotionH2>
@@ -76,7 +76,7 @@ export default function ApiSection() {
             duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-       className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center  text-xl mt-5"
+       className="font-[510] tracking-[-0.011em] text-[#8a8f98] text-center text-xl"
         >
           <span className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base">
             Full access to our <strong>SDK</strong> and advanced coding
