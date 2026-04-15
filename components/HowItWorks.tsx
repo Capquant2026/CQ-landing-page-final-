@@ -13,7 +13,7 @@ const steps = [
     id: "02 — DEPLOY",
     title: "Go live in minutes",
     description:
-      "Submit predictions across any asset class and timeframe. CQ streams live market data and scores your signal in real time.",
+      "Submit predictions across any asset class and timeframe. CQ scores your signal in real time.",
     highlight: true,
   },
   {
@@ -71,9 +71,11 @@ export default function HowItWorks() {
                 {step.id}
               </p>
 
-              <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-white">
-                {step.title}
-              </h3>
+              <div className="min-h-[60px] sm:min-h-[80px]">
+                <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-white">
+                  {step.title}
+                </h3>
+              </div>
 
               <p className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base">
                 {step.description}

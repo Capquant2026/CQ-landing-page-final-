@@ -9,7 +9,7 @@ export default function Ok() {
   };
 
   return (
-    <div className="flex text-white bg-[#08090A] overflow-hidden flex-col items-center justify-center w-full min-h-screen">
+    <div className="flex text-white bg-[#08090A] overflow-hidden flex-col items-center justify-center w-full min-h-screen pb-[15vh]">
       <div className="w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
         <div className="flex mx-auto flex-col gap-4 sm:gap-6 md:gap-6 items-center text-center">
 
