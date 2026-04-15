@@ -76,8 +76,6 @@ const NoCode = dynamic(() => import("@/components/No-code"), {
   ),
 });
 
-const Disclaimer = dynamic(() => import("@/components/Disclaimer"), { ssr: true });
-
 export default function Home() {
   return (
     <div className="font-sans flex flex-col items-center">
@@ -92,7 +90,6 @@ export default function Home() {
       <ApiSection />
       <VideoPlayer/>
       <Contact />
-      <Disclaimer />
     </div>
   );
 }

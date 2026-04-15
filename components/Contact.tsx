@@ -14,6 +14,7 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import Disclaimer from "./Disclaimer";
 import { Toaster, toast } from "sonner";
 import {
   MotionDiv,
@@ -479,8 +480,12 @@ CapQuant is launching soon. Founding members get priority access, <br/> elevated
         </MotionDiv>
       </MotionDiv>
 
+      <div className="w-full mt-20">
+        <Disclaimer />
+      </div>
+
       <MotionDiv
-        className="w-full border-t border-t-zinc-800/80 p-4 text-[10px] md:text-base  text-[#8a8f98] flex items-center justify-between text-center mt-20"
+        className="w-full border-t border-t-zinc-800/80 p-4 text-[10px] md:text-base  text-[#8a8f98] flex items-center justify-between text-center mt-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
