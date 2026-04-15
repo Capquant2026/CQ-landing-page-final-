@@ -31,35 +31,10 @@ export default function AnalyticsSection() {
               staggerChildren: 0.1,
             }}
              className="block text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl
-             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-12"
+             leading-[1.1] font-[555] tracking-[-.0325em] text-balance max-w-full mb-8"
           >
             Submit multi-asset predictions. <br/>Score live. Collect rewards
           </MotionH2>
-
-          <MotionP
-            initial={{
-              y: 30,
-              opacity: 0,
-            }}
-            whileInView={{
-              y: 0,
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className="text-[#A1A1AA] leading-relaxed text-sm sm:text-base text-center"
-          >
-            CQ streams live data, you deploy your predictions across any asset
-            and timeframe. <strong>No-code, Low-code, or Pro-code</strong>{" "}
-            strategies go live intraday. Compete for <strong>capital</strong>{" "}
-            and earn rewards
-          </MotionP>
         </div>
 
         <MotionDiv
