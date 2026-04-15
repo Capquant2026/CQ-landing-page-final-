@@ -73,15 +73,18 @@ From idea to markets{" "}
           ease: "easeInOut",
         }}
         className="  relative
+    w-full
+    flex
+    justify-center
     lg:scale-100 
-    max-w-[500px]  
+    max-w-[100vw]  
     sm:max-w-[1000px]  
     
     lg:max-w-[1000px]
     xl:max-w-[1300px] 
     2xl:max-w-[1600px]
-    mt-16 px-4 sm:px-6 lg:px-8
-     h-[50vh] sm:h-auto
+    mt-16 px-0 sm:px-6 lg:px-8
+     h-[250px] sm:h-auto
     before:content-[''] 
     before:absolute 
     before:w-[200%] 
