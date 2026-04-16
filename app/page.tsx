@@ -78,7 +78,7 @@ const NoCode = dynamic(() => import("@/components/No-code"), {
 
 export default function Home() {
   return (
-    <div className="font-sans flex flex-col items-center w-full max-w-full overflow-x-hidden">
+    <div className="font-sans flex flex-col items-center w-full max-w-full overflow-x-clip overflow-y-visible">
       <ScrollUp />
       <Header />
       <OkSection /> 

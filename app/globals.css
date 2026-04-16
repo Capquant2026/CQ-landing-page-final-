@@ -6,7 +6,6 @@
   font-family: var(--font-inter);
 }
 body {
-  overflow-x: hidden;
   background-color: #09090a;
 }
 .dashboard-container {
