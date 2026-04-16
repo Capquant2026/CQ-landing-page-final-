@@ -77,7 +77,7 @@ From idea to markets{" "}
     flex
     justify-center
     lg:scale-100 
-    max-w-[100vw]  
+    max-w-full  
     sm:max-w-[1000px]  
     
     lg:max-w-[1000px]

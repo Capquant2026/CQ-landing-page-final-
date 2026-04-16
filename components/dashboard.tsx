@@ -501,7 +501,7 @@ const Dashboard = () => {
           <Sidebar />
 
           {/* Dashboard Content */}
-          <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 flex-1 w-full bg-[#0d0d0d] p-3 sm:p-5 overflow-y-auto" style={{ transformStyle: "flat" }}>
+          <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 flex-1 w-full bg-[#0d0d0d] p-3 sm:p-5 overflow-hidden" style={{ transformStyle: "flat" }}>
             
             {/* Left Column: Metrics & Chart & Assets */}
             <div className="flex-[3] flex flex-col gap-4 sm:gap-6 min-w-0" style={{ transformStyle: "flat" }}>
