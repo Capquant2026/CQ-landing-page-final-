@@ -5,7 +5,7 @@ import VideoPlayer from "./video-player";
 
 export default function Hero() {
   return (
-    <div className="flex text-[#f7f8f8] overflow-hidden flex-col   items-center  w-full">
+    <div className="flex text-[#f7f8f8] overflow-hidden flex-col   items-center w-full">
       <div className="w-full max-w-[1100px]  mt-20 sm:mt-32 md:mt-40 px-4 sm:px-6 lg:px-8">
         <div className="text-[#f7f8f8] flex mx-auto flex-col gap-1 sm:gap-6 md:gap-1 items-center text-center md:items-center  md:text-start">
 <MotionH1
@@ -20,7 +20,7 @@ export default function Hero() {
   transition={{
     ease: "easeInOut",
   }}
-  className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl
+  className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl
              leading-tight sm:leading-tight md:leading-[1.1] lg:leading-[1.1]
              font-[555] tracking-[-.0325em] text-balance
              max-w-full sm:max-w-3xl md:max-w-4xl md:text-nowrap lg:max-w-7xl
@@ -72,19 +72,27 @@ From idea to markets{" "}
         transition={{
           ease: "easeInOut",
         }}
-        className="  relative
-    w-full
+        className=" 
+    relative 
     flex
-    justify-center
     lg:scale-100 
+    scale-[1.35]
+    md:scale-[1.175]
     max-w-full  
     sm:max-w-[1000px]  
-    
+    sm:min-w-full
+    md:max-w-[1000px]
     lg:max-w-[1000px]
     xl:max-w-[1300px] 
     2xl:max-w-[1600px]
-    mt-16 px-0 sm:px-6 lg:px-8
-     h-[250px] sm:h-auto
+    mt-35
+    md:mt-27
+    lg:mt-20
+    px-0 sm:px-2 md:px-3 lg:px-4
+    h-auto
+    ml-30
+    md:ml-15
+    lg:ml-auto
     before:content-[''] 
     before:absolute 
     before:w-[200%] 
@@ -95,7 +103,8 @@ From idea to markets{" "}
     before:from-[#09090a] 
     before:to-transparent 
     before:pointer-events-none 
-    before:z-50  "
+    before:z-50
+     "
       >
         {/* Premium gradient mask — radial reveal + edge darkening */}
         <div
