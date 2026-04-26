@@ -112,7 +112,7 @@ From idea to markets{" "}
     className="absolute -inset-x-[20vw] -top-[2rem] sm:-top-17 -bottom-4 z-80 pointer-events-none opacity-100"
     style={{
       background: `
-              radial-gradient(ellipse 30% 60% at 15% 0%, transparent 0%, rgba(9,9,10,0.20) 60%, rgba(9,9,10,0.95) 100%),
+              radial-gradient(ellipse 30% 60% at 19% 20%, transparent 0%, rgba(9,9,10,0.20) 60%, rgba(9,9,10,0.95) 100%),
               linear-gradient(to left, rgba(9,9,10,0.5) 0%, rgba(9,9,10,0.5) 10%, transparent 30%),
               linear-gradient(to top, rgba(9,9,10,0.5) 0%, rgba(9,9,10,0.3) 5%, transparent 30%)
             `,
