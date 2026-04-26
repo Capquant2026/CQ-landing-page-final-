@@ -75,10 +75,11 @@ From idea to markets{" "}
         className=" 
     relative 
     flex
-    lg:scale-100 
+    lg:scale-[1.1] 
     scale-[1.35]
     md:scale-[1.175]
     max-w-full  
+    overflow-hidden
     sm:max-w-[1000px]  
     sm:min-w-full
     md:max-w-[1000px]
@@ -88,11 +89,11 @@ From idea to markets{" "}
     mt-35
     md:mt-27
     lg:mt-20
-    px-0 sm:px-2 md:px-3 lg:px-4
+    px-0 sm:px-2 md:px-6 lg:px-8
     h-auto
     ml-30
     md:ml-15
-    lg:ml-auto
+    lg:ml-[40%]
     before:content-[''] 
     before:absolute 
     before:w-[200%] 
