@@ -490,10 +490,10 @@ LivePulse.displayName = "LivePulse";
 // --- MAIN DASHBOARD ---
 const Dashboard = () => {
   return (
-    <div className="w-full flex justify-center py-4 sm:py-10 px-0 sm:px-6 md:px-8 mt-10 md:mt-20 overflow-hidden md:overflow-visible">
+    <div className="w-[100%]  mx-auto flex justify-center py-3 sm:py-4 px-0 sm:px-3 md:px-8 mt-10 md:mt-20 overflow-hidden md:overflow-visible">
       {/* Container scaling for mobile view to maintain desktop aspect and layout intact */}
       <div 
-        className="transform origin-top scale-[0.25] sm:scale-75 md:scale-[0.8] lg:scale-[0.9] xl:scale-100 transition-transform duration-300 relative h-[215px] sm:h-[630px] md:h-[680px] lg:h-[760px] xl:h-[850px] flex justify-center w-full"
+        className="transform origin-top scale-[0.25] sm:scale-75 md:scale-[0.8] lg:scale-[0.9] xl:scale-100 transition-transform duration-300 relative h-[300px] sm:h-[630px] md:h-[680px] lg:h-[760px] xl:h-[850px] flex justify-center w-full"
       >
         <MotionDiv className="main-motion-div w-[1400px] max-w-[1400px] flex-shrink-0 bg-[#0c0d0e] rounded-[14px] flex flex-row border border-[#1A1C1F] relative z-0 before:content-[''] before:absolute before:h-full before:right-0 before:w-[50%] before:top-0 before:bg-gradient-to-l before:from-[#0c0d0e] before:to-transparent before:pointer-events-none before:z-20 overflow-hidden shadow-2xl h-[850px]">
           
