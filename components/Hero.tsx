@@ -93,7 +93,7 @@ From idea to markets{" "}
     h-auto
     ml-30
     md:ml-15
-    lg:ml-[40%]
+    lg:ml-[10%]
     before:content-[''] 
     before:absolute 
     before:w-[200%] 
